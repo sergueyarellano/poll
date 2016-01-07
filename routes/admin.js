@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
-/* GET home page. */
+/* GET admin. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'BBVA Encuesta Demo PI3' });
+  res.sendFile(path.join(__dirname + '/../public/admin/views/index.html'));
 });
 
 module.exports = router;
