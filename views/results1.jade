@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		#wrapper
+		h1= title
+		script.
+			var host = location.origin.replace(/^http/, 'ws');
+			var ws = new WebSocket(host);
+			ws.onmessage = function (event) {
+
+				document.querySelector('#pings p').innerHTML = event.data;
+			}
