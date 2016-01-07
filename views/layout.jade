@@ -12,4 +12,10 @@ html
 			ws.onmessage = function (event) {
 
 				document.querySelector('#pings p').innerHTML = event.data;
+
+				document.getElementById('goQ1').addEventListener('click', nextQuestion1);
+
+				function nextQuestion1() {
+					ws.send('goToQuestion1');
+				}
 			}

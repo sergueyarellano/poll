@@ -39,6 +39,14 @@ var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
 var usersConnected = 0;
+
+wss.broadcast = function broadcast(data) {
+  console.log('server broadcast:',data);
+  wss.clients.forEach(function each(client) {
+    client.send(data);
+  });
+};
+
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
     
@@ -47,12 +55,19 @@ wss.on("connection", function(ws) {
   usersConnected++;
   console.log("websocket connection open")
 
+  ws.on('message', function incoming(message) {
+    console.log('server received: %s', message);
+    wss.broadcast(message);
+  });
+
   ws.on("close", function() {
     console.log("websocket connection close");
     --usersConnected;
     clearInterval(id);
   })
 });
+
+
 /**
  * Normalize a port into a number, string, or false.
  */
