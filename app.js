@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var root = require('./routes/root');
 var admin = require('./routes/admin');
 var welcome = require('./routes/welcome');
-
+var welcomeJSON = require('./routes/welcomeJSON');
 var app = express();
 
 // view engine setup
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public/')));
 
+app.use('/', root);
+app.use('/welcome', welcomeJSON);
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
 
