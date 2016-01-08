@@ -1,0 +1,957 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+/* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "feather-font";
+  src: url('/scss/feather-font/feather-font.ttf?1452176406') format('truetype'), url('/scss/feather-font/feather-font.svg?1452176406') format('svg'), url('/scss/feather-font/feather-font.eot?1452176406') format('embedded-opentype'), url('/scss/feather-font/feather-font.woff?1452176406') format('woff');
+}
+@font-face {
+  font-family: 'feather-font';
+  src: url("fonts/feather-font.eot?7ry7uy");
+  src: url("fonts/feather-font.eot?7ry7uy#iefix") format("embedded-opentype"), url("fonts/feather-font.ttf?7ry7uy") format("truetype"), url("fonts/feather-font.woff?7ry7uy") format("woff"), url("fonts/feather-font.svg?7ry7uy#feather-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../scss/_icons.scss */
+.icon {
+  display: inline-block;
+}
+/* line 17, ../scss/_icons.scss */
+.icon:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'feather-font';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-align: center;
+  line-height: 1em;
+  width: 1em;
+  height: 1em;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 170, ../scss/_icons.scss */
+.eye:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.paper-clip:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.mail:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.toggle:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.layout:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.link:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.bell:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.lock:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.unlock:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.ribbon:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.image:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.signal:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.target:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.clipboard:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.clock:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.watch:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.air-play:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.camera:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.video:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.disc:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.printer:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.monitor:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.server:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.cog:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.heart:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.paragraph:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.align-justify:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.align-left:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.align-center:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.align-right:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.book:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.layers:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.stack:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.stack-2:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.paper:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.paper-stack:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.search:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.zoom-in:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.zoom-out:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.reply:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.circle-plus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.circle-minus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.circle-check:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.circle-cross:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.square-plus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.square-minus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.square-check:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.square-cross:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.microphone:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.record:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.skip-back:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.rewind:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.play:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.pause:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.stop:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.fast-forward:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.skip-forward:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.shuffle:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.repeat:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.folder:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.umbrella:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.moon:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.thermometer:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.drop:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.sun:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.cloud:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.cloud-upload:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.cloud-download:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.upload:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.download:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.location:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.location-2:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.map:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.battery:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.head:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.briefcase:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.speech-bubble:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.anchor:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.globe:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.box:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.reload:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.share:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.marquee:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.marquee-plus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.marquee-minus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.tag:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.power:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.command:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.alt:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.esc:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.bar-graph:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.bar-graph-2:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.pie-graph:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.star:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.arrow-left:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.arrow-right:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.arrow-up:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.arrow-down:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.volume:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.mute:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.content-right:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.content-left:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.grid:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.grid-2:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.columns:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.loader:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.bag:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.ban:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.flag:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.trash:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.expand:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.contract:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.maximize:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.minimize:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.plus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.minus:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.check:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.cross:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.move:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.delete:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.menu:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.archive:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.inbox:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.outbox:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.file:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.file-add:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.file-subtract:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.help:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.open:before {
+  content: "";
+}
+
+/* line 170, ../scss/_icons.scss */
+.ellipsis:before {
+  content: "";
+}
+
+/* line 14, ../scss/styles.scss */
+.global-padding {
+  padding: 1em;
+}
+
+/* line 19, ../scss/styles.scss */
+html,
+body,
+.dashboard {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  color: #f0f0f0;
+  background-color: #2d3e50;
+  align-items: flex-start;
+}
+
+/* line 39, ../scss/styles.scss */
+.button {
+  color: #5d7b9d;
+  text-decoration: none;
+  background-color: #2d3e50;
+  transition: all 0.3s ease-in-out;
+}
+/* line 45, ../scss/styles.scss */
+.button:hover, .button:active, .button.active {
+  background-color: #2f9bce;
+  color: #f0f0f0;
+}
+
+/* line 54, ../scss/styles.scss */
+.dashboard_nav {
+  display: flex;
+  align-self: stretch;
+  text-align: center;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1), 2px 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 61, ../scss/styles.scss */
+.dashboard_nav .dashboard_nav-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #37495d;
+  justify-content: flex-start;
+}
+/* line 67, ../scss/styles.scss */
+.dashboard_nav .dashboard_nav-list li:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* line 76, ../scss/styles.scss */
+.dashboard_nav .dashboard_nav-list_link {
+  padding: 1.5em;
+  background: transparent;
+}
+/* line 80, ../scss/styles.scss */
+.dashboard_nav .dashboard_nav-list_link .button {
+  background-color: transparent;
+}
+/* line 84, ../scss/styles.scss */
+.dashboard_nav .dashboard_nav-list_link:hover, .dashboard_nav .dashboard_nav-list_link:active, .dashboard_nav .dashboard_nav-list_link.active {
+  color: #2f9bce;
+  background-color: #37495d;
+}
+
+/* line 94, ../scss/styles.scss */
+.dashboard_content,
+.dashboard_nav-list {
+  padding-top: 0.5em;
+}
+
+/* line 100, ../scss/styles.scss */
+.dashboard_content {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  flex: 1;
+}
+
+/* line 113, ../scss/styles.scss */
+.dashboard_header {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 117, ../scss/styles.scss */
+.dashboard_header h1 {
+  padding: 1.5em;
+}
+/* line 121, ../scss/styles.scss */
+.dashboard_header .dashboard_header-action {
+  display: inline-block;
+}
+/* line 124, ../scss/styles.scss */
+.dashboard_header .dashboard_header-action .button {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* line 133, ../scss/styles.scss */
+.dashboard_admin,
+.dashboard_client,
+.dashboard_manage {
+  flex: 1;
+}
+
+/* line 140, ../scss/styles.scss */
+.dashboard_manage {
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+}
+
+/* line 146, ../scss/styles.scss */
+.dashboard_manage-list_item {
+  border-bottom: 1px dashed #37495d;
+}
+
+/* line 151, ../scss/styles.scss */
+.dashboard_manage-question {
+  display: block;
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+}
+/* line 157, ../scss/styles.scss */
+.dashboard_manage-question:after {
+  content: '';
+  display: inline-block;
+  height: 0;
+  width: 0;
+  border: .75em solid transparent;
+  border-left-color: #2f9bce;
+  border-top-width: 1.5em;
+  border-bottom-width: 1.5em;
+  border-right-width: 0;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  transform-origin: 0 50%;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+  box-shadow: -1px 0 0 0 #2f9bce;
+}
+/* line 179, ../scss/styles.scss */
+.dashboard_manage-question:hover:after, .dashboard_manage-question:active:after {
+  transform: scale(1);
+}
+
+/* line 188, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(1):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(1) .dashboard_manage-question {
+  z-index: 2;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+  background-color: #2f9bce;
+  color: #f0f0f0;
+}
+/* line 195, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(1):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(1) .dashboard_manage-question:after {
+  transform: scale(1);
+  box-shadow: -1px 0 0 0 #2f9bce;
+}
+
+/* line 188, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(2):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(2) .dashboard_manage-question {
+  z-index: 2;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+  background-color: #2f9bce;
+  color: #f0f0f0;
+}
+/* line 195, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(2):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(2) .dashboard_manage-question:after {
+  transform: scale(1);
+  box-shadow: -1px 0 0 0 #2f9bce;
+}
+
+/* line 188, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(3):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(3) .dashboard_manage-question {
+  z-index: 2;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+  background-color: #2f9bce;
+  color: #f0f0f0;
+}
+/* line 195, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(3):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(3) .dashboard_manage-question:after {
+  transform: scale(1);
+  box-shadow: -1px 0 0 0 #2f9bce;
+}
+
+/* line 188, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(4):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(4) .dashboard_manage-question {
+  z-index: 2;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+  background-color: #2f9bce;
+  color: #f0f0f0;
+}
+/* line 195, ../scss/styles.scss */
+[name="switch-questions"]:nth-child(4):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(4) .dashboard_manage-question:after {
+  transform: scale(1);
+  box-shadow: -1px 0 0 0 #2f9bce;
+}
