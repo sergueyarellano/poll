@@ -1,0 +1,2610 @@
+/* DELETE THIS @IMPORT BEFORE PUBLISHING*/
+/* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* DON'T FORGET TO USE AN AUTO-PREFIXER FOR THIS SCSS BEFORE PUBLISHING!! */
+/* line 7, ../scss/bars-chart.scss */
+.bars-chart {
+  font-size: 10px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 30em;
+  padding-left: 3em;
+  text-align: center;
+}
+/* line 19, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_axis,
+.bars-chart .bars-chart_column {
+  position: relative;
+  display: inline-block;
+  width: 2.2em;
+  height: 100%;
+  margin-right: 1em;
+}
+/* line 29, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_axis:last-child,
+.bars-chart .bars-chart_column:last-child {
+  margin-right: 0;
+}
+/* line 36, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item,
+.bars-chart .bars-chart_column .bars-chart_column-legend {
+  position: absolute;
+}
+/* line 41, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item {
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 1em;
+  height: 100%;
+  transition: height .4s ease-in-out;
+}
+/* line 52, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item:nth-child(2) {
+  right: 0;
+  left: auto;
+}
+/* line 58, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-legend {
+  right: 50%;
+  bottom: -2em;
+  display: inline-block;
+  transform: rotate(-30deg);
+  transform-origin: 100% 0;
+  text-align: right;
+  white-space: nowrap;
+}
+/* line 71, ../scss/bars-chart.scss */
+.bars-chart.turn-legend .bars-chart_column .bars-chart_column-legend {
+  right: auto;
+  left: 50%;
+  text-align: left;
+  transform: rotate(30deg);
+  transform-origin: 0 100%;
+}
+/* line 87, ../scss/bars-chart.scss */
+.bars-chart .color-1 {
+  background-color: #6C7A89;
+}
+/* line 91, ../scss/bars-chart.scss */
+.bars-chart .color-2 {
+  background-color: #BDC3C7;
+}
+/* line 95, ../scss/bars-chart.scss */
+.bars-chart .color-3 {
+  background-color: #c8175e;
+}
+/* line 99, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis {
+  background-image: linear-gradient(#efefef 1px, transparent 1px);
+  background-size: 100% 16.6666667%;
+}
+/* line 103, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-right: 0;
+}
+/* line 112, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis .bars-chart_axis-item {
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  vertical-align: bottom;
+}
+/* line 123, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis .bars-chart_axis-item.max {
+  bottom: 100%;
+}
+/* line 127, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis .bars-chart_axis-item.min {
+  bottom: 0;
+  border-bottom: 1px solid #efefef;
+}
+/* line 133, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis .bars-chart_axis-item.pos-1 {
+  bottom: 33%;
+}
+/* line 137, ../scss/bars-chart.scss */
+.bars-chart.bars-chart_four-axis .bars-chart_axis .bars-chart_axis-item.pos-2 {
+  bottom: 66%;
+}
+/* line 144, ../scss/bars-chart.scss */
+.bars-chart.heat-bar {
+  display: block;
+  height: .2em;
+  background-image: linear-gradient(90deg, #7ab22c 0%, #fdbd2c 50%, #fdbd2c 50%, #c8175e 100%);
+}
+/* line 151, ../scss/bars-chart.scss */
+.bars-chart.heat-bar:after, .bars-chart.heat-bar:before {
+  position: absolute;
+  top: -.2em;
+  display: inline-block;
+  width: .6em;
+  height: .6em;
+  content: '';
+  border-radius: 50%;
+}
+/* line 166, ../scss/bars-chart.scss */
+.bars-chart.heat-bar:after {
+  right: -.3em;
+  background-color: #c8175e;
+}
+/* line 172, ../scss/bars-chart.scss */
+.bars-chart.heat-bar:before {
+  left: -.3em;
+  content: '';
+  background-color: #7ab22c;
+}
+/* line 180, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip {
+  font-size: 1em;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  display: inline-block;
+  width: 4.4em;
+  padding: .5em 0;
+  transition: all .4s linear;
+  transform: translateX(-50%) rotate(20deg);
+  transform-origin: 50% -3%;
+  text-align: center;
+  opacity: 0;
+  color: white;
+  border-radius: 2px;
+  background-color: #7ab22c;
+}
+/* line 202, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip:before {
+  font-size: 1.4em;
+  display: inline-block;
+  content: '0';
+}
+/* line 210, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  content: '';
+  transition: border .4s ease-in-out;
+  transform: translateX(-50%);
+  border: 0.35em solid transparent;
+  border-top-width: 0;
+  border-bottom-color: #7ab22c;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='0'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 0%;
+  background-color: #7ab22c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='0']:after {
+  border-bottom-color: #7ab22c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='0']:before {
+  content: "0";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='0'] {
+  height: 0%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='0'] {
+  bottom: 0%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='1'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 1%;
+  background-color: #7db22c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='1']:after {
+  border-bottom-color: #7db22c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='1']:before {
+  content: "1";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='1'] {
+  height: 1%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='1'] {
+  bottom: 1%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='2'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 2%;
+  background-color: #7fb22c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='2']:after {
+  border-bottom-color: #7fb22c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='2']:before {
+  content: "2";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='2'] {
+  height: 2%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='2'] {
+  bottom: 2%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='3'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 3%;
+  background-color: #82b32c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='3']:after {
+  border-bottom-color: #82b32c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='3']:before {
+  content: "3";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='3'] {
+  height: 3%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='3'] {
+  bottom: 3%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='4'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 4%;
+  background-color: #84b32c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='4']:after {
+  border-bottom-color: #84b32c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='4']:before {
+  content: "4";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='4'] {
+  height: 4%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='4'] {
+  bottom: 4%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='5'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 5%;
+  background-color: #87b32c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='5']:after {
+  border-bottom-color: #87b32c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='5']:before {
+  content: "5";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='5'] {
+  height: 5%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='5'] {
+  bottom: 5%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='6'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 6%;
+  background-color: #8ab32c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='6']:after {
+  border-bottom-color: #8ab32c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='6']:before {
+  content: "6";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='6'] {
+  height: 6%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='6'] {
+  bottom: 6%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='7'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 7%;
+  background-color: #8cb42c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='7']:after {
+  border-bottom-color: #8cb42c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='7']:before {
+  content: "7";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='7'] {
+  height: 7%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='7'] {
+  bottom: 7%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='8'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 8%;
+  background-color: #8fb42c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='8']:after {
+  border-bottom-color: #8fb42c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='8']:before {
+  content: "8";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='8'] {
+  height: 8%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='8'] {
+  bottom: 8%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='9'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 9%;
+  background-color: #92b42c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='9']:after {
+  border-bottom-color: #92b42c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='9']:before {
+  content: "9";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='9'] {
+  height: 9%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='9'] {
+  bottom: 9%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='10'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 10%;
+  background-color: #94b42c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='10']:after {
+  border-bottom-color: #94b42c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='10']:before {
+  content: "10";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='10'] {
+  height: 10%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='10'] {
+  bottom: 10%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='11'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 11%;
+  background-color: #97b42c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='11']:after {
+  border-bottom-color: #97b42c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='11']:before {
+  content: "11";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='11'] {
+  height: 11%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='11'] {
+  bottom: 11%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='12'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 12%;
+  background-color: #99b52c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='12']:after {
+  border-bottom-color: #99b52c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='12']:before {
+  content: "12";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='12'] {
+  height: 12%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='12'] {
+  bottom: 12%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='13'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 13%;
+  background-color: #9cb52c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='13']:after {
+  border-bottom-color: #9cb52c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='13']:before {
+  content: "13";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='13'] {
+  height: 13%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='13'] {
+  bottom: 13%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='14'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 14%;
+  background-color: #9fb52c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='14']:after {
+  border-bottom-color: #9fb52c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='14']:before {
+  content: "14";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='14'] {
+  height: 14%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='14'] {
+  bottom: 14%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='15'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 15%;
+  background-color: #a1b52c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='15']:after {
+  border-bottom-color: #a1b52c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='15']:before {
+  content: "15";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='15'] {
+  height: 15%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='15'] {
+  bottom: 15%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='16'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 16%;
+  background-color: #a4b62c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='16']:after {
+  border-bottom-color: #a4b62c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='16']:before {
+  content: "16";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='16'] {
+  height: 16%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='16'] {
+  bottom: 16%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='17'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 17%;
+  background-color: #a7b62c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='17']:after {
+  border-bottom-color: #a7b62c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='17']:before {
+  content: "17";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='17'] {
+  height: 17%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='17'] {
+  bottom: 17%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='18'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 18%;
+  background-color: #a9b62c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='18']:after {
+  border-bottom-color: #a9b62c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='18']:before {
+  content: "18";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='18'] {
+  height: 18%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='18'] {
+  bottom: 18%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='19'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 19%;
+  background-color: #acb62c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='19']:after {
+  border-bottom-color: #acb62c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='19']:before {
+  content: "19";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='19'] {
+  height: 19%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='19'] {
+  bottom: 19%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='20'] {
+  transition-timing-function: ease-in-out;
+  transform: translateX(-50%) rotate(0);
+  left: 20%;
+  background-color: #aeb62c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='20']:after {
+  border-bottom-color: #aeb62c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='20']:before {
+  content: "20";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='20'] {
+  height: 20%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='20'] {
+  bottom: 20%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='21'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 21%;
+  background-color: #b1b72c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='21']:after {
+  border-bottom-color: #b1b72c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='21']:before {
+  content: "21";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='21'] {
+  height: 21%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='21'] {
+  bottom: 21%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='22'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 22%;
+  background-color: #b4b72c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='22']:after {
+  border-bottom-color: #b4b72c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='22']:before {
+  content: "22";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='22'] {
+  height: 22%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='22'] {
+  bottom: 22%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='23'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 23%;
+  background-color: #b6b72c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='23']:after {
+  border-bottom-color: #b6b72c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='23']:before {
+  content: "23";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='23'] {
+  height: 23%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='23'] {
+  bottom: 23%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='24'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 24%;
+  background-color: #b9b72c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='24']:after {
+  border-bottom-color: #b9b72c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='24']:before {
+  content: "24";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='24'] {
+  height: 24%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='24'] {
+  bottom: 24%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='25'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 25%;
+  background-color: #bcb82c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='25']:after {
+  border-bottom-color: #bcb82c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='25']:before {
+  content: "25";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='25'] {
+  height: 25%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='25'] {
+  bottom: 25%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='26'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 26%;
+  background-color: #beb82c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='26']:after {
+  border-bottom-color: #beb82c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='26']:before {
+  content: "26";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='26'] {
+  height: 26%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='26'] {
+  bottom: 26%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='27'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 27%;
+  background-color: #c1b82c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='27']:after {
+  border-bottom-color: #c1b82c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='27']:before {
+  content: "27";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='27'] {
+  height: 27%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='27'] {
+  bottom: 27%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='28'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 28%;
+  background-color: #c3b82c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='28']:after {
+  border-bottom-color: #c3b82c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='28']:before {
+  content: "28";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='28'] {
+  height: 28%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='28'] {
+  bottom: 28%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='29'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 29%;
+  background-color: #c6b82c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='29']:after {
+  border-bottom-color: #c6b82c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='29']:before {
+  content: "29";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='29'] {
+  height: 29%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='29'] {
+  bottom: 29%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='30'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 30%;
+  background-color: #c9b92c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='30']:after {
+  border-bottom-color: #c9b92c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='30']:before {
+  content: "30";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='30'] {
+  height: 30%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='30'] {
+  bottom: 30%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='31'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 31%;
+  background-color: #cbb92c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='31']:after {
+  border-bottom-color: #cbb92c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='31']:before {
+  content: "31";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='31'] {
+  height: 31%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='31'] {
+  bottom: 31%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='32'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 32%;
+  background-color: #ceb92c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='32']:after {
+  border-bottom-color: #ceb92c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='32']:before {
+  content: "32";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='32'] {
+  height: 32%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='32'] {
+  bottom: 32%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='33'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 33%;
+  background-color: #d0b92c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='33']:after {
+  border-bottom-color: #d0b92c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='33']:before {
+  content: "33";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='33'] {
+  height: 33%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='33'] {
+  bottom: 33%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='34'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 34%;
+  background-color: #d3b92c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='34']:after {
+  border-bottom-color: #d3b92c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='34']:before {
+  content: "34";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='34'] {
+  height: 34%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='34'] {
+  bottom: 34%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='35'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 35%;
+  background-color: #d6ba2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='35']:after {
+  border-bottom-color: #d6ba2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='35']:before {
+  content: "35";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='35'] {
+  height: 35%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='35'] {
+  bottom: 35%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='36'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 36%;
+  background-color: #d8ba2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='36']:after {
+  border-bottom-color: #d8ba2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='36']:before {
+  content: "36";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='36'] {
+  height: 36%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='36'] {
+  bottom: 36%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='37'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 37%;
+  background-color: #dbba2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='37']:after {
+  border-bottom-color: #dbba2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='37']:before {
+  content: "37";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='37'] {
+  height: 37%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='37'] {
+  bottom: 37%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='38'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 38%;
+  background-color: #deba2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='38']:after {
+  border-bottom-color: #deba2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='38']:before {
+  content: "38";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='38'] {
+  height: 38%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='38'] {
+  bottom: 38%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='39'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 39%;
+  background-color: #e0bb2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='39']:after {
+  border-bottom-color: #e0bb2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='39']:before {
+  content: "39";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='39'] {
+  height: 39%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='39'] {
+  bottom: 39%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='40'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 40%;
+  background-color: #e3bb2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='40']:after {
+  border-bottom-color: #e3bb2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='40']:before {
+  content: "40";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='40'] {
+  height: 40%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='40'] {
+  bottom: 40%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='41'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 41%;
+  background-color: #e5bb2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='41']:after {
+  border-bottom-color: #e5bb2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='41']:before {
+  content: "41";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='41'] {
+  height: 41%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='41'] {
+  bottom: 41%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='42'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 42%;
+  background-color: #e8bb2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='42']:after {
+  border-bottom-color: #e8bb2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='42']:before {
+  content: "42";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='42'] {
+  height: 42%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='42'] {
+  bottom: 42%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='43'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 43%;
+  background-color: #ebbb2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='43']:after {
+  border-bottom-color: #ebbb2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='43']:before {
+  content: "43";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='43'] {
+  height: 43%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='43'] {
+  bottom: 43%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='44'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 44%;
+  background-color: #edbc2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='44']:after {
+  border-bottom-color: #edbc2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='44']:before {
+  content: "44";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='44'] {
+  height: 44%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='44'] {
+  bottom: 44%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='45'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 45%;
+  background-color: #f0bc2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='45']:after {
+  border-bottom-color: #f0bc2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='45']:before {
+  content: "45";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='45'] {
+  height: 45%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='45'] {
+  bottom: 45%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='46'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 46%;
+  background-color: #f3bc2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='46']:after {
+  border-bottom-color: #f3bc2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='46']:before {
+  content: "46";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='46'] {
+  height: 46%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='46'] {
+  bottom: 46%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='47'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 47%;
+  background-color: #f5bc2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='47']:after {
+  border-bottom-color: #f5bc2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='47']:before {
+  content: "47";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='47'] {
+  height: 47%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='47'] {
+  bottom: 47%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='48'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 48%;
+  background-color: #f8bd2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='48']:after {
+  border-bottom-color: #f8bd2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='48']:before {
+  content: "48";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='48'] {
+  height: 48%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='48'] {
+  bottom: 48%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='49'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 49%;
+  background-color: #fabd2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='49']:after {
+  border-bottom-color: #fabd2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='49']:before {
+  content: "49";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='49'] {
+  height: 49%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='49'] {
+  bottom: 49%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='50'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 50%;
+  background-color: #fdbd2c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='50']:after {
+  border-bottom-color: #fdbd2c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='50']:before {
+  content: "50";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='50'] {
+  height: 50%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='50'] {
+  bottom: 50%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='51'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 51%;
+  background-color: #fcba2d;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='51']:after {
+  border-bottom-color: #fcba2d;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='51']:before {
+  content: "51";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='51'] {
+  height: 51%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='51'] {
+  bottom: 51%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='52'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 52%;
+  background-color: #fbb62e;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='52']:after {
+  border-bottom-color: #fbb62e;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='52']:before {
+  content: "52";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='52'] {
+  height: 52%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='52'] {
+  bottom: 52%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='53'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 53%;
+  background-color: #fab32f;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='53']:after {
+  border-bottom-color: #fab32f;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='53']:before {
+  content: "53";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='53'] {
+  height: 53%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='53'] {
+  bottom: 53%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='54'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 54%;
+  background-color: #f9b030;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='54']:after {
+  border-bottom-color: #f9b030;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='54']:before {
+  content: "54";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='54'] {
+  height: 54%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='54'] {
+  bottom: 54%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='55'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 55%;
+  background-color: #f8ac31;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='55']:after {
+  border-bottom-color: #f8ac31;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='55']:before {
+  content: "55";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='55'] {
+  height: 55%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='55'] {
+  bottom: 55%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='56'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 56%;
+  background-color: #f7a932;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='56']:after {
+  border-bottom-color: #f7a932;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='56']:before {
+  content: "56";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='56'] {
+  height: 56%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='56'] {
+  bottom: 56%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='57'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 57%;
+  background-color: #f6a633;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='57']:after {
+  border-bottom-color: #f6a633;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='57']:before {
+  content: "57";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='57'] {
+  height: 57%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='57'] {
+  bottom: 57%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='58'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 58%;
+  background-color: #f5a234;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='58']:after {
+  border-bottom-color: #f5a234;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='58']:before {
+  content: "58";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='58'] {
+  height: 58%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='58'] {
+  bottom: 58%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='59'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 59%;
+  background-color: #f39f35;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='59']:after {
+  border-bottom-color: #f39f35;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='59']:before {
+  content: "59";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='59'] {
+  height: 59%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='59'] {
+  bottom: 59%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='60'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 60%;
+  background-color: #f29c36;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='60']:after {
+  border-bottom-color: #f29c36;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='60']:before {
+  content: "60";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='60'] {
+  height: 60%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='60'] {
+  bottom: 60%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='61'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 61%;
+  background-color: #f19837;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='61']:after {
+  border-bottom-color: #f19837;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='61']:before {
+  content: "61";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='61'] {
+  height: 61%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='61'] {
+  bottom: 61%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='62'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 62%;
+  background-color: #f09538;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='62']:after {
+  border-bottom-color: #f09538;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='62']:before {
+  content: "62";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='62'] {
+  height: 62%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='62'] {
+  bottom: 62%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='63'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 63%;
+  background-color: #ef9239;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='63']:after {
+  border-bottom-color: #ef9239;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='63']:before {
+  content: "63";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='63'] {
+  height: 63%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='63'] {
+  bottom: 63%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='64'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 64%;
+  background-color: #ee8f3a;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='64']:after {
+  border-bottom-color: #ee8f3a;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='64']:before {
+  content: "64";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='64'] {
+  height: 64%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='64'] {
+  bottom: 64%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='65'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 65%;
+  background-color: #ed8b3b;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='65']:after {
+  border-bottom-color: #ed8b3b;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='65']:before {
+  content: "65";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='65'] {
+  height: 65%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='65'] {
+  bottom: 65%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='66'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 66%;
+  background-color: #ec883c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='66']:after {
+  border-bottom-color: #ec883c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='66']:before {
+  content: "66";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='66'] {
+  height: 66%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='66'] {
+  bottom: 66%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='67'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 67%;
+  background-color: #eb853d;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='67']:after {
+  border-bottom-color: #eb853d;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='67']:before {
+  content: "67";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='67'] {
+  height: 67%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='67'] {
+  bottom: 67%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='68'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 68%;
+  background-color: #ea813e;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='68']:after {
+  border-bottom-color: #ea813e;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='68']:before {
+  content: "68";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='68'] {
+  height: 68%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='68'] {
+  bottom: 68%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='69'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 69%;
+  background-color: #e97e3f;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='69']:after {
+  border-bottom-color: #e97e3f;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='69']:before {
+  content: "69";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='69'] {
+  height: 69%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='69'] {
+  bottom: 69%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='70'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 70%;
+  background-color: #e87b40;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='70']:after {
+  border-bottom-color: #e87b40;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='70']:before {
+  content: "70";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='70'] {
+  height: 70%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='70'] {
+  bottom: 70%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='71'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 71%;
+  background-color: #e77741;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='71']:after {
+  border-bottom-color: #e77741;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='71']:before {
+  content: "71";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='71'] {
+  height: 71%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='71'] {
+  bottom: 71%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='72'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 72%;
+  background-color: #e67442;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='72']:after {
+  border-bottom-color: #e67442;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='72']:before {
+  content: "72";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='72'] {
+  height: 72%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='72'] {
+  bottom: 72%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='73'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 73%;
+  background-color: #e57143;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='73']:after {
+  border-bottom-color: #e57143;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='73']:before {
+  content: "73";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='73'] {
+  height: 73%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='73'] {
+  bottom: 73%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='74'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 74%;
+  background-color: #e46d44;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='74']:after {
+  border-bottom-color: #e46d44;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='74']:before {
+  content: "74";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='74'] {
+  height: 74%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='74'] {
+  bottom: 74%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='75'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 75%;
+  background-color: #e36a45;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='75']:after {
+  border-bottom-color: #e36a45;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='75']:before {
+  content: "75";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='75'] {
+  height: 75%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='75'] {
+  bottom: 75%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='76'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 76%;
+  background-color: #e16746;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='76']:after {
+  border-bottom-color: #e16746;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='76']:before {
+  content: "76";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='76'] {
+  height: 76%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='76'] {
+  bottom: 76%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='77'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 77%;
+  background-color: #e06347;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='77']:after {
+  border-bottom-color: #e06347;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='77']:before {
+  content: "77";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='77'] {
+  height: 77%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='77'] {
+  bottom: 77%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='78'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 78%;
+  background-color: #df6048;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='78']:after {
+  border-bottom-color: #df6048;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='78']:before {
+  content: "78";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='78'] {
+  height: 78%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='78'] {
+  bottom: 78%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='79'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 79%;
+  background-color: #de5d49;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='79']:after {
+  border-bottom-color: #de5d49;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='79']:before {
+  content: "79";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='79'] {
+  height: 79%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='79'] {
+  bottom: 79%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='80'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 80%;
+  background-color: #dd594a;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='80']:after {
+  border-bottom-color: #dd594a;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='80']:before {
+  content: "80";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='80'] {
+  height: 80%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='80'] {
+  bottom: 80%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='81'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 81%;
+  background-color: #dc564b;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='81']:after {
+  border-bottom-color: #dc564b;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='81']:before {
+  content: "81";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='81'] {
+  height: 81%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='81'] {
+  bottom: 81%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='82'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 82%;
+  background-color: #db534c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='82']:after {
+  border-bottom-color: #db534c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='82']:before {
+  content: "82";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='82'] {
+  height: 82%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='82'] {
+  bottom: 82%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='83'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 83%;
+  background-color: #da4f4d;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='83']:after {
+  border-bottom-color: #da4f4d;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='83']:before {
+  content: "83";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='83'] {
+  height: 83%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='83'] {
+  bottom: 83%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='84'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 84%;
+  background-color: #d94c4e;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='84']:after {
+  border-bottom-color: #d94c4e;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='84']:before {
+  content: "84";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='84'] {
+  height: 84%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='84'] {
+  bottom: 84%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='85'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 85%;
+  background-color: #d8494f;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='85']:after {
+  border-bottom-color: #d8494f;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='85']:before {
+  content: "85";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='85'] {
+  height: 85%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='85'] {
+  bottom: 85%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='86'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 86%;
+  background-color: #d74550;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='86']:after {
+  border-bottom-color: #d74550;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='86']:before {
+  content: "86";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='86'] {
+  height: 86%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='86'] {
+  bottom: 86%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='87'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 87%;
+  background-color: #d64251;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='87']:after {
+  border-bottom-color: #d64251;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='87']:before {
+  content: "87";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='87'] {
+  height: 87%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='87'] {
+  bottom: 87%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='88'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 88%;
+  background-color: #d53f52;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='88']:after {
+  border-bottom-color: #d53f52;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='88']:before {
+  content: "88";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='88'] {
+  height: 88%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='88'] {
+  bottom: 88%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='89'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 89%;
+  background-color: #d43c53;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='89']:after {
+  border-bottom-color: #d43c53;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='89']:before {
+  content: "89";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='89'] {
+  height: 89%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='89'] {
+  bottom: 89%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='90'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 90%;
+  background-color: #d33854;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='90']:after {
+  border-bottom-color: #d33854;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='90']:before {
+  content: "90";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='90'] {
+  height: 90%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='90'] {
+  bottom: 90%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='91'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 91%;
+  background-color: #d23555;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='91']:after {
+  border-bottom-color: #d23555;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='91']:before {
+  content: "91";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='91'] {
+  height: 91%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='91'] {
+  bottom: 91%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='92'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 92%;
+  background-color: #d03256;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='92']:after {
+  border-bottom-color: #d03256;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='92']:before {
+  content: "92";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='92'] {
+  height: 92%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='92'] {
+  bottom: 92%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='93'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 93%;
+  background-color: #cf2e57;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='93']:after {
+  border-bottom-color: #cf2e57;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='93']:before {
+  content: "93";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='93'] {
+  height: 93%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='93'] {
+  bottom: 93%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='94'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 94%;
+  background-color: #ce2b58;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='94']:after {
+  border-bottom-color: #ce2b58;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='94']:before {
+  content: "94";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='94'] {
+  height: 94%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='94'] {
+  bottom: 94%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='95'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 95%;
+  background-color: #cd2859;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='95']:after {
+  border-bottom-color: #cd2859;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='95']:before {
+  content: "95";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='95'] {
+  height: 95%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='95'] {
+  bottom: 95%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='96'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 96%;
+  background-color: #cc245a;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='96']:after {
+  border-bottom-color: #cc245a;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='96']:before {
+  content: "96";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='96'] {
+  height: 96%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='96'] {
+  bottom: 96%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='97'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 97%;
+  background-color: #cb215b;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='97']:after {
+  border-bottom-color: #cb215b;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='97']:before {
+  content: "97";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='97'] {
+  height: 97%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='97'] {
+  bottom: 97%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='98'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 98%;
+  background-color: #ca1e5c;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='98']:after {
+  border-bottom-color: #ca1e5c;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='98']:before {
+  content: "98";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='98'] {
+  height: 98%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='98'] {
+  bottom: 98%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='99'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 99%;
+  background-color: #c91a5d;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='99']:after {
+  border-bottom-color: #c91a5d;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='99']:before {
+  content: "99";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='99'] {
+  height: 99%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='99'] {
+  bottom: 99%;
+}
+/* line 234, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='100'] {
+  animation: tooltipMove .6s linear forwards .4s;
+  left: 100%;
+  background-color: #c8175e;
+  opacity: 1;
+}
+/* line 258, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='100']:after {
+  border-bottom-color: #c8175e;
+}
+/* line 262, ../scss/bars-chart.scss */
+.bars-chart.heat-bar .heat-bar_tooltip[data-position='100']:before {
+  content: "100";
+}
+/* line 267, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[aria-valuenow='100'] {
+  height: 100%;
+}
+/* line 271, ../scss/bars-chart.scss */
+.bars-chart .bars-chart_column .bars-chart_column-item[data-position='100'] {
+  bottom: 100%;
+}
+
+@keyframes tooltipMove {
+  0% {
+    animation-timing-function: ease-out;
+    transform: translateX(-50%) rotate(20deg);
+  }
+  30% {
+    animation-timing-function: ease-in-out;
+  }
+  60% {
+    animation-timing-function: ease-out;
+    transform: translateX(-50%) rotate(-20deg);
+  }
+  80% {
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateX(-50%) rotate(0);
+  }
+}
