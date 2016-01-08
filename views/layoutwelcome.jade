@@ -10,6 +10,13 @@ html
 			var host = location.origin.replace(/^http/, 'ws');
 			var ws = new WebSocket(host);
 			ws.onmessage = function (event) {
+				console.log(event.data);
+				if (event.data === 'goToQuestion1') {
+					console.log('entra');
+					window.location.href = 'http://www.google.com/';
+					} else {
 
-				document.querySelector('#pings p').innerHTML = event.data;
+						document.querySelector('#pings p').innerHTML = event.data;
+					}
+
 			}

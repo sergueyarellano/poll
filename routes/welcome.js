@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
-/* GET users listing. */
+/* GET client */
 router.get('/', function(req, res, next) {
-  res.render('welcome', { title: 'BBVA Encuesta Demo PI3' });
+  res.sendFile(path.join(__dirname + '/../public/client/views/index.html'));
 });
 
 module.exports = router;
