@@ -4,25 +4,66 @@ questions = {
 	q3:{title:'Question three', answerA:'Batman',answerB:'Robin'}
 }
 
-	var host = location.origin.replace(/^http/, 'ws');
-	var ws = new WebSocket(host);
+// Init admin socket interface
+var host = location.origin.replace(/^http/, 'ws');
+var ws = new WebSocket(host);
 
-	ws.onmessage = function (event) {
+// listen to messages
+ws.onmessage = function (event) {
 
-		if (!!document.querySelector('#pings p')) {
+	var data = JSON.parse(event.data);
+console.log(data);
+	switch (data.type) {
+		case 'connected':
+			if (!!document.querySelector('#pings p')) {
 
-			document.querySelector('#pings p').innerHTML = event.data;
-		}
+				document.querySelector('#pings p').innerHTML = data.value;
+			}
+			break;
+		case 'poll':
+			switch (data.id) {
+				case 'one':
+					var val = document.getElementById('val1').innerHTML;
+					val = parseInt(val) + parseInt(data.value);
+					document.getElementById('val1').innerHTML = val;
+					break;
+				case 'two':
+					var val = document.getElementById('val2').innerHTML;
+					val = parseInt(val) + parseInt(data.value);
+					document.getElementById('val2').innerHTML = val;
+					break;
+				case 'three':
+					var val = document.getElementById('val3').innerHTML;
+					val = parseInt(val) + parseInt(data.value);
+					document.getElementById('val3').innerHTML = val;
+					break;
+				case 'four':
+					var val = document.getElementById('val4').innerHTML;
+					val = parseInt(val) + parseInt(data.value);
+					document.getElementById('val4').innerHTML = val;
+					break;
+				case 'five':
+					var val = document.getElementById('val5').innerHTML;
+					val = parseInt(val) + parseInt(data.value);
+					document.getElementById('val5').innerHTML = val;
+					break;
+				default:
+					break;
+			}
+			break;
+		default:
+			break;
 	}
+}
 
 angular.module('adminApp',['adminRoutes'])
 	.controller('mainController', function() {
 		var vm = this;
 
 		vm.doClick = function() {
-			console.log('clickado');
 
-			ws.send('goToQuestion1');
+			//send instruction to the server
+			ws.send(JSON.stringify({type:'nextQuestion',value:'goToQuestion1'}));
 		};
 	})
 	.controller('q1Controller', function() {

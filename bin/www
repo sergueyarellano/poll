@@ -50,7 +50,7 @@ wss.broadcast = function broadcast(data) {
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
     
-    ws.send(usersConnected.toString())
+    ws.send(JSON.stringify({type:'connected', value:usersConnected.toString()}))
   }, 1000)
   usersConnected++;
   console.log("websocket connection open")

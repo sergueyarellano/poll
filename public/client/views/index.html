@@ -26,22 +26,6 @@
 		</div>
 	<script>
 		(function(){
-
-			var host = location.origin.replace(/^http/, 'ws');
-			var ws = new WebSocket(host);
-			ws.onmessage = function (event) {
-				console.log(event.data);
-				if (event.data === 'goToQuestion1') {
-
-					window.location.href = '/welcome/q1';
-					} else {
-						if (!!document.querySelector('#pings p')) {
-
-							document.querySelector('#pings p').innerHTML = event.data;
-						}
-					}
-
-			}
 		}())
 	</script>
 	</body>
