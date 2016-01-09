@@ -1,11 +1,59 @@
-<div class="jumbotron text-center">
-	<h1>Encuesta demo PI3</h1>
-	
-	<p>usuarios conectados:</p>
-	<div id="pings">
-		<p class="text"></p>
-	</div>
-	<!-- <a href="admin/q1" id="goQ1">START!</a> -->
-	<button ng-click="main.doClick()"><a href="/admin/q1">START!</a></button>
-
+<nav class="dashboard_nav">
+	<ul class="dashboard_nav-list">
+		<li>
+			<header>
+				<h1><span class="icon layers dashboard_nav-list_link"></span></h1>
+			</header>
+		</li>
+		<li><a href="" title="" class="button icon speech-bubble active dashboard_nav-list_link"></a></li>
+		<li><a href="" title="" class="button icon bar-graph-2 dashboard_nav-list_link"></a></li>
+		<li><a href="" title="" class="button icon cog dashboard_nav-list_link"></a></li>
+		<li><a href="" title="" class="button icon help dashboard_nav-list_link"></a></li>
+	</ul>
+</nav>
+<div class="dashboard_content">
+	<header class="dashboard_header">
+		<h1>Feedback</h1>
+		<ul>
+			<li class="dashboard_header-action">
+				<a href="" title="" class="button icon search global-padding"></a>
+			</li>
+			<li class="dashboard_header-action">
+				<a href="" title="" class="button icon bell global-padding"></a>
+			</li>
+			<li class="dashboard_header-action">
+				<a href="" title="" class="button icon head global-padding"></a>
+			</li>
+		</ul>
+	</header>
+	<form class="dashboard_manage">
+		<input type="radio" name="switch-questions" id="question-0">
+		<input type="radio" name="switch-questions" id="question-1">
+		<input type="radio" name="switch-questions" id="question-2">
+		<input type="radio" name="switch-questions" id="question-3">
+		<section class="dashboard_admin">
+			<header>
+				<h2 class="global-padding">Usuarios enchufdos</h2>
+				<div id="pings">
+					<p class="text"></p>
+				</div>
+			</header>
+			<article class="global-padding">
+				<h3>Titular de la encuesta</h3>
+				<button ng-click="main.doClick()"><a href="/admin/q1">START!</a></button>
+				<ul>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-0">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-1">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-2">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-3">Título de la pregunta</label></li>
+				</ul>
+			</article>
+		</section>
+		<section class="dashboard_client global-padding">
+			<header>
+				<h2>sec 1</h2>
+			</header>
+			<!-- el contenido va aquí -->
+		</section>
+	</form>
 </div>

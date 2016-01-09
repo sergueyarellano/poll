@@ -7,11 +7,8 @@
 		<base href="/">
 		<!-- CSS -->
 		<!-- load bootstrap and our stylesheet -->
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<style>
-			body { padding-top:50px; }
-			a, a:hover {text-decoration: none;}
-		</style>
+		<!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="sources/css/styles.css">
 		<!-- JS -->
 		<!-- load angular and our custom application -->
 		<script src="bower_components/angular/angular.min.js"></script>
@@ -19,10 +16,9 @@
 		<script src="admin/app.js"></script>
 		<script src="admin/app.routes.js"></script>
 	</head>
-	<body class="container" ng-app="adminApp" ng-controller="mainController as main">
-		<div class="jumbotron col-lg-12">
-			<div ng-view></div>
-
-		</div>
+	<body ng-app="adminApp" ng-controller="mainController as main">
+		<main ng-view class="dashboard"></main>
+		<script>
+		</script>
 	</body>
 </html>

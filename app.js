@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compass = require('node-compass');
 
 var root = require('./routes/root');
 var admin = require('./routes/admin');
@@ -21,13 +22,21 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Rafa, need to have compass installed
+app.use(compass({
+  project: path.join(__dirname, 'public/sources'),
+  sass: 'layout',
+  css: 'css'
+}));
+
 app.use(express.static(path.join(__dirname, 'public/')));
 
 app.use('/', root);
 app.use('/welcome', welcomeJSON);
+
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
