@@ -1,0 +1,201 @@
+@import 'compass/css3';
+@import 'compass/reset';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+
+@import 'icons';
+$gray: #303030;
+$navy: #2d3e50;
+$blue: #37495d;
+$cyan: #2f9bce;
+$white: #f0f0f0;
+$paddingBase: 1em;
+$globalTransition: all .3s ease-in-out;
+
+.global-padding
+{
+    padding: $paddingBase;
+}
+
+html,
+body,
+.dashboard
+{
+    font-family: 'Open Sans', sans-serif;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+
+    color: $white;
+    background-color: $navy;
+
+    align-items: flex-start;
+}
+
+.button
+{
+	color: lighten($blue, 20);
+	text-decoration: none;
+	background-color: $navy;
+	transition: $globalTransition;
+	&:hover,
+	&:active,
+	&.active
+	{
+		background-color: $cyan;
+		color: $white;
+	}
+}
+
+.dashboard_nav
+{
+	display: flex;
+    align-self: stretch;
+    text-align: center;
+    box-shadow: 0 0 20px 5px rgba(black, .1),
+    			2px 0 10px 0 rgba(black, .2);
+    .dashboard_nav-list
+    {
+    	display: flex;
+    	flex-direction: column;
+    	background-color: $blue;
+    	justify-content: flex-start;
+    	li:last-child
+	    {
+    		flex: 1;
+    		display: flex;
+    		flex-direction: column;
+	    	justify-content: flex-end;
+	    	// padding: $paddingBase;
+	    }
+    }
+    .dashboard_nav-list_link
+    {
+    	padding: $paddingBase * 1.5;
+    	background: transparent;
+	    .button
+	    {
+	    	background-color: transparent;
+	    }
+	    &:hover,
+	    &:active,
+	    &.active
+	    {
+	    	color: $cyan;
+	    	background-color: $blue;
+	    }
+    }
+}
+
+.dashboard_content,
+.dashboard_nav-list
+{
+	padding-top: $paddingBase / 2;
+}
+
+.dashboard_content
+{
+    display: flex;
+    flex-direction: column;
+
+    align-self: stretch;
+    flex: 1;
+    [name="switch-questions"]
+    {
+    	// display: none;
+    }
+}
+
+.dashboard_header
+{
+	display: flex;
+	justify-content: space-between;
+	h1
+	{
+		padding: $paddingBase * 1.5;
+	}
+	.dashboard_header-action
+	{
+		display: inline-block;
+		.button
+		{
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+
+}
+
+.dashboard_admin,
+.dashboard_client,
+.dashboard_manage
+{
+    flex: 1;
+}
+
+.dashboard_manage
+{
+    display: flex;
+    flex-direction: row;
+    padding: $paddingBase * 2;
+}
+.dashboard_manage-list_item
+{
+	border-bottom: 1px dashed $blue;
+}
+
+.dashboard_manage-question
+{
+	display: block;
+	padding: $paddingBase;
+	position: relative;
+	z-index: 1;
+	&:after
+	{
+		content: '';
+		display: inline-block;
+		height: 0;
+		width: 0;
+		border: .75em solid transparent;
+		border-left-color: $cyan;
+		border-top-width: 1.5em;
+		border-bottom-width: 1.5em;
+		border-right-width: 0;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		transform-origin: 0 50%;
+		transform: scale(0);
+		transition: $globalTransition;
+		box-shadow: -1px 0 0 0 $cyan;
+	}
+	&:hover,
+	&:active
+	{
+		&:after
+		{
+			transform: scale(1);
+		}
+	}
+}
+
+@for $i from 1 to 5
+{
+	[name="switch-questions"]:nth-child(#{$i}):checked ~ .dashboard_admin .dashboard_manage-list_item:nth-child(#{$i}) .dashboard_manage-question
+	{
+		z-index: 2;
+		transform: scale(1.02);
+		box-shadow: 0 8px 20px -4px rgba(black, .6);
+		background-color: $cyan;
+		color: $white;
+		&:after
+		{
+			transform: scale(1);
+			box-shadow: -1px 0 0 0 $cyan;
+		}
+	}
+}

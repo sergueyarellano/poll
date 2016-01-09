@@ -1,0 +1,173 @@
+@import "feather-font/variables";	
+@include font-face("feather-font", font-files("feather-font.ttf", "feather-font.svg", "feather-font.eot", "feather-font.woff"));
+
+@font-face {
+    font-family: 'feather-font';
+    src:    url('fonts/feather-font.eot?7ry7uy');
+    src:    url('fonts/feather-font.eot?7ry7uy#iefix') format('embedded-opentype'),
+        url('fonts/feather-font.ttf?7ry7uy') format('truetype'),
+        url('fonts/feather-font.woff?7ry7uy') format('woff'),
+        url('fonts/feather-font.svg?7ry7uy#feather-font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+	display: inline-block;
+	&:before {
+	    /* use !important to prevent issues with browser extensions that change fonts */
+	    font-family: 'feather-font';
+	    speak: none;
+	    font-style: normal;
+	    font-weight: normal;
+	    font-variant: normal;
+	    text-transform: none;
+	    text-align: center;
+	    line-height: 1em;
+	    width: 1em;
+	    height: 1em;
+
+	    /* Better Font Rendering =========== */
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+	}
+}
+
+$iconsArray: (
+	eye: $eye,
+	paper-clip: $paper-clip,
+	mail: $mail,
+	toggle: $toggle,
+	layout: $layout,
+	link: $link,
+	bell: $bell,
+	lock: $lock,
+	unlock: $unlock,
+	ribbon: $ribbon,
+	image: $image,
+	signal: $signal,
+	target: $target,
+	clipboard: $clipboard,
+	clock: $clock,
+	watch: $watch,
+	air-play: $air-play,
+	camera: $camera,
+	video: $video,
+	disc: $disc,
+	printer: $printer,
+	monitor: $monitor,
+	server: $server,
+	cog: $cog,
+	heart: $heart,
+	paragraph: $paragraph,
+	align-justify: $align-justify,
+	align-left: $align-left,
+	align-center: $align-center,
+	align-right: $align-right,
+	book: $book,
+	layers: $layers,
+	stack: $stack,
+	stack-2: $stack-2,
+	paper: $paper,
+	paper-stack: $paper-stack,
+	search: $search,
+	zoom-in: $zoom-in,
+	zoom-out: $zoom-out,
+	reply: $reply,
+	circle-plus: $circle-plus,
+	circle-minus: $circle-minus,
+	circle-check: $circle-check,
+	circle-cross: $circle-cross,
+	square-plus: $square-plus,
+	square-minus: $square-minus,
+	square-check: $square-check,
+	square-cross: $square-cross,
+	microphone: $microphone,
+	record: $record,
+	skip-back: $skip-back,
+	rewind: $rewind,
+	play: $play,
+	pause: $pause,
+	stop: $stop,
+	fast-forward: $fast-forward,
+	skip-forward: $skip-forward,
+	shuffle: $shuffle,
+	repeat: $repeat,
+	folder: $folder,
+	umbrella: $umbrella,
+	moon: $moon,
+	thermometer: $thermometer,
+	drop: $drop,
+	sun: $sun,
+	cloud: $cloud,
+	cloud-upload: $cloud-upload,
+	cloud-download: $cloud-download,
+	upload: $upload,
+	download: $download,
+	location: $location,
+	location-2: $location-2,
+	map: $map,
+	battery: $battery,
+	head: $head,
+	briefcase: $briefcase,
+	speech-bubble: $speech-bubble,
+	anchor: $anchor,
+	globe: $globe,
+	box: $box,
+	reload: $reload,
+	share: $share,
+	marquee: $marquee,
+	marquee-plus: $marquee-plus,
+	marquee-minus: $marquee-minus,
+	tag: $tag,
+	power: $power,
+	command: $command,
+	alt: $alt,
+	esc: $esc,
+	bar-graph: $bar-graph,
+	bar-graph-2: $bar-graph-2,
+	pie-graph: $pie-graph,
+	star: $star,
+	arrow-left: $arrow-left,
+	arrow-right: $arrow-right,
+	arrow-up: $arrow-up,
+	arrow-down: $arrow-down,
+	volume: $volume,
+	mute: $mute,
+	content-right: $content-right,
+	content-left: $content-left,
+	grid: $grid,
+	grid-2: $grid-2,
+	columns: $columns,
+	loader: $loader,
+	bag: $bag,
+	ban: $ban,
+	flag: $flag,
+	trash: $trash,
+	expand: $expand,
+	contract: $contract,
+	maximize: $maximize,
+	minimize: $minimize,
+	plus: $plus,
+	minus: $minus,
+	check: $check,
+	cross: $cross,
+	move: $move,
+	delete: $delete,
+	menu: $menu,
+	archive: $archive,
+	inbox: $inbox,
+	outbox: $outbox,
+	file: $file,
+	file-add: $file-add,
+	file-subtract: $file-subtract,
+	help: $help,
+	open: $open,
+	ellipsis: $ellipsis
+);
+
+@each $iconName, $iconValue in $iconsArray {
+    .#{$iconName}:before {
+        content: $iconValue;
+    }
+}

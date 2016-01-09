@@ -1,0 +1,417 @@
+@font-face {
+    font-family: 'feather-font';
+    src:    url('fonts/feather-font.eot?7ry7uy');
+    src:    url('fonts/feather-font.eot?7ry7uy#iefix') format('embedded-opentype'),
+        url('fonts/feather-font.ttf?7ry7uy') format('truetype'),
+        url('fonts/feather-font.woff?7ry7uy') format('woff'),
+        url('fonts/feather-font.svg?7ry7uy#feather-font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'feather-font' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.eye:before {
+    content: "\e000";
+}
+.paper-clip:before {
+    content: "\e001";
+}
+.mail:before {
+    content: "\e002";
+}
+.toggle:before {
+    content: "\e003";
+}
+.layout:before {
+    content: "\e004";
+}
+.link:before {
+    content: "\e005";
+}
+.bell:before {
+    content: "\e006";
+}
+.lock:before {
+    content: "\e007";
+}
+.unlock:before {
+    content: "\e008";
+}
+.ribbon:before {
+    content: "\e009";
+}
+.image:before {
+    content: "\e010";
+}
+.signal:before {
+    content: "\e011";
+}
+.target:before {
+    content: "\e012";
+}
+.clipboard:before {
+    content: "\e013";
+}
+.clock:before {
+    content: "\e014";
+}
+.watch:before {
+    content: "\e015";
+}
+.air-play:before {
+    content: "\e016";
+}
+.camera:before {
+    content: "\e017";
+}
+.video:before {
+    content: "\e018";
+}
+.disc:before {
+    content: "\e019";
+}
+.printer:before {
+    content: "\e020";
+}
+.monitor:before {
+    content: "\e021";
+}
+.server:before {
+    content: "\e022";
+}
+.cog:before {
+    content: "\e023";
+}
+.heart:before {
+    content: "\e024";
+}
+.paragraph:before {
+    content: "\e025";
+}
+.align-justify:before {
+    content: "\e026";
+}
+.align-left:before {
+    content: "\e027";
+}
+.align-center:before {
+    content: "\e028";
+}
+.align-right:before {
+    content: "\e029";
+}
+.book:before {
+    content: "\e030";
+}
+.layers:before {
+    content: "\e031";
+}
+.stack:before {
+    content: "\e032";
+}
+.stack-2:before {
+    content: "\e033";
+}
+.paper:before {
+    content: "\e034";
+}
+.paper-stack:before {
+    content: "\e035";
+}
+.search:before {
+    content: "\e036";
+}
+.zoom-in:before {
+    content: "\e037";
+}
+.zoom-out:before {
+    content: "\e038";
+}
+.reply:before {
+    content: "\e039";
+}
+.circle-plus:before {
+    content: "\e040";
+}
+.circle-minus:before {
+    content: "\e041";
+}
+.circle-check:before {
+    content: "\e042";
+}
+.circle-cross:before {
+    content: "\e043";
+}
+.square-plus:before {
+    content: "\e044";
+}
+.square-minus:before {
+    content: "\e045";
+}
+.square-check:before {
+    content: "\e046";
+}
+.square-cross:before {
+    content: "\e047";
+}
+.microphone:before {
+    content: "\e048";
+}
+.record:before {
+    content: "\e049";
+}
+.skip-back:before {
+    content: "\e050";
+}
+.rewind:before {
+    content: "\e051";
+}
+.play:before {
+    content: "\e052";
+}
+.pause:before {
+    content: "\e053";
+}
+.stop:before {
+    content: "\e054";
+}
+.fast-forward:before {
+    content: "\e055";
+}
+.skip-forward:before {
+    content: "\e056";
+}
+.shuffle:before {
+    content: "\e057";
+}
+.repeat:before {
+    content: "\e058";
+}
+.folder:before {
+    content: "\e059";
+}
+.umbrella:before {
+    content: "\e060";
+}
+.moon:before {
+    content: "\e061";
+}
+.thermometer:before {
+    content: "\e062";
+}
+.drop:before {
+    content: "\e063";
+}
+.sun:before {
+    content: "\e064";
+}
+.cloud:before {
+    content: "\e065";
+}
+.cloud-upload:before {
+    content: "\e066";
+}
+.cloud-download:before {
+    content: "\e067";
+}
+.upload:before {
+    content: "\e068";
+}
+.download:before {
+    content: "\e069";
+}
+.location:before {
+    content: "\e070";
+}
+.location-2:before {
+    content: "\e071";
+}
+.map:before {
+    content: "\e072";
+}
+.battery:before {
+    content: "\e073";
+}
+.head:before {
+    content: "\e074";
+}
+.briefcase:before {
+    content: "\e075";
+}
+.speech-bubble:before {
+    content: "\e076";
+}
+.anchor:before {
+    content: "\e077";
+}
+.globe:before {
+    content: "\e078";
+}
+.box:before {
+    content: "\e079";
+}
+.reload:before {
+    content: "\e080";
+}
+.share:before {
+    content: "\e081";
+}
+.marquee:before {
+    content: "\e082";
+}
+.marquee-plus:before {
+    content: "\e083";
+}
+.marquee-minus:before {
+    content: "\e084";
+}
+.tag:before {
+    content: "\e085";
+}
+.power:before {
+    content: "\e086";
+}
+.command:before {
+    content: "\e087";
+}
+.alt:before {
+    content: "\e088";
+}
+.esc:before {
+    content: "\e089";
+}
+.bar-graph:before {
+    content: "\e090";
+}
+.bar-graph-2:before {
+    content: "\e091";
+}
+.pie-graph:before {
+    content: "\e092";
+}
+.star:before {
+    content: "\e093";
+}
+.arrow-left:before {
+    content: "\e094";
+}
+.arrow-right:before {
+    content: "\e095";
+}
+.arrow-up:before {
+    content: "\e096";
+}
+.arrow-down:before {
+    content: "\e097";
+}
+.volume:before {
+    content: "\e098";
+}
+.mute:before {
+    content: "\e099";
+}
+.content-right:before {
+    content: "\e100";
+}
+.content-left:before {
+    content: "\e101";
+}
+.grid:before {
+    content: "\e102";
+}
+.grid-2:before {
+    content: "\e103";
+}
+.columns:before {
+    content: "\e104";
+}
+.loader:before {
+    content: "\e105";
+}
+.bag:before {
+    content: "\e106";
+}
+.ban:before {
+    content: "\e107";
+}
+.flag:before {
+    content: "\e108";
+}
+.trash:before {
+    content: "\e109";
+}
+.expand:before {
+    content: "\e110";
+}
+.contract:before {
+    content: "\e111";
+}
+.maximize:before {
+    content: "\e112";
+}
+.minimize:before {
+    content: "\e113";
+}
+.plus:before {
+    content: "\e114";
+}
+.minus:before {
+    content: "\e115";
+}
+.check:before {
+    content: "\e116";
+}
+.cross:before {
+    content: "\e117";
+}
+.move:before {
+    content: "\e118";
+}
+.delete:before {
+    content: "\e119";
+}
+.menu:before {
+    content: "\e120";
+}
+.archive:before {
+    content: "\e121";
+}
+.inbox:before {
+    content: "\e122";
+}
+.outbox:before {
+    content: "\e123";
+}
+.file:before {
+    content: "\e124";
+}
+.file-add:before {
+    content: "\e125";
+}
+.file-subtract:before {
+    content: "\e126";
+}
+.help:before {
+    content: "\e127";
+}
+.open:before {
+    content: "\e128";
+}
+.ellipsis:before {
+    content: "\e129";
+}
+

@@ -12,7 +12,7 @@ var ws = new WebSocket(host);
 ws.onmessage = function (event) {
 
 	var data = JSON.parse(event.data);
-console.log(data);
+
 	switch (data.type) {
 		case 'connected':
 			if (!!document.querySelector('#pings p')) {
