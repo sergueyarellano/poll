@@ -1,0 +1,18 @@
+.dashboard_button
+{
+	color: lighten($blue, 20);
+	text-decoration: none;
+	background-color: $navy;
+	transition: $globalTransition;
+	position: relative;
+	display: inline-block;
+	&:before
+	{
+		z-index: 2;
+		position: relative;
+	}
+	&:hover
+	{
+		color: $white;
+	}
+}
