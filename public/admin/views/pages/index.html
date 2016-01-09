@@ -1,55 +1,64 @@
 <nav class="dashboard_nav">
 	<ul class="dashboard_nav-list">
-		<li>
+		<li class="dashboard_nav-list_item">
 			<header>
-				<h1><span class="icon layers dashboard_nav-list_link"></span></h1>
+				<h1><span class="dashboard_nav-list_link dashboard_button icon star dashboard_nav-list_link"></span></h1>
 			</header>
 		</li>
-		<li><a href="" title="" class="button icon speech-bubble active dashboard_nav-list_link"></a></li>
-		<li><a href="" title="" class="button icon bar-graph-2 dashboard_nav-list_link"></a></li>
-		<li><a href="" title="" class="button icon cog dashboard_nav-list_link"></a></li>
-		<li><a href="" title="" class="button icon help dashboard_nav-list_link"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon speech-bubble active"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon bar-graph-2"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon cog"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon help"></a></li>
 	</ul>
 </nav>
 <div class="dashboard_content">
 	<header class="dashboard_header">
 		<h1>Feedback</h1>
-		<ul>
-			<li class="dashboard_header-action">
-				<a href="" title="" class="button icon search global-padding"></a>
+		<ul class="dashboard_header-action">
+			<li class="dashboard_header-action_item">
+				<a href="" title="" class="dashboard_button icon search global-padding"></a>
 			</li>
-			<li class="dashboard_header-action">
-				<a href="" title="" class="button icon bell global-padding"></a>
+			<li class="dashboard_header-action_item">
+				<a href="" title="" class="dashboard_button icon bell global-padding"></a>
 			</li>
-			<li class="dashboard_header-action">
-				<a href="" title="" class="button icon head global-padding"></a>
+			<li class="dashboard_header-action_item">
+				<a href="" title="" class="dashboard_button icon head global-padding"></a>
 			</li>
 		</ul>
 	</header>
+	<section class="dashboard_users">
+		<article class="dashboard_admin">
+			<header>
+				<h3>Total users</h3>
+			</header>
+			<div id="pings">
+				<p class="text"></p>
+			</div>
+			<a href="/admin/q1" ng-click="main.doClick()" class="dashboard_button">START!</a>
+		</article>
+		<article class="dashboard_client">
+			<header>
+				<h3>Have voted</h3>
+			</header>
+		</article>
+	</section>
 	<form class="dashboard_manage">
-		<input type="radio" name="switch-questions" id="question-0">
+		<!-- <input type="radio" name="switch-questions" id="question-0">
 		<input type="radio" name="switch-questions" id="question-1">
 		<input type="radio" name="switch-questions" id="question-2">
-		<input type="radio" name="switch-questions" id="question-3">
+		<input type="radio" name="switch-questions" id="question-3"> -->
 		<section class="dashboard_admin">
-			<header>
-				<h2 class="global-padding">Usuarios enchufdos</h2>
-				<div id="pings">
-					<p class="text"></p>
-				</div>
-			</header>
-			<article class="global-padding">
+			<article>
 				<h3>Titular de la encuesta</h3>
-				<button ng-click="main.doClick()"><a href="/admin/q1">START!</a></button>
 				<ul>
-					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-0">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-1">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-2">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question button" for="question-3">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question dashboard_button" for="question-0">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question dashboard_button" for="question-1">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question dashboard_button" for="question-2">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label class="dashboard_manage-question dashboard_button" for="question-3">Título de la pregunta</label></li>
 				</ul>
 			</article>
 		</section>
-		<section class="dashboard_client global-padding">
+		<section class="dashboard_client">
 			<header>
 				<h2>sec 1</h2>
 			</header>
