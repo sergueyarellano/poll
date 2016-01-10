@@ -7,27 +7,27 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'mainController',
 			controllerAs: 'main'
 		})
-		.when('/welcome/question-0', {
+		.when('/welcome/r0', {
 			templateUrl: 'client/views/pages/question-0.html',
 			controller: 'q0Controller',
 			controllerAs: 'q0'
 		})
-		.when('/welcome/question-1', {
+		.when('/welcome/r1', {
 			templateUrl: 'client/views/pages/question-1.html',
 			controller: 'q1Controller',
 			controllerAs: 'q1'
 		})
-		.when('/welcome/question-2', {
+		.when('/welcome/r2', {
 			templateUrl: 'client/views/pages/question-2.html',
 			controller: 'q2Controller',
 			controllerAs: 'q2'
 		})
-		.when('/welcome/question-3', {
+		.when('/welcome/r3', {
 			templateUrl: 'client/views/pages/question-3.html',
 			controller: 'q3Controller',
 			controllerAs: 'q3'
 		})
-		.when('/welcome/question-4', {
+		.when('/welcome/r4', {
 			templateUrl: 'client/views/pages/question-4.html',
 			controller: 'q4Controller',
 			controllerAs: 'q4'

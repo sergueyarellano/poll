@@ -29,11 +29,8 @@
 	<section class="dashboard_users">
 		<article class="dashboard_admin">
 			<header>
-				<h3>Total users</h3>
+				<h3>Total users connected: +<span id="pings"></span></h3>
 			</header>
-			<div id="pings">
-				<p class="text"></p>
-			</div>
 		</article>
 		<article class="dashboard_client">
 			<header>
@@ -48,21 +45,21 @@
 		<input type="radio" name="switch-questions" id="question-3"> -->
 		<section class="dashboard_admin">
 			<article>
-				<h3>Titular de la encuesta</h3>
+				<h3>5 estrellas DEMO PI3</h3>
 				<ul>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r0')" class="dashboard_manage-question dashboard_button" for="question-0">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r1')" class="dashboard_manage-question dashboard_button" for="question-1">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r2')" class="dashboard_manage-question dashboard_button" for="question-2">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r3')"class="dashboard_manage-question dashboard_button" for="question-3">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r4')"class="dashboard_manage-question dashboard_button" for="question-4">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r0')"  class="dashboard_manage-question dashboard_button" for="question-0">{{main.literals.r0}}</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r1')"  class="dashboard_manage-question dashboard_button" for="question-1">{{main.literals.r1}}</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r2')"  class="dashboard_manage-question dashboard_button" for="question-2">{{main.literals.r2}}</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r3')"  class="dashboard_manage-question dashboard_button" for="question-3">{{main.literals.r3}}</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r4')"  class="dashboard_manage-question dashboard_button" for="question-4">{{main.literals.r4}}</label></li>
 				</ul>
 			</article>
 		</section>
 		<section class="dashboard_client">
 			<header>
-				<h2>sec 1</h2>
+				<h2>{{main.actualHeader}}</h2>
 			</header>
-			<div class="button" ng-click="main.standBy()">Standby and save Data!</div>
+			<div class="button">{{main.pollState}}</div>
 			<aside>
 				<div ng-show="main.results.r0" id="results0">
 					<div>0</div>
@@ -100,6 +97,8 @@
 					<div>0</div>
 				</div>
 			</aside>
+			<div class="button" ng-click="main.startPoll()" ng-hide="main.started">Start Poll</div>
+			<div class="button" ng-click="main.stopPoll()" ng-show="main.started">Stop Poll</div>
 		</section>
 	</form>
 </div>
