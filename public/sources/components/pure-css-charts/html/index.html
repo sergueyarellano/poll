@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bar Charts</title>
+	<link rel="stylesheet" href="../css/bars-chart.css">
+	<link rel="stylesheet" href="../css/pie-chart.css">
+	<style type="text/css" media="screen">
+		/* DON'T USE THIS STYLES AT PRODICTION */
+		@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+		body {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 300;
+			font-size: 1em;
+			color: #5f5f5f;
+		}
+		h1 {
+			font-size: 2em;
+			padding: 3em 0;
+		}
+		h2 {
+			padding-bottom: 3em;
+		}
+		article {
+			padding-bottom: 6em;
+		}
+		.bars-chart,
+		.border-chart
+		{
+			margin: 0 10px;
+		}
+		.bars-chart_column-legend
+		{
+			font-weight: 700;
+		}
+	</style>
+</head>
+<body style="text-align: center;">
+	<h1>Pure CSS Charts</h1>
+	<article>
+		<h2>Pure Bars Chart</h2>
+		<ul class="bars-chart bars-chart_four-axis">
+			<li class="bars-chart_axis">
+				<div class="bars-chart_axis-item max">300</div>
+				<div class="bars-chart_axis-item pos-2">200</div>
+				<div class="bars-chart_axis-item pos-1">100</div>
+				<div class="bars-chart_axis-item min">0</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">0-50</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">51-100</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">101-150</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">151-200</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">201-250</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">51-100</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">101-150</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">151-200</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">201-250</div>
+			</li>
+		</ul>
+		<ul class="bars-chart bars-chart_four-axis turn-legend">
+			<li class="bars-chart_axis">
+				<div class="bars-chart_axis-item max">300</div>
+				<div class="bars-chart_axis-item pos-2">200</div>
+				<div class="bars-chart_axis-item pos-1">100</div>
+				<div class="bars-chart_axis-item min">0</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">0-50</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">51-100</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">101-150</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">151-200</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">201-250</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">51-100</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">101-150</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">151-200</div>
+			</li>
+			<li class="bars-chart_column">
+				<div class="bars-chart_column-item color-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+				<div class="bars-chart_column-item color-2" role="progressbar" aria-valuemin="0" aria-valuemax="100"  aria-valuenow="0"></div>
+				<div class="bars-chart_column-legend">201-250</div>
+			</li>
+		</ul>
+	</article>
+	<article>
+		<h2>Pure Heat-Bar Chart</h2>
+		<div style="width: 30em; display: inline-block;">
+			<div class="bars-chart heat-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+				<span class="heat-bar_tooltip" id="heat-bar_tooltip">%</span>
+			</div>
+		</div>
+	</article>
+	<article>
+		<h2>Pure Pie Chart</h2>
+		<div class="border-chart color-2" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+		    <span class="left-mask">
+		        <span class="circle"></span>
+		    </span>
+		    <span class="right-mask">
+		        <span class="circle"></span>
+		    </span>
+		    <div class="circle">
+		    	<div class="values">
+		        	<span class="value">Parqué<span class="amount" id="border-chart_value-0">00</span></span>
+		        	<span class="value">Oferta<span class="amount" id="border-chart_value-1">00</span></span>
+		    	</div>
+		    </div>
+		</div>
+	</article>
+	<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		setTimeout(function(){ 
+			$.each($('[aria-valuenow]:not(.heat-bar)'), function(){
+				$(this).attr("aria-valuenow", Math.floor((Math.random() * 100) + 1));
+			});
+			$('#border-chart_value-0').text(100 - $('.border-chart').attr("aria-valuenow"));
+			$('#border-chart_value-1').text($('.border-chart').attr("aria-valuenow"));
+			heatValue = Math.floor((Math.random() * 100) + 1);
+			$('#heat-bar_tooltip').attr("data-position", heatValue);
+			$('.heat-bar').attr("aria-valuenow", heatValue);
+		}, 500);
+	</script>
+</body>
+</html>
