@@ -18,14 +18,18 @@ $height: goldenCalc($width);
 	    width: $width;
 	    height: $height;
 
-	    border-radius: 1.9em;
+	    border-radius: .2em;
     	overflow: hidden;
     }
 
     color: $white;
-    background-color: $navy;
+    background-color: $blue;
 
 }
+
+@import 'dashboard-header';
+@import 'dashboard-nav';
+@import 'dashboard-ui';
 
 .dashboard_content
 {
@@ -51,8 +55,8 @@ $height: goldenCalc($width);
 {
 	display: flex;
 	flex-direction: row;
+    text-align: center;
 }
-
 .dashboard_manage
 {
     display: flex;
@@ -66,10 +70,6 @@ $height: goldenCalc($width);
 .dashboard_manage-question
 {
 	display: block;
-	padding: $paddingBase;
 	position: relative;
 }
 
-@import 'dashboard-header';
-@import 'dashboard-nav';
-@import 'dashboard-ui';

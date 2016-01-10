@@ -1,12 +1,15 @@
 @import 'compass/css3';
 @import 'compass/reset';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:700,300);
+
  
 @import 'icons';
 $gray: #303030;
 $navy: #2d3e50;
 $blue: #37495d;
 $cyan: #2f9bce;
+$green: #4ac29f;
 $white: #f0f0f0;
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
@@ -39,4 +42,5 @@ body
     background-color: $blue;
 }
 
+@import '../components/pure-css-charts/scss/pie-chart.scss';
 @import 'dashboard';
