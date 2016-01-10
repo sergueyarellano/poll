@@ -50,11 +50,11 @@
 			<article>
 				<h3>Titular de la encuesta</h3>
 				<ul>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r0')" class="dashboard_manage-question dashboard_button" for="question-0">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r1')" class="dashboard_manage-question dashboard_button" for="question-1">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r2')" class="dashboard_manage-question dashboard_button" for="question-2">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r3')"class="dashboard_manage-question dashboard_button" for="question-3">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.startPoll($event,'r4')"class="dashboard_manage-question dashboard_button" for="question-4">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r0')"  class="dashboard_manage-question dashboard_button" for="question-0">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r1')"  class="dashboard_manage-question dashboard_button" for="question-1">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r2')"  class="dashboard_manage-question dashboard_button" for="question-2">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r3')"  class="dashboard_manage-question dashboard_button" for="question-3">Título de la pregunta</label></li>
+					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r4')"  class="dashboard_manage-question dashboard_button" for="question-4">Título de la pregunta</label></li>
 				</ul>
 			</article>
 		</section>
@@ -62,7 +62,7 @@
 			<header>
 				<h2>sec 1</h2>
 			</header>
-			<div class="button" ng-click="main.standBy()">Standby and save Data!</div>
+			<div class="button">{{main.pollState}}</div>
 			<aside>
 				<div ng-show="main.results.r0" id="results0">
 					<div>0</div>
@@ -100,6 +100,8 @@
 					<div>0</div>
 				</div>
 			</aside>
+			<div class="button" ng-click="main.startPoll()">Start Poll</div>
+			<div class="button" ng-click="main.stopPoll()">Stop Poll</div>
 		</section>
 	</form>
 </div>
