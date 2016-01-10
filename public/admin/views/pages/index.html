@@ -2,27 +2,27 @@
 	<ul class="dashboard_nav-list">
 		<li class="dashboard_nav-list_item">
 			<header>
-				<h1><span class="dashboard_nav-list_link dashboard_button icon star dashboard_nav-list_link"></span></h1>
+				<h1>logo</h1>
 			</header>
 		</li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon speech-bubble active"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon bar-graph-2"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon cog"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon help"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Current Poll" role="button" class="dashboard_nav-list_link active">Current Poll <span class="icon speech-bubble"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Stats" role="button" class="dashboard_nav-list_link">Stats <span class="icon bar-graph-2"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Manage" role="button" class="dashboard_nav-list_link">Manage <span class="icon cog"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Help" role="button" class="dashboard_nav-list_link">Help <span class="icon help"></span></a></li>
 	</ul>
 </nav>
 <div class="dashboard_content">
 	<header class="dashboard_header">
-		<h1>Feedback</h1>
+		<h2>Feedback</h2>
 		<ul class="dashboard_header-action">
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon search global-padding"></a>
+				<a href="" title="" role="button" class="icon search global-padding"></a>
 			</li>
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon bell global-padding"></a>
+				<a href="" title="" role="button" class="icon bell global-padding"></a>
 			</li>
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon head global-padding"></a>
+				<a href="" title="" role="button" class="icon head global-padding"></a>
 			</li>
 		</ul>
 	</header>
@@ -39,31 +39,37 @@
 			<header>
 				<h3>Have voted</h3>
 			</header>
+			<div class="border-chart color-2" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+			    <span class="left-mask">
+			        <span class="circle"></span>
+			    </span>
+			    <span class="right-mask">
+			        <span class="circle"></span>
+			    </span>
+			    <div class="circle"></div>
+			</div>
 		</article>
 	</section>
 	<form class="dashboard_manage">
-		<!-- <input type="radio" name="switch-questions" id="question-0">
-		<input type="radio" name="switch-questions" id="question-1">
-		<input type="radio" name="switch-questions" id="question-2">
-		<input type="radio" name="switch-questions" id="question-3"> -->
 		<section class="dashboard_admin">
 			<article>
-				<h3>Titular de la encuesta</h3>
-				<ul>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r0')"  class="dashboard_manage-question dashboard_button" for="question-0">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r1')"  class="dashboard_manage-question dashboard_button" for="question-1">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r2')"  class="dashboard_manage-question dashboard_button" for="question-2">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r3')"  class="dashboard_manage-question dashboard_button" for="question-3">Título de la pregunta</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r4')"  class="dashboard_manage-question dashboard_button" for="question-4">Título de la pregunta</label></li>
-				</ul>
+				<h3>Poll's title</h3>
+				<ol>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r0')" role="button" class="dashboard_manage-question">Question 0</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r1')" role="button" class="dashboard_manage-question">Question 1</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r2')" role="button" class="dashboard_manage-question">Question 2</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r3')" role="button" class="dashboard_manage-question">Question 3</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r4')" role="button" class="dashboard_manage-question">Question 3</span></li>
+				</ol>
 			</article>
 		</section>
 		<section class="dashboard_client">
 			<header>
-				<h2>sec 1</h2>
+				<h3>sec 1</h3>
 			</header>
-			<div class="button">{{main.pollState}}</div>
-			<aside>
+			<div role="button">{{main.pollState}}</div>
+			<div role="button" ng-click="main.standBy()">Standby and save Data!</div>
+			<article>
 				<div ng-show="main.results.r0" id="results0">
 					<div>0</div>
 					<div>0</div>
@@ -99,7 +105,7 @@
 					<div>0</div>
 					<div>0</div>
 				</div>
-			</aside>
+			</article>
 			<div class="button" ng-click="main.startPoll()">Start Poll</div>
 			<div class="button" ng-click="main.stopPoll()">Stop Poll</div>
 		</section>
