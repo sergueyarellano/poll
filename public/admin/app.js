@@ -1,9 +1,3 @@
-questions = {
-	q1:{title:'Question one results', answerA:'barra graph Good',answerB:'barra graph Bad'},
-	q2:{title:'Question two', answerA:'Better',answerB:'Worse'},
-	q3:{title:'Question three', answerA:'Batman',answerB:'Robin'}
-}
-
 // Init admin socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
@@ -15,9 +9,9 @@ ws.onmessage = function (event) {
 
 	switch (data.type) {
 		case 'connected':
-			if (!!document.querySelector('#pings p')) {
+			if (!!document.getElementById('pings')) {
 
-				document.querySelector('#pings p').innerHTML = data.value;
+				document.getElementById('pings').innerHTML = data.value;
 			}
 			break;
 		case 'poll':
@@ -34,9 +28,12 @@ ws.onmessage = function (event) {
 angular.module('adminApp',['adminRoutes'])
 	.controller('mainController', function() {
 		var vm = this;
-		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false}
+		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false};
 		vm.started = false;
-		vm.pollState = 'Pulsa Start para comenzar con la votacion'
+		vm.literals = {r0:'Question 1 stats',r1:'Question 2 stats',r2:'Question 3 stats',r3:'Question 4 stats',r4:'Question 5 stats'};
+		vm.actualHeader = vm.literals.r0;
+		vm.pollState = 'Pulsa Start para comenzar con la votacion';
+
 		vm.showPoll = function(_r) {
 
 			for (r in vm.results) {
@@ -44,6 +41,7 @@ angular.module('adminApp',['adminRoutes'])
 			}
 
 			vm.results[_r] = true;
+			vm.actualHeader = vm.literals[_r];
 		};
 		vm.startPoll = function($event) {
 
