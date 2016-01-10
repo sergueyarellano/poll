@@ -5,9 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compass = require('node-compass');
+
+var root = require('./routes/root');
 var admin = require('./routes/admin');
 var welcome = require('./routes/welcome');
-
+var welcomeJSON = require('./routes/welcomeJSON');
 var app = express();
 
 // view engine setup
@@ -30,11 +32,11 @@ app.use(compass({
 
 app.use(express.static(path.join(__dirname, 'public/')));
 
-
+app.use('/', root);
+app.use('/welcome', welcomeJSON);
 
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

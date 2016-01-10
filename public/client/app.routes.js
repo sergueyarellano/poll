@@ -7,10 +7,35 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'mainController',
 			controllerAs: 'main'
 		})
-		.when('/welcome/q1', {
-			templateUrl: 'client/views/pages/q1.html',
+		.when('/welcome/question-0', {
+			templateUrl: 'client/views/pages/question-0.html',
+			controller: 'q0Controller',
+			controllerAs: 'q0'
+		})
+		.when('/welcome/question-1', {
+			templateUrl: 'client/views/pages/question-1.html',
 			controller: 'q1Controller',
 			controllerAs: 'q1'
+		})
+		.when('/welcome/question-2', {
+			templateUrl: 'client/views/pages/question-2.html',
+			controller: 'q2Controller',
+			controllerAs: 'q2'
+		})
+		.when('/welcome/question-3', {
+			templateUrl: 'client/views/pages/question-3.html',
+			controller: 'q3Controller',
+			controllerAs: 'q3'
+		})
+		.when('/welcome/question-4', {
+			templateUrl: 'client/views/pages/question-4.html',
+			controller: 'q4Controller',
+			controllerAs: 'q4'
+		})
+		.when('/welcome/standBy', {
+			templateUrl: 'client/views/pages/standBy.html',
+			controller: 'standByController',
+			controllerAs: 'standBy'
 		});
 
 		$locationProvider.html5Mode(true);

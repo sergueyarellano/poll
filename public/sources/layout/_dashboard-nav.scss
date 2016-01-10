@@ -1,0 +1,39 @@
+.dashboard_nav
+{
+	display: flex;
+    align-self: stretch;
+    text-align: center;
+    /* box-shadow: 0 0 20px 5px rgba(black, .1),
+    			2px 0 10px 0 rgba(black, .2); */
+    .dashboard_nav-list
+    {
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: flex-start;
+    	li:last-child
+	    {
+    		flex: 1;
+    		display: flex;
+    		flex-direction: column;
+	    	justify-content: flex-end;
+	    	// padding: $paddingBase;
+	    }
+    }
+    .dashboard_nav-list_item
+    {
+        color: lighten($blue, 20);
+        background: $white;
+        .dashboard_nav-list_link
+        {
+            padding: $paddingBase * 1.5;
+            background: $white;
+            transform-origin: 100% 50%;
+            &:hover
+            {
+                background-color: $navy;
+                box-shadow: 0 0 20px 5px rgba(black, .1),
+                            2px 0 10px 0 rgba(black, .2);
+            }
+        }
+    }
+}

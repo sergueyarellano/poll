@@ -1,0 +1,14 @@
+.dashboard_header
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.dashboard_header-action
+	{
+		display: flex;
+		.dashboard_header-action_item
+		{
+			display: inline-block;
+		}
+	}
+}

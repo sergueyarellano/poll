@@ -21,35 +21,10 @@ ws.onmessage = function (event) {
 			}
 			break;
 		case 'poll':
-			switch (data.id) {
-				case 'one':
-					var val = document.getElementById('val1').innerHTML;
-					val = parseInt(val) + parseInt(data.value);
-					document.getElementById('val1').innerHTML = val;
-					break;
-				case 'two':
-					var val = document.getElementById('val2').innerHTML;
-					val = parseInt(val) + parseInt(data.value);
-					document.getElementById('val2').innerHTML = val;
-					break;
-				case 'three':
-					var val = document.getElementById('val3').innerHTML;
-					val = parseInt(val) + parseInt(data.value);
-					document.getElementById('val3').innerHTML = val;
-					break;
-				case 'four':
-					var val = document.getElementById('val4').innerHTML;
-					val = parseInt(val) + parseInt(data.value);
-					document.getElementById('val4').innerHTML = val;
-					break;
-				case 'five':
-					var val = document.getElementById('val5').innerHTML;
-					val = parseInt(val) + parseInt(data.value);
-					document.getElementById('val5').innerHTML = val;
-					break;
-				default:
-					break;
-			}
+
+			var val = document.getElementById(data.results.toString()).children[data.index].innerHTML;
+			val = parseInt(val) + parseInt(data.value);
+			document.getElementById(data.results.toString()).children[data.index].innerHTML = val;
 			break;
 		default:
 			break;
@@ -59,15 +34,18 @@ ws.onmessage = function (event) {
 angular.module('adminApp',['adminRoutes'])
 	.controller('mainController', function() {
 		var vm = this;
+		vm.results = {r0:false,r1:false,r2:false,r3:false,r4:false,}
+		vm.startPoll = function($event,_r) {
+			for (r in vm.results) {
+				vm.results[r] = false;
+			}
+			vm.results[_r] = true;
+			console.log(vm.results);
 
-		vm.doClick = function() {
-
-			//send instruction to the server
-			ws.send(JSON.stringify({type:'nextQuestion',value:'goToQuestion1'}));
+			ws.send(JSON.stringify({type:'nextQuestion',value:$event.target.htmlFor}));
 		};
-	})
-	.controller('q1Controller', function() {
-		var vm = this;
-
-		vm.q1 = questions.q1;
+		vm.standBy = function() {
+			ws.send(JSON.stringify({type:'standBy'}));
+		}
 	});
+
