@@ -1,20 +1,26 @@
-[role="button"]
+[role='button']
 {
-	color: lighten($blue, 20);
-	text-decoration: none;
-	background-color: $navy;
-	transition: $globalTransition;
-	padding: $paddingBase;
-	position: relative;
-	display: inline-block;
-	box-sizing: border-box;
-	&:before
-	{
-		z-index: 2;
-		position: relative;
-	}
-	&:hover
-	{
-		color: $white;
-	}
+    position: relative;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    padding: $paddingBase;
+
+    transition: $globalTransition;
+    text-decoration: none;
+
+    color: $white;
+    border-radius: .2em;
+    background-color: $cyan;
+    &:before
+    {
+        position: relative;
+        z-index: 2;
+    }
+    &:hover
+    {
+        background-color: $white;
+        color: $navy;
+    }
 }
