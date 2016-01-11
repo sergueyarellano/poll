@@ -2,103 +2,173 @@
 	<ul class="dashboard_nav-list">
 		<li class="dashboard_nav-list_item">
 			<header>
-				<h1><span class="dashboard_nav-list_link dashboard_button icon star dashboard_nav-list_link"></span></h1>
+				<h1 class="dashboard_logo">logo</h1>
 			</header>
 		</li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon speech-bubble active"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon bar-graph-2"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon cog"></a></li>
-		<li class="dashboard_nav-list_item"><a href="" title="" class="dashboard_nav-list_link dashboard_button icon help"></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Current Poll" role="button" class="dashboard_nav-list_link active">Current Poll <span class="icon speech-bubble"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Stats" role="button" class="dashboard_nav-list_link">Stats <span class="icon bar-graph-2"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Manage" role="button" class="dashboard_nav-list_link">Manage <span class="icon cog"></span></a></li>
+		<li class="dashboard_nav-list_item"><a href="" title="Help" role="button" class="dashboard_nav-list_link">Help <span class="icon help"></span></a></li>
 	</ul>
 </nav>
 <div class="dashboard_content">
 	<header class="dashboard_header">
-		<h1>Feedback</h1>
+		<h2>Current Poll</h2>
 		<ul class="dashboard_header-action">
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon search global-padding"></a>
+				<a href="" title="" role="button" class="icon search global-padding"></a>
 			</li>
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon bell global-padding"></a>
+				<a href="" title="" role="button" class="icon bell global-padding"></a>
 			</li>
 			<li class="dashboard_header-action_item">
-				<a href="" title="" class="dashboard_button icon head global-padding"></a>
+				<a href="" title="" role="button" class="icon head global-padding"></a>
 			</li>
 		</ul>
 	</header>
-	<section class="dashboard_users">
-		<article class="dashboard_admin">
-			<header>
-				<h3>Total users connected: +<span id="pings"></span></h3>
-			</header>
-		</article>
-		<article class="dashboard_client">
-			<header>
-				<h3>Have voted</h3>
-			</header>
+
+	<!-- <div role="button">{{main.pollState}}</div>
+	<div role="button" ng-click="main.standBy()">Standby and save Data!</div> -->
+	<!-- <span role="button" ng-click="main.startPoll()">Start Poll</span>
+	<span role="button" ng-click="main.stopPoll()">Stop Poll</span> -->
+	<section class="dashboard_question-results">
+		<header>
+			<!-- <h3>sec 1</h3> -->
+		</header>
+		<article>
+			<ol class="dashboard_question-charts" ng-show="main.results.r0" id="results0">
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="main.pollResults.value('r0')" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">03</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+			</ol>
+			<div class="dashboard_question-charts" ng-show="main.results.r1" id="results1">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
+			<div class="dashboard_question-charts" ng-show="main.results.r2" id="results2">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
+			<div class="dashboard_question-charts" ng-show="main.results.r3" id="results3">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
+			<div class="dashboard_question-charts" ng-show="main.results.r4" id="results4">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
 		</article>
 	</section>
 	<form class="dashboard_manage">
-		<!-- <input type="radio" name="switch-questions" id="question-0">
-		<input type="radio" name="switch-questions" id="question-1">
-		<input type="radio" name="switch-questions" id="question-2">
-		<input type="radio" name="switch-questions" id="question-3"> -->
 		<section class="dashboard_admin">
 			<article>
-				<h3>5 estrellas DEMO PI3</h3>
-				<ul>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r0')"  class="dashboard_manage-question dashboard_button" for="question-0">{{main.literals.r0}}</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r1')"  class="dashboard_manage-question dashboard_button" for="question-1">{{main.literals.r1}}</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r2')"  class="dashboard_manage-question dashboard_button" for="question-2">{{main.literals.r2}}</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r3')"  class="dashboard_manage-question dashboard_button" for="question-3">{{main.literals.r3}}</label></li>
-					<li class="dashboard_manage-list_item"><label ng-click="main.showPoll('r4')"  class="dashboard_manage-question dashboard_button" for="question-4">{{main.literals.r4}}</label></li>
-				</ul>
+				<h3>{main.actualHeader}} {{main.pollState}}</h3>
+				<ol>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">{{main.literals.r0}}</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">{{main.literals.r1}}</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">{{main.literals.r2}}</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">{{main.literals.r3}}</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">{{main.literals.r4}}</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.showPoll('r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
+
+				</ol>
 			</article>
 		</section>
-		<section class="dashboard_client">
-			<header>
-				<h2>{{main.actualHeader}}</h2>
-			</header>
-			<div class="button">{{main.pollState}}</div>
-			<aside>
-				<div ng-show="main.results.r0" id="results0">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
+		<section class="dashboard_users">
+			<article class="dashboard_admin">
+				<div id="pings" class="dashboard_users-pings">
+					<p class="text">0</p>
 				</div>
-				<div ng-show="main.results.r1" id="results1">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
+				<header>
+					<h3>Linked users</h3>
+				</header>
+			</article>
+			<article class="dashboard_client">
+				<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+				    <span class="left-mask">
+				        <span class="circle"></span>
+				    </span>
+				    <span class="right-mask">
+				        <span class="circle"></span>
+				    </span>
+				    <div class="circle"></div>
 				</div>
-				<div ng-show="main.results.r2" id="results2">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-				<div ng-show="main.results.r3" id="results3">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-				<div ng-show="main.results.r4" id="results4">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-			</aside>
-			<div class="button" ng-click="main.startPoll()" ng-hide="main.started">Start Poll</div>
-			<div class="button" ng-click="main.stopPoll()" ng-show="main.started">Stop Poll</div>
+				<header>
+					<h3>Have voted</h3>
+				</header>
+			</article>
 		</section>
 	</form>
 </div>

@@ -1,15 +1,27 @@
+@charset "UTF-8";
 @import 'compass/css3';
 @import 'compass/reset';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:700,300);
+
  
 @import 'icons';
 $gray: #303030;
 $navy: #2d3e50;
 $blue: #37495d;
 $cyan: #2f9bce;
+$green: #4ac29f;
 $white: #f0f0f0;
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
+
+$greenColors: (
+    lighten($green, 20),
+    lighten($green, 10),
+    $green,
+    darken($green, 10),
+    darken($green, 20)
+);
 
 @function goldenCalc($amount) {
 	@return ($amount * 1.618) - $amount;
@@ -39,4 +51,5 @@ body
     background-color: $blue;
 }
 
+@import '../components/pure-css-charts/scss/pie-chart.scss';
 @import 'dashboard';
