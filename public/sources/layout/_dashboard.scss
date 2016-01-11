@@ -46,10 +46,14 @@ $height: goldenCalc($width);
 
 .dashboard_admin,
 .dashboard_users,
-.dashboard_manage,
-.dashboard_question-results
+.dashboard_manage
 {
     flex: 1;
+    padding: $paddingBase;
+}
+.dashboard_question-results
+{
+    flex: 0 0 auto;
     padding: $paddingBase;
 }
 
@@ -189,7 +193,8 @@ $height: goldenCalc($width);
     {
         &:nth-child(#{$i}) .star
         {
-            color: nth($greenColors, $i);
+            color: $green;
+            // color: nth($greenColors, $i);
         }
     }
 }
