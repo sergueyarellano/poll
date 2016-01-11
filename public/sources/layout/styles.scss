@@ -6,22 +6,15 @@
 
  
 @import 'icons';
+$white: #f0f0f0;
 $gray: #303030;
 $navy: #2d3e50;
 $blue: #37495d;
-$cyan: #2f9bce;
+$cyan: #2F82B8;
 $green: #4ac29f;
-$white: #f0f0f0;
+$yellow: #A89F2B;
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
-
-$greenColors: (
-    lighten($green, 20),
-    lighten($green, 10),
-    $green,
-    darken($green, 10),
-    darken($green, 20)
-);
 
 @function goldenCalc($amount) {
 	@return ($amount * 1.618) - $amount;
@@ -30,6 +23,14 @@ $greenColors: (
 .global-padding
 {
     padding: $paddingBase;
+}
+
+.accesible-hide
+{
+    text-indent: 9000px;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
 }
 
 html,

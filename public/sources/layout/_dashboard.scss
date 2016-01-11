@@ -42,14 +42,35 @@ $height: goldenCalc($width);
     {
         // display: none;
     }
+    .dashboard_poll-title
+    {
+        text-align: center;
+        padding: ($paddingBase * 3) 0;
+        h2
+        {
+            font-size: 3em;
+            padding-bottom: $paddingBase / 2;
+        }
+        .dashboard_poll-title_actions
+        {
+            display: inline-block;
+            padding-bottom: $paddingBase;
+        }
+    }
 }
 
 .dashboard_admin,
-.dashboard_users,
-.dashboard_manage
+.dashboard_users
 {
     flex: 1;
     padding: $paddingBase;
+}
+
+.dashboard_manage {
+    overflow-y: hidden;
+    & > .dashboard_admin {
+        overflow-y: auto;
+    }
 }
 .dashboard_question-results
 {
@@ -150,51 +171,28 @@ $height: goldenCalc($width);
     }
 }
 
-.border-chart
+@for $i from 1 to 6
 {
-    font-size: 10em;
-    .right-mask,
-    .left-mask
+    $this-color: mix($green, $yellow, ($i * 20%));
+    .dashboard_question-charts li:nth-child(#{$i})
     {
-        z-index: 3;
-    }
-    .circle
-    {
-        padding: 0;
-    }
-    .star
-    {
-        position: relative;
-        z-index: 2;
-        &:before {
-            font-size: .4em;
-            position: absolute;
-            z-index: 2;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
-}
-.border-chart-value
-{
-    font-size: 1em;
-    display: block;
-    line-height: 1em;
-    padding: .6em 0;
-    border-radius: 2em;
-    background-color: $navy;
-}
-
-
-.dashboard_question-charts li
-{
-    @for $i from 1 to 6
-    {
-        &:nth-child(#{$i}) .star
+        .right-mask .circle
         {
-            color: $green;
-            // color: nth($greenColors, $i);
+            border-top-color: $this-color;
+            border-right-color: $this-color;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+        .left-mask .circle
+        {
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: $this-color;
+            border-left-color: $this-color;
+        }
+        .star
+        {
+            color: $this-color;
         }
     }
 }

@@ -63,7 +63,7 @@
             {
                 padding-left: $paddingBase * 1.5;
 
-                color: lighten($blue, 20);
+                color: $navy;
                 background-size: 120% 100%;
                 box-shadow: inset ($paddingBase / 2) 0 0 0 $navy;
             }
