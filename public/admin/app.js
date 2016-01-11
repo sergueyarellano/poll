@@ -1,42 +1,18 @@
 // Init admin socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
-var totalVotes = {results0:0,results1:0,results2:0,results3:0,results4:0};
-// listen to messages
-ws.onmessage = function (event) {
-
-	var data = JSON.parse(event.data);
-
-	switch (data.type) {
-		case 'connected':
-			if (!!document.getElementById('pings')) {
-
-				document.getElementById('pings').innerHTML = data.value;
-			}
-			break;
-		case 'poll':
-			totalVotes[data.results] += 1;
-			console.log(totalVotes); 
-			var val = document.getElementById(data.results.toString()).children[data.index].innerHTML;
-			val = parseInt(val) + parseInt(data.value);
-			document.getElementById(data.results.toString()).children[data.index].innerHTML = val;
-			break;
-		default:
-			break;
-	}
-}
 
 var pollResults = {
 	
 	r0:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r1:{oneStar:1, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r2:{oneStar:2, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r3:{oneStar:3, twoStar:0, threeStar:0, fourStar:3, fiveStar:0},
-	r4:{oneStar:4, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r5:{oneStar:5, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r6:{oneStar:6, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r7:{oneStar:7, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
-	r8:{oneStar:8, twoStar:0, threeStar:0, fourStar:0, fiveStar:0}
+	r1:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r2:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r3:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r4:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r5:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r6:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r7:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
+	r8:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0}
 };
 
 var questionResults = {
@@ -55,9 +31,11 @@ var questionResults = {
 };
 
 angular.module('adminApp',['adminRoutes'])
-	.controller('mainController', function() {
+	.controller('mainController', function($scope) {
 		var vm = this;
 
+		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false};
+		vm.started = false;
 		vm.literals = {r0:'Question 1 stats',r1:'Question 2 stats',r2:'Question 3 stats',r3:'Question 4 stats',r4:'Question 5 stats'};
 		vm.questionHeader = vm.literals.r0;
 		vm.pollState = 'Pulsa Start para comenzar con la votacion';
@@ -65,7 +43,31 @@ angular.module('adminApp',['adminRoutes'])
 		vm.questionActive = 'r0';
 		vm.questionResults = questionResults;
 
+		ws.onmessage = function (event) {
+
+			var data = JSON.parse(event.data);
+
+			switch (data.type) {
+				case 'connected':
+					if (!!document.getElementById('pings')) {
+						document.getElementById('pings').innerHTML = data.value;
+					}
+					break;
+				case 'poll':
+					vm.pollResults[data.results][data.index] += parseInt(data.value,10);
+					vm.questionResults[data.index] += parseInt(data.value,10);
+					$scope.$apply();
+					break;
+				default:
+					break;
+			}
+		}
+
 		vm.showQuestionResults = function(rId) {
+			for (r in vm.results) {
+				vm.results[r] = false;
+			}
+			vm.results[rId] = true;
 
 			vm.questionHeader = vm.literals[rId];
 			vm.questionActive = rId;
@@ -75,6 +77,7 @@ angular.module('adminApp',['adminRoutes'])
 				}
 			}
 		};
+
 		vm.startPoll = function($event) {
 
 			if (!vm.started) {
@@ -116,6 +119,9 @@ angular.module('adminApp',['adminRoutes'])
 
                 $scope.myvalue = value;
             });
+            $scope.$watch(attributes.myvotes, function(value) {
+
+            })
 	      },
 	      controller: function($scope, $element) {},
 	      template:

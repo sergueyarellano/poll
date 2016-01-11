@@ -12,7 +12,6 @@
 		<li class="dashboard_nav-list_item"><a href="" title="Help" role="button" class="dashboard_nav-list_link">Help <span class="icon help"></span></a></li>
 	</ul>
 </nav>
-<div>{{main.questionResults.oneStar}}</div>
 <div class="dashboard_content ng-scope">
 	<header class="dashboard_header">
 		<h1>App name</h1>
@@ -47,7 +46,6 @@
 						<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getStarPercentage('threeStar')}}"></pollstar>
 						<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getStarPercentage('fourStar')}}"></pollstar>
 						<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getStarPercentage('fiveStar')}}"></pollstar>
-				
 				</ol>
 			</article>
 		</section>
@@ -69,8 +67,8 @@
 				</section>
 				<section class="dashboard_users">
 					<article class="dashboard_admin">
-						<div id="pings" class="dashboard_users-pings">
-							<p class="text">1</p>
+						<div class="dashboard_users-pings">
+							<p id="pings" class="text">1</p>
 						</div>
 						<header>
 							<h3>Linked users</h3>
