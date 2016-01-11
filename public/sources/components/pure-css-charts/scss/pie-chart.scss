@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .border-chart {
-    $chart-size: 6em;
+    $chart-size: 8em;
     $chart-color: transparent;
     $chart-border-width: 2px;
     $chart-padding: .4em;
@@ -19,14 +19,14 @@
     $value4-color: #4ac29f;
     $value5-color: #4ac29f;
     $value6-color: #4ac29f;
-    $this-color: $value1-color;
+    $this-color: $cyan;
 
     .circle {
         border-radius: 50%;
         transition: transform $transition-speed ease-out;
         width: 1em;
         height: 1em;
-        padding: $chart-padding;
+        // padding: $chart-padding;
         display: inline-block;
         border: $chart-border-width solid $navy;
         box-sizing: border-box;
@@ -34,6 +34,7 @@
     .left-mask,
     .right-mask {
         position: absolute;
+        z-index: 3;
         top: 0;
         width: 50% - 1;
         height: 100%;
@@ -64,12 +65,25 @@
             border-left-color: transparent;
         }
     }
-    .icon {
-        width: 1em;
-        height: 1em;
-        display: inline-block;
+    // .icon {
+    //     width: 1em;
+    //     height: 1em;
+    //     display: inline-block;
+    //     &:before {
+    //         line-height: 1em;
+    //     }
+    // }
+    .icon
+    {
+        position: relative;
+        z-index: 2;
         &:before {
-            line-height: 1em;
+            font-size: .3em;
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
@@ -107,6 +121,16 @@
         overflow: hidden;
         text-indent: -9000px;
     }
+}
+
+.border-chart-value
+{
+    font-size: 1em;
+    display: block;
+    line-height: 1em;
+    padding: .6em 0;
+    border-radius: .2em;
+    background-color: $navy;
 }
 
 @keyframes adjustPosition {
