@@ -65,25 +65,34 @@
             border-left-color: transparent;
         }
     }
-    // .icon {
-    //     width: 1em;
-    //     height: 1em;
-    //     display: inline-block;
-    //     &:before {
-    //         line-height: 1em;
-    //     }
-    // }
     .icon
     {
         position: relative;
         z-index: 2;
-        &:before {
+        &:before
+        {
             font-size: .3em;
             position: absolute;
             z-index: 2;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+    .users-count
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .number
+        {
+            font-size: .3em;
+            color: $cyan;
+        }
+        .label
+        {
+            font-size: .125em;
         }
     }
 

@@ -54,7 +54,6 @@ $height: goldenCalc($width);
         .dashboard_poll-title_actions
         {
             display: inline-block;
-            padding-bottom: $paddingBase;
         }
     }
 }
@@ -63,32 +62,46 @@ $height: goldenCalc($width);
 .dashboard_users
 {
     flex: 1;
-    padding: $paddingBase;
 }
 
-.dashboard_manage {
+.dashboard_manage
+{
     overflow-y: hidden;
     & > .dashboard_admin {
         overflow-y: auto;
     }
 }
+.dashboard_manage,
+.dashboard_question-results
+{
+    padding: $paddingBase ($paddingBase * 6);
+}
 .dashboard_question-results
 {
     flex: 0 0 auto;
-    padding: $paddingBase;
+    padding-bottom: $paddingBase * 2;
 }
 
 .dashboard_question-charts
 {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
+}
+.dashboard_clients
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 .dashboard_users
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-left: $paddingBase * 2;
 
     text-align: center;
     .dashboard_users-pings
@@ -168,6 +181,18 @@ $height: goldenCalc($width);
     &:nth-child(6) .dashboard_manage-question:before
     {
         content: 'F';
+    }
+    &:nth-child(7) .dashboard_manage-question:before
+    {
+        content: 'G';
+    }
+    &:nth-child(8) .dashboard_manage-question:before
+    {
+        content: 'H';
+    }
+    &:nth-child(9) .dashboard_manage-question:before
+    {
+        content: 'I';
     }
 }
 
