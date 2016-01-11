@@ -26,28 +26,105 @@
 			</li>
 		</ul>
 	</header>
-	<section class="dashboard_users">
-		<article class="dashboard_admin">
-			<div id="pings" class="dashboard_users-pings">
-				<p class="text"></p>
+	<!-- <div role="button">{{main.pollState}}</div>
+	<div role="button" ng-click="main.standBy()">Standby and save Data!</div> -->
+	<!-- <span role="button" ng-click="main.startPoll()">Start Poll</span>
+	<span role="button" ng-click="main.stopPoll()">Stop Poll</span> -->
+	<section class="dashboard_question-results">
+		<header>
+			<!-- <h3>sec 1</h3> -->
+		</header>
+		<article>
+			<ol class="dashboard_question-charts" ng-show="main.results.r0" id="results0">
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">03</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+				<li>
+					<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+					    <span class="left-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <span class="right-mask">
+					        <span class="circle"></span>
+					    </span>
+					    <div class="circle icon star"></div>
+					</div>
+					<span class="border-chart-value">3</span>
+				</li>
+			</ol>
+			<div class="dashboard_question-charts" ng-show="main.results.r1" id="results1">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
 			</div>
-			<header>
-				<h3>Linked users</h3>
-			</header>
-		</article>
-		<article class="dashboard_client">
-			<div class="border-chart color-2" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
-			    <span class="left-mask">
-			        <span class="circle"></span>
-			    </span>
-			    <span class="right-mask">
-			        <span class="circle"></span>
-			    </span>
-			    <div class="circle"></div>
+			<div class="dashboard_question-charts" ng-show="main.results.r2" id="results2">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
 			</div>
-			<header>
-				<h3>Have voted</h3>
-			</header>
+			<div class="dashboard_question-charts" ng-show="main.results.r3" id="results3">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
+			<div class="dashboard_question-charts" ng-show="main.results.r4" id="results4">
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+				<div>0</div>
+			</div>
 		</article>
 	</section>
 	<form class="dashboard_manage">
@@ -56,58 +133,36 @@
 				<h3>Questions</h3>
 				<ol>
 					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r1')" role="button" class="dashboard_manage-question">Question's title</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r2')" role="button" class="dashboard_manage-question">Question's title</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r3')" role="button" class="dashboard_manage-question">Question's title</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r4')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item disabled"><span ng-click="main.startPoll($event,'r1')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item disabled"><span ng-click="main.startPoll($event,'r2')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item disabled"><span ng-click="main.startPoll($event,'r3')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item disabled"><span ng-click="main.startPoll($event,'r4')" role="button" class="dashboard_manage-question">Question's title</span></li>
 				</ol>
 			</article>
 		</section>
-		<section class="dashboard_client">
-			<header>
-				<h3>sec 1</h3>
-			</header>
-			<div role="button">{{main.pollState}}</div>
-			<div role="button" ng-click="main.standBy()">Standby and save Data!</div>
-			<article>
-				<div ng-show="main.results.r0" id="results0">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
+		<section class="dashboard_users">
+			<article class="dashboard_admin">
+				<div id="pings" class="dashboard_users-pings">
+					<p class="text">0</p>
 				</div>
-				<div ng-show="main.results.r1" id="results1">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-				<div ng-show="main.results.r2" id="results2">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-				<div ng-show="main.results.r3" id="results3">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
-				<div ng-show="main.results.r4" id="results4">
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-					<div>0</div>
-				</div>
+				<header>
+					<h3>Linked users</h3>
+				</header>
 			</article>
-			<div role="button" ng-click="main.startPoll()">Start Poll</div>
-			<div role="button" ng-click="main.stopPoll()">Stop Poll</div>
+			<article class="dashboard_client">
+				<div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" role="progressbar">
+				    <span class="left-mask">
+				        <span class="circle"></span>
+				    </span>
+				    <span class="right-mask">
+				        <span class="circle"></span>
+				    </span>
+				    <div class="circle"></div>
+				</div>
+				<header>
+					<h3>Have voted</h3>
+				</header>
+			</article>
 		</section>
 	</form>
 </div>
