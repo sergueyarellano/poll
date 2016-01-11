@@ -36,8 +36,6 @@ $height: goldenCalc($width);
     display: flex;
     flex-direction: column;
 
-    padding: ($paddingBase * .5) ($paddingBase * .5) 0 ($paddingBase * 1.5);
-
     align-self: stretch;
     flex: 1;
     [name='switch-questions']
@@ -49,11 +47,14 @@ $height: goldenCalc($width);
 .dashboard_manage
 {
     flex: 1;
+    padding: ($paddingBase * .5) ($paddingBase * .5) 0 ($paddingBase * 1.5);
 }
 .dashboard_users
 {
     display: flex;
     flex-direction: row;
+
+    padding: ($paddingBase * .5) ($paddingBase * .5) 0 ($paddingBase * 1.5);
 
     text-align: center;
     .dashboard_users-pings

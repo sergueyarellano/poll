@@ -2,7 +2,7 @@
 	<ul class="dashboard_nav-list">
 		<li class="dashboard_nav-list_item">
 			<header>
-				<h1>logo</h1>
+				<h1 class="dashboard_logo">logo</h1>
 			</header>
 		</li>
 		<li class="dashboard_nav-list_item"><a href="" title="Current Poll" role="button" class="dashboard_nav-list_link active">Current Poll <span class="icon speech-bubble"></span></a></li>
@@ -13,7 +13,7 @@
 </nav>
 <div class="dashboard_content">
 	<header class="dashboard_header">
-		<h2>Feedback</h2>
+		<h2>Current Poll</h2>
 		<ul class="dashboard_header-action">
 			<li class="dashboard_header-action_item">
 				<a href="" title="" role="button" class="icon search global-padding"></a>
@@ -53,13 +53,13 @@
 	<form class="dashboard_manage">
 		<section class="dashboard_admin">
 			<article>
-				<h3>Poll's title</h3>
+				<h3>Questions</h3>
 				<ol>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r0')" role="button" class="dashboard_manage-question">Question 0</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r1')" role="button" class="dashboard_manage-question">Question 1</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r2')" role="button" class="dashboard_manage-question">Question 2</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r3')" role="button" class="dashboard_manage-question">Question 3</span></li>
-					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r4')" role="button" class="dashboard_manage-question">Question 3</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r0')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r1')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r2')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r3')" role="button" class="dashboard_manage-question">Question's title</span></li>
+					<li class="dashboard_manage-list_item"><span ng-click="main.startPoll($event,'r4')" role="button" class="dashboard_manage-question">Question's title</span></li>
 				</ol>
 			</article>
 		</section>
@@ -106,8 +106,8 @@
 					<div>0</div>
 				</div>
 			</article>
-			<div class="button" ng-click="main.startPoll()">Start Poll</div>
-			<div class="button" ng-click="main.stopPoll()">Stop Poll</div>
+			<div role="button" ng-click="main.startPoll()">Start Poll</div>
+			<div role="button" ng-click="main.stopPoll()">Stop Poll</div>
 		</section>
 	</form>
 </div>

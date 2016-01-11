@@ -4,12 +4,21 @@
 
     justify-content: space-between;
     align-items: center;
-    .dashboard_header-action
+
+    padding-left: ($paddingBase * 1.5);
+
+    background-color: $navy;
+}
+.dashboard_header-action
+{
+    display: flex;
+    .dashboard_header-action_item
     {
-        display: flex;
-        .dashboard_header-action_item
+        display: inline-block;
+        [role="button"]
         {
-            display: inline-block;
+        	border-radius: 0;
+        	background-color: transparent;
         }
     }
 }

@@ -32,9 +32,11 @@
     }
     .dashboard_nav-list_item
     {
-        header
+        .dashboard_logo
         {
+            color: $navy;
             text-align: center;
+            padding: $paddingBase;
         }
         .dashboard_nav-list_link
         {
@@ -45,6 +47,7 @@
             display: flex;
             // margin: 0 $paddingBase;
             // padding: $paddingBase 0;
+            border-radius: 0;
 
             color: lighten($gray, 50);
             background-color: $white;
