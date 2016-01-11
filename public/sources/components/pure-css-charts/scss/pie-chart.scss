@@ -3,23 +3,32 @@
 .border-chart {
     $chart-size: 6em;
     $chart-color: transparent;
+    $chart-border-width: 2px;
+    $chart-padding: .4em;
     $transition-speed: .3s;
-    $this-color: $green;
     //POSITIONS
     $left-angle-base: 225deg;
     $right-angle-base: -135deg;
     position: relative;
     display: inline-block;
     font-size: $chart-size;
+    //COLORS
+    $value1-color: #4ac29f;
+    $value2-color: #4ac29f;
+    $value3-color: #4ac29f;
+    $value4-color: #4ac29f;
+    $value5-color: #4ac29f;
+    $value6-color: #4ac29f;
+    $this-color: $value1-color;
 
     .circle {
         border-radius: 50%;
         transition: transform $transition-speed ease-out;
         width: 1em;
         height: 1em;
-        padding: .52em;
+        padding: $chart-padding;
         display: inline-block;
-        border: 2px solid $navy;
+        border: $chart-border-width solid $navy;
         box-sizing: border-box;
     }
     .left-mask,
@@ -30,7 +39,7 @@
         height: 100%;
         overflow: hidden;
         .circle {
-            // border-width: 4px;
+            border-width: ($chart-border-width * 3);
             transform: rotate(225deg);
             position: absolute;
             top: 0;
