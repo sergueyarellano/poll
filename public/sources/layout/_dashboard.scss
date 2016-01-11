@@ -51,6 +51,12 @@ $height: goldenCalc($width);
     flex: 1;
     padding: $paddingBase;
 }
+.dashboard_manage {
+    overflow-y: hidden;
+    & > .dashboard_admin {
+        overflow-y: auto;
+    }
+}
 .dashboard_question-results
 {
     flex: 0 0 auto;
