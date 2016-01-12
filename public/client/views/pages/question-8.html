@@ -1,26 +1,26 @@
 <section class="poll_client-content active">
 	<h1 class="poll_client-title">{{ q8.q8.title }}</h1>
 	<article class="poll_client-rating">
+		<input type="radio" id="rating0" name="rating" value="1">
+		<input type="radio" id="rating1" name="rating" value="2">
+		<input type="radio" id="rating2" name="rating" value="3">
+		<input type="radio" id="rating3" name="rating" value="4">
+		<input type="radio" id="rating4" name="rating" value="5">
 		<ol class="poll_client-rating_stars">
 			<li class="poll_client-rating_option">
-				<input type="radio" id="rating-0" name="rating" value="1">
-				<label for="rating-0" ng-click="main.sendPoll('r8','oneStar')">Rate it!</label>
+				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.sendPoll('r8','oneStar')"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<input type="radio" id="rating-1" name="rating" value="2">
-				<label for="rating-1" ng-click="main.sendPoll('r8','twoStar')">Rate it!</label>
+				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.sendPoll('r8','twoStar')"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<input type="radio" id="rating-2" name="rating" value="3">
-				<label for="rating-2" ng-click="main.sendPoll('r8','threeStar')">Rate it!</label>
+				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.sendPoll('r8','threeStar')"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<input type="radio" id="rating-3" name="rating" value="4">
-				<label for="rating-3" ng-click="main.sendPoll('r8','fourStar')">Rate it!</label>
+				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.sendPoll('r8','fourStar')"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<input type="radio" id="rating-4" name="rating" value="5">
-				<label for="rating-4" ng-click="main.sendPoll('r8','fiveStar')">Rate it!</label>
+				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.sendPoll('r8','fiveStar')"></label>
 			</li>
 		</ol>
 	</article>
