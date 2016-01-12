@@ -9,7 +9,7 @@ var questions = {
 	q7:{title:'Valora la demo del programa "CARE"'},
 	q8:{title:'Valora la demo del "Mobile Channel"'}
 }
-var savedVote = {};
+var savedVote = {r0:{href:'',value:0, send:false},r1:{href:'',value:0, send:false},r2:{href:'',value:0, send:false},r3:{href:'',value:0, send:false},r4:{href:'',value:0, send:false},r5:{href:'',value:0, send:false},r6:{href:'',value:0, send:false},r7:{href:'',value:0, send:false},r8:{href:'',value:0, send:false},type:'',currentTarget:'r0'};
 
 // Init client socket interface
 var host = location.origin.replace(/^http/, 'ws');
@@ -27,10 +27,12 @@ angular.module('welcomeApp',['welcomeRoutes'])
 
 			switch (data.type) {
 				case 'nextQuestion':
-					if (savedVote.href === data.href && savedVote.value === 1) {
+					if (savedVote[data.qId].href === data.href && savedVote[data.qId].value === 1) {
 						$location.path('/welcome/voted');
 					} else {
-						savedVote = {type:'empty'};
+						savedVote.currentTarget = data.qId;
+						savedVote[data.qId].send = false;
+						console.log(savedVote);
 						$location.path(data.href);
 					}
 					vm.applyThings();
@@ -39,11 +41,9 @@ angular.module('welcomeApp',['welcomeRoutes'])
 					$location.path('/welcome/standBy');
 					vm.applyThings();
 					break;
-				case 'rerun':
-					if (savedVote.value === -1) {
-						$location.path('/welcome/voted');
-						vm.applyThings();
-					}
+
+				case 'reconnect':
+					window.location.href = '/welcome/init';
 					break;
 				case 'connected':
 					if (!!document.querySelector('#pings p')) {
@@ -59,25 +59,26 @@ angular.module('welcomeApp',['welcomeRoutes'])
 
 			$scope.$apply();
 		}
-		vm.savePoll = function (results, index) {
+		vm.savePoll = function (results, starId) {
 
-			savedVote = {type:'poll',results:results, index:index, value:1, href:$location.path()};
+			savedVote[results] = {type:'poll',results:results, index:starId, value:1, href:$location.path(), send:true};
+			savedVote.currentTarget = results;
 		}
 
 		// $scope.$apply();
 		vm.sendPoll = function () {
 
-			if (savedVote.type !== 'empty') {
+			if (savedVote[savedVote.currentTarget].send) {
 
-				ws.send(JSON.stringify(savedVote));
+				ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
 				$location.path('/welcome/thanks');
-			} 
+			}
 
 		}
 		vm.changeVote = function() {
-			savedVote.value = -1;
-			ws.send(JSON.stringify(savedVote));
-			$location.path(savedVote.href);
+			savedVote[savedVote.currentTarget].value = -1;
+			ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
+			$location.path(savedVote[savedVote.currentTarget].href);
 			// vm.applyThings();
 		}
 	})
