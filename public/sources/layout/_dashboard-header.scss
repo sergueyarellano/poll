@@ -1,14 +1,24 @@
 .dashboard_header
 {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	.dashboard_header-action
-	{
-		display: flex;
-		.dashboard_header-action_item
-		{
-			display: inline-block;
-		}
-	}
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: $paddingBase;
+
+    background-color: $navy;
+}
+.dashboard_header-action
+{
+    display: flex;
+    .dashboard_header-action_item
+    {
+        display: inline-block;
+        [role="button"]
+        {
+        	border-radius: 0;
+        	background-color: transparent;
+        }
+    }
 }

@@ -1,13 +1,18 @@
+@charset "UTF-8";
 @import 'compass/css3';
 @import 'compass/reset';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:700,300);
+
  
 @import 'icons';
+$white: #f0f0f0;
 $gray: #303030;
 $navy: #2d3e50;
 $blue: #37495d;
-$cyan: #2f9bce;
-$white: #f0f0f0;
+$cyan: #2F82B8;
+$green: #4ac29f;
+$yellow: #A89F2B;
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
 
@@ -18,6 +23,14 @@ $globalTransition: all .3s ease-in-out;
 .global-padding
 {
     padding: $paddingBase;
+}
+
+.accesible-hide
+{
+    text-indent: 9000px;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
 }
 
 html,
@@ -39,4 +52,5 @@ body
     background-color: $blue;
 }
 
+@import '../components/pure-css-charts/scss/pie-chart.scss';
 @import 'dashboard';
