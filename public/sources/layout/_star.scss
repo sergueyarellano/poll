@@ -1,33 +1,55 @@
 .logo-container {
-    padding-top: 1em;
-    padding-bottom: 2em;
+    padding: $paddingBase;
     display: flex;
     justify-content: center;
-    .logo {
+    .star-logo {
         position: relative;
-        font-size: 75px;
-        .patricio {
+        font-size: 4em;
+        .arm
+        {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            border-radius: 1em;
+            background-color: red;
+            &:before
+            {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                
+            }
+        }
+        /* .patricio {
             width: 1em;
             height: 1em;
             transform-origin: 0.5em 0.73em;
-            g path { fill: red; }
+            g path {
+                fill: rgba($blue, .6);
+            }
             &:not(:first-child) {
                 position: absolute;
                 left: 0;
                 top: 0;
             }
-            &:nth-child(2) {
-                transform: rotate(72deg);
+            @for $i from 1 to 6
+            {
+                &:nth-child(#{$i})
+                {
+                    transform: rotate(72deg * $i);
+                    g path {
+                        fill: rgba($blue, (1 * ($i/10)));
+                    }
+                }
             }
-            &:nth-child(3) {
-                transform: rotate(144deg);
-            }
-            &:nth-child(4) {
-                transform: rotate(216deg);
-            }
-            &:last-child {
-                transform: rotate(288deg);
-            }
-        }
+        } */
+    }
+}
+
+@keyframes starAnimation
+{
+    0%
+    {
+        // transform: rotate(72deg * $i);
     }
 }
