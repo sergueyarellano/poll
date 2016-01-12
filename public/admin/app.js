@@ -34,15 +34,25 @@ angular.module('adminApp',['adminRoutes'])
 	.controller('mainController', function($scope) {
 		var vm = this;
 
-		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false};
+		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:false,r6:false,r7:false,r8:false};
 		vm.started = false;
-		vm.literals = {r0:'Question 1 stats',r1:'Question 2 stats',r2:'Question 3 stats',r3:'Question 4 stats',r4:'Question 5 stats'};
+		vm.literals = {
+			r0:'Valora la demo del programa "Venta Digital"',
+			r1:'Valora la demo del programa "DBI"',
+			r2:'Valora la demo del programa "Alta y Contratación"',
+			r3:'Valora la demo del programa "MOOM"',
+			r4:'Valora la demo del programa "Feedback"',
+			r5:'Valora la demo del programa "SDM"',
+			r6:'Valora la demo del programa "Digital Payments"',
+			r7:'Valora la demo del programa "CARE"',
+			r8:'Valora la demo del "Mobile Channel"'
+		};
 		vm.questionHeader = vm.literals.r0;
 		vm.pollState = 'Pulsa Start para comenzar con la votacion';
 		vm.pollResults = pollResults;
 		vm.questionActive = 'r0';
 		vm.questionResults = questionResults;
-
+		vm.disabled = "disabled";
 		ws.onmessage = function (event) {
 
 			var data = JSON.parse(event.data);

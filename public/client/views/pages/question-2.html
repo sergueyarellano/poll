@@ -1,8 +1,30 @@
-<div class="jumbotron text-center">
-	<h1>{{ q2.q2.title }}</h1>
-	<button ng-click="main.sendPoll($event,'r2','oneStar')" value="1">One</button>
-	<button ng-click="main.sendPoll($event,'r2','twoStar')" value="1">Two</button>
-	<button ng-click="main.sendPoll($event,'r2','threeStar')" value="1">three</button>
-	<button ng-click="main.sendPoll($event,'r2','fourStar')" value="1">four</button>
-	<button ng-click="main.sendPoll($event,'r2','fiveStar')" value="1">five</button>
-</div>
+<section class="poll_client-content active">
+	<h1 class="poll_client-title">{{ q2.q2.title }}</h1>
+	<article class="poll_client-rating">
+		<input type="radio" id="rating0" name="rating" value="1">
+		<input type="radio" id="rating1" name="rating" value="2">
+		<input type="radio" id="rating2" name="rating" value="3">
+		<input type="radio" id="rating3" name="rating" value="4">
+		<input type="radio" id="rating4" name="rating" value="5">
+		<ol class="poll_client-rating_stars">
+			<li class="poll_client-rating_option">
+				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.savePoll('r2','oneStar')"></label>
+			</li>
+			<li class="poll_client-rating_option">
+				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.savePoll('r2','twoStar')"></label>
+			</li>
+			<li class="poll_client-rating_option">
+				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.savePoll('r2','threeStar')"></label>
+			</li>
+			<li class="poll_client-rating_option">
+				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.savePoll('r2','fourStar')"></label>
+			</li>
+			<li class="poll_client-rating_option">
+				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.savePoll('r2','fiveStar')"></label>
+			</li>
+		</ol>
+	</article>
+	<article class="poll_client-rating_button">
+		<div ng-click="main.sendPoll()" role="button">Vote!</div>
+	</article>
+</section>
