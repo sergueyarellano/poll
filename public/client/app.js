@@ -1,9 +1,13 @@
 var questions = {
-	q0:{title:'Question one, vote!', answerA:'vote Good',answerB:'vote Bad'},
-	q1:{title:'Question two, vote!', answerA:'vote Good',answerB:'vote Bad'},
-	q2:{title:'Question three', answerA:'Better',answerB:'Worse'},
-	q3:{title:'Question four, vote!', answerA:'vote Good',answerB:'vote Bad'},
-	q4:{title:'Question five', answerA:'Batman',answerB:'Robin'}
+	q0:{title:'Valora la demo del programa "Venta Digital"'},
+	q1:{title:'Valora la demo del programa "DBI"'},
+	q2:{title:'Valora la demo del programa "Alta y Contratación"'},
+	q3:{title:'Valora la demo del programa "MOOM"'},
+	q4:{title:'Valora la demo del programa "Feedback"'},
+	q5:{title:'Valora la demo del programa "SDM"'},
+	q6:{title:'Valora la demo del programa "Digital Payments"'},
+	q7:{title:'Valora la demo del programa "CARE"'},
+	q8:{title:'Valora la demo del "Mobile Channel"'}
 }
 var savedVote = {};
 
@@ -46,8 +50,8 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			$scope.$apply();
 		}
 		// $scope.$apply();
-		vm.sendPoll = function ($event, results, index) {
-			savedVote = {type:'poll',results:results, index:index, value:$event.target.value, href:$location.path()};
+		vm.sendPoll = function (results, index) {
+			savedVote = {type:'poll',results:results, index:index, value:1, href:$location.path()};
 			ws.send(JSON.stringify(savedVote));
 			$location.path('/welcome/thanks');
 		}
@@ -87,6 +91,26 @@ angular.module('welcomeApp',['welcomeRoutes'])
 		var vm = this;
 
 		vm.q4 = questions.q4;
+	})
+	.controller('q5Controller', function() {
+		var vm = this;
+
+		vm.q5 = questions.q5;
+	})
+	.controller('q6Controller', function() {
+		var vm = this;
+
+		vm.q6 = questions.q6;
+	})
+	.controller('q7Controller', function() {
+		var vm = this;
+
+		vm.q7 = questions.q7;
+	})
+	.controller('q8Controller', function() {
+		var vm = this;
+
+		vm.q8 = questions.q8;
 	})
 	.controller('standByController', function() {
 		var vm = this;

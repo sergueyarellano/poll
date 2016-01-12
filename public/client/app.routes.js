@@ -32,6 +32,26 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'q4Controller',
 			controllerAs: 'q4'
 		})
+		.when('/welcome/r5', {
+			templateUrl: 'client/views/pages/question-5.html',
+			controller: 'q5Controller',
+			controllerAs: 'q5'
+		})
+		.when('/welcome/r6', {
+			templateUrl: 'client/views/pages/question-6.html',
+			controller: 'q6Controller',
+			controllerAs: 'q6'
+		})
+		.when('/welcome/r7', {
+			templateUrl: 'client/views/pages/question-7.html',
+			controller: 'q7Controller',
+			controllerAs: 'q7'
+		})
+		.when('/welcome/r8', {
+			templateUrl: 'client/views/pages/question-8.html',
+			controller: 'q8Controller',
+			controllerAs: 'q8'
+		})
 		.when('/welcome/standBy', {
 			templateUrl: 'client/views/pages/standBy.html',
 			controller: 'standByController',
