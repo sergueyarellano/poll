@@ -8,6 +8,8 @@
     padding-left: $paddingBase;
 
     background-color: $navy;
+    box-shadow: 5em .5em 5em 3em $blue;
+    z-index: 10;
 }
 .dashboard_header-action
 {
