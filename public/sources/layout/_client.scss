@@ -1,0 +1,85 @@
+.body_client
+{
+	align-items: center;
+	flex-direction: column;
+}
+.poll_client
+{
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.poll_client-status
+{
+	flex: 0 0 1em;
+	display: block;
+	&[data-status="conected"]
+	{
+		background-color: green;
+	}
+	&[data-status="disconected"]
+	{
+		background-color: red;
+	}
+	&[data-status="waiting"]
+	{
+		background-color: grey;
+	}
+}
+
+.poll_client-title
+{
+	flex: 0 0 auto;
+	text-align: center;
+	padding: $paddingBase/2 $paddingBase 0;
+	font-size: 2em;
+}
+
+.poll_client-content
+{
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 $paddingBase;
+	box-sizing: border-box;
+	text-align: center;
+	&.active
+	{
+		justify-content: space-between;
+	}
+}
+
+.poll_client-rating
+{
+	width: 100%;
+}
+
+.poll_client-rating_stars
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	text-align: center;
+	.poll_client-rating_option
+	{
+		flex: 1;
+	}
+}
+
+.poll_client-rating_button
+{
+	padding: $paddingBase;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	[role="button"]
+	{
+		flex: 1;
+	}
+}
