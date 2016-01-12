@@ -203,7 +203,7 @@ $height: goldenCalc($width);
 
 @for $i from 1 to 6
 {
-    $this-color: mix($green, $yellow, ($i * 20%));
+    $this-color: mix($green, $pink, ($i * 20%));
     .dashboard_question-charts li:nth-child(#{$i})
     {
         .right-mask .circle
