@@ -16,7 +16,6 @@ var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
 // listen to messages
-
 angular.module('welcomeApp',['welcomeRoutes'])
 
 	.controller('mainController', function($scope,$location) {
