@@ -49,9 +49,13 @@ angular.module('welcomeApp',['welcomeRoutes'])
 
 			$scope.$apply();
 		}
-		// $scope.$apply();
-		vm.sendPoll = function (results, index) {
+		vm.savePoll = function (results, index) {
 			savedVote = {type:'poll',results:results, index:index, value:1, href:$location.path()};
+		}
+
+		// $scope.$apply();
+		vm.sendPoll = function () {
+			
 			ws.send(JSON.stringify(savedVote));
 			$location.path('/welcome/thanks');
 		}
