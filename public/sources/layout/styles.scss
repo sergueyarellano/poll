@@ -16,6 +16,7 @@ $yellow: #A89F2B;
 $pink: #F73292;
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
+$globalTransitionBezier: all 0.5s cubic-bezier(0.6, -0.54, 0.44, 1.47);
 
 @function goldenCalc($amount) {
 	@return ($amount * 1.618) - $amount;
