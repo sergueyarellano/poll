@@ -28,12 +28,23 @@ angular.module('welcomeApp',['welcomeRoutes'])
 
 			switch (data.type) {
 				case 'nextQuestion':
-					$location.path('/welcome/' + data.value);
+					if (savedVote.href === data.href && savedVote.value === 1) {
+						$location.path('/welcome/voted');
+					} else {
+						savedVote = {type:'empty'};
+						$location.path(data.href);
+					}
 					vm.applyThings();
 					break;
 				case 'standBy':
 					$location.path('/welcome/standBy');
 					vm.applyThings();
+					break;
+				case 'rerun':
+					if (savedVote.value === -1) {
+						$location.path('/welcome/voted');
+						vm.applyThings();
+					}
 					break;
 				case 'connected':
 					if (!!document.querySelector('#pings p')) {
@@ -50,14 +61,19 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			$scope.$apply();
 		}
 		vm.savePoll = function (results, index) {
+
 			savedVote = {type:'poll',results:results, index:index, value:1, href:$location.path()};
 		}
 
 		// $scope.$apply();
 		vm.sendPoll = function () {
-			
-			ws.send(JSON.stringify(savedVote));
-			$location.path('/welcome/thanks');
+
+			if (savedVote.type !== 'empty') {
+
+				ws.send(JSON.stringify(savedVote));
+				$location.path('/welcome/thanks');
+			} 
+
 		}
 		vm.changeVote = function() {
 			savedVote.value = -1;

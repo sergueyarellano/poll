@@ -106,7 +106,7 @@
                         <h3>Linked users</h3>
                     </header>
                     <div id="pings" class="dashboard_users-pings text">00</div>
-                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="progressbar">
+                    <div id="votes-percentage" class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getTotalVotesPercentage()}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
                         </span>
@@ -114,8 +114,8 @@
                                 <span class="circle"></span>
                         </span>
                         <div class="circle users-count">
-                            <span class="label">votes</span>
-                            <span class="number">01</span>
+                            <span class="label">total votes</span>
+                            <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
                         </div>
                     </div>
                 </article>
