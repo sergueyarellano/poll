@@ -9,6 +9,8 @@ var compass = require('node-compass');
 var root = require('./routes/root');
 var admin = require('./routes/admin');
 var welcome = require('./routes/welcome');
+var results = require('./routes/results');
+
 var welcomeJSON = require('./routes/welcomeJSON');
 var app = express();
 
@@ -37,7 +39,7 @@ app.use('/welcome', welcomeJSON);
 
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
-
+app.use('/results', results);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

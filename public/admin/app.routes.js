@@ -11,6 +11,9 @@ angular.module('adminRoutes', ['ngRoute'])
 			templateUrl: 'admin/views/pages/q1.html',
 			controller: 'q1Controller',
 			controllerAs: 'q1'
+		})
+		.when('/results', {
+			templateUrl: 'admin/views/pages/results.html'
 		});
 
 		$locationProvider.html5Mode(true);
