@@ -58,19 +58,24 @@ $height: goldenCalc($width);
     }
 }
 
+.scroll-area {
+    overflow: scroll;
+}
+
 .dashboard_admin,
 .dashboard_users
 {
     flex: 1;
 }
 
-.dashboard_manage
-{
-    overflow-y: hidden;
-    & > .dashboard_admin {
-        overflow-y: auto;
-    }
-}
+// .dashboard_manage
+// {
+//     overflow-y: hidden;
+//     & > .dashboard_admin {
+//         overflow-y: auto;
+//     }
+// }
+
 .dashboard_manage,
 .dashboard_question-results
 {
