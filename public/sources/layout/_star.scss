@@ -1,0 +1,33 @@
+.logo-container {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    .logo {
+        position: relative;
+        font-size: 75px;
+        .patricio {
+            width: 1em;
+            height: 1em;
+            transform-origin: 0.5em 0.73em;
+            g path { fill: red; }
+            &:not(:first-child) {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            &:nth-child(2) {
+                transform: rotate(72deg);
+            }
+            &:nth-child(3) {
+                transform: rotate(144deg);
+            }
+            &:nth-child(4) {
+                transform: rotate(216deg);
+            }
+            &:last-child {
+                transform: rotate(288deg);
+            }
+        }
+    }
+}
