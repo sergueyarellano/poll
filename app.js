@@ -25,12 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Rafa, need to have compass installed
-app.use(compass({
-  project: path.join(__dirname, 'public/sources'),
-  sass: 'layout',
-  css: 'css'
-}));
+// app.use(compass({
+//   project: path.join(__dirname, 'public/sources'),
+//   sass: 'layout',
+//   css: 'css'
+// }));
 
 app.use(express.static(path.join(__dirname, 'public/')));
 
