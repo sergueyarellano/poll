@@ -1,47 +1,68 @@
-questions = {
+var questions = {
 	q0:{title:'Question one, vote!', answerA:'vote Good',answerB:'vote Bad'},
 	q1:{title:'Question two, vote!', answerA:'vote Good',answerB:'vote Bad'},
 	q2:{title:'Question three', answerA:'Better',answerB:'Worse'},
 	q3:{title:'Question four, vote!', answerA:'vote Good',answerB:'vote Bad'},
 	q4:{title:'Question five', answerA:'Batman',answerB:'Robin'}
 }
+var savedVote = {};
 
 // Init client socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
 // listen to messages
-ws.onmessage = function (event) {
-
-		var data = JSON.parse(event.data);
-
-		switch (data.type) {
-			case 'nextQuestion':
-				window.location.href = '/welcome/' + data.value;
-				break;
-			case 'standBy':
-				window.location.href = '/welcome/standBy';
-				break;
-			case 'connected':
-				if (!!document.querySelector('#pings p')) {
-
-					document.querySelector('#pings p').innerHTML = data.value;
-				}
-				break;
-			default:
-				break;
-		}
-}
 
 angular.module('welcomeApp',['welcomeRoutes'])
-	.controller('mainController', function() {
+
+	.controller('mainController', function($scope,$location) {
 		var vm = this;
 
+		ws.onmessage = function (event) {
+
+			var data = JSON.parse(event.data);
+
+			switch (data.type) {
+				case 'nextQuestion':
+					$location.path('/welcome/' + data.value);
+					vm.applyThings();
+					break;
+				case 'standBy':
+					$location.path('/welcome/standBy');
+					vm.applyThings();
+					break;
+				case 'connected':
+					if (!!document.querySelector('#pings p')) {
+
+						document.querySelector('#pings p').innerHTML = data.value;
+					}
+					break;
+				default:
+					break;
+			}
+		};
+		vm.applyThings = function() {
+
+			$scope.$apply();
+		}
+		// $scope.$apply();
 		vm.sendPoll = function ($event, results, index) {
-			ws.send(JSON.stringify({type:'poll',results:results, index:index, value:$event.target.value}));
+			savedVote = {type:'poll',results:results, index:index, value:$event.target.value, href:$location.path()};
+			ws.send(JSON.stringify(savedVote));
+			$location.path('/welcome/thanks');
+		}
+		vm.changeVote = function() {
+			savedVote.value = -1;
+			ws.send(JSON.stringify(savedVote));
+			$location.path(savedVote.href);
+			// vm.applyThings();
 		}
 	})
+	.controller('welcomeController', function() {
+		var vm = this;
 
+		vm.q0 = questions.q0;
+	})
 	.controller('q0Controller', function() {
 		var vm = this;
 
@@ -69,4 +90,9 @@ angular.module('welcomeApp',['welcomeRoutes'])
 	})
 	.controller('standByController', function() {
 		var vm = this;
-	});
+
+	})
+	.controller('thanksController', function() {
+		var vm = this;
+	})
+	

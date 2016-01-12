@@ -9,7 +9,6 @@ var app = require('../app');
 var debug = require('debug')('poll:server');
 var http = require('http');
 
-
 /**
  * Get port from environment and store in Express.
  */
@@ -23,9 +22,6 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-
-
-
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -34,12 +30,13 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-// socket example
-var wss = new WebSocketServer({server: server})
-console.log("websocket server created")
+// START SOCKET INSTANCE
+var wss = new WebSocketServer({server: server});
+console.log("websocket server created");
 
 var usersConnected = 0;
 
+// socket broadcasting
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
     client.send(data);
