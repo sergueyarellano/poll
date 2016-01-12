@@ -4,8 +4,8 @@ angular.module('welcomeRoutes', ['ngRoute'])
 	$routeProvider
 		.when('/welcome/init', {
 			templateUrl: 'client/views/pages/index.html',
-			controller: 'mainController',
-			controllerAs: 'main'
+			controller: 'welcomeController',
+			controllerAs: 'welcome'
 		})
 		.when('/welcome/r0', {
 			templateUrl: 'client/views/pages/question-0.html',
@@ -36,7 +36,12 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			templateUrl: 'client/views/pages/standBy.html',
 			controller: 'standByController',
 			controllerAs: 'standBy'
-		});
+		})
+		.when('/welcome/thanks', {
+			templateUrl: 'client/views/pages/thanks.html',
+			controller: 'thanksController',
+			controllerAs: 'thanks'
+		})
 
 		$locationProvider.html5Mode(true);
 });

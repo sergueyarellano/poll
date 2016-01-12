@@ -50,7 +50,7 @@ angular.module('adminApp',['adminRoutes'])
 			switch (data.type) {
 				case 'connected':
 					if (!!document.getElementById('pings')) {
-						document.getElementById('pings').innerHTML = data.value;
+						document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value; data.value;
 					}
 					break;
 				case 'poll':
@@ -113,7 +113,7 @@ angular.module('adminApp',['adminRoutes'])
 	      		$scope.myvotes = attributes.myvotes;
 	      		attributes.$observe('myvotes', function(value){
 
-                $scope.myvotes = value;
+                $scope.myvotes = (value < 10) ? '0' + value : value;
             });
 	      		attributes.$observe('myvalue', function(value){
 
