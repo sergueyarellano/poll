@@ -34,7 +34,7 @@ angular.module('adminApp',['adminRoutes'])
 	.controller('mainController', function($scope) {
 		var vm = this;
 
-		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:true,r6:false,r7:false,r8:false};
+		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:false,r6:false,r7:false,r8:false};
 		vm.started = false;
 		vm.literals = {
 			r0:'Valora la demo del programa "Venta Digital"',
@@ -52,7 +52,7 @@ angular.module('adminApp',['adminRoutes'])
 		vm.pollResults = pollResults;
 		vm.questionActive = 'r0';
 		vm.questionResults = questionResults;
-
+		vm.disabled = "disabled";
 		ws.onmessage = function (event) {
 
 			var data = JSON.parse(event.data);
