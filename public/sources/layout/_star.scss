@@ -6,6 +6,11 @@
         font-size: 4em;
         width: 1em;
         height: 1em;
+        .shadow
+        {
+            -webkit-filter: drop-shadow( -5px -5px 5px red );
+            filter: drop-shadow( -5px -5px 5px red );
+        }
     }
 }
 
