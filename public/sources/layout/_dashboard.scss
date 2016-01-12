@@ -79,7 +79,7 @@ $height: goldenCalc($width);
 .dashboard_manage,
 .dashboard_question-results
 {
-    padding: $paddingBase ($paddingBase * 6);
+    padding: $paddingBase ($paddingBase * 6) ($paddingBase * 6);
 }
 .dashboard_question-results
 {
