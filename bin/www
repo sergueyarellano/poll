@@ -36,7 +36,7 @@ console.log("websocket server created");
 
 var usersConnected = -1;
 var wsAdmin = {};
-var pollStatus = {type:'',href:''};
+var pollStatus = {type:'',href:'',qId:''};
 // socket broadcasting
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
@@ -51,7 +51,7 @@ wss.on("connection", function(ws) {
   }, 1000)
 
   if (pollStatus.type === 'poll' || pollStatus.type === 'nextQuestion') {
-    ws.send(JSON.stringify({type:'nextQuestion', href:pollStatus.href}));
+    ws.send(JSON.stringify({type:'nextQuestion', href:pollStatus.href, qId:pollStatus.qId}));
   } else if (pollStatus.type === 'standBy') {
     ws.send(JSON.stringify({type:'standBy'}));
   }
@@ -73,6 +73,8 @@ wss.on("connection", function(ws) {
 
       pollStatus.type = mParsed.type;
       pollStatus.href = mParsed.href;
+      pollStatus.qId = mParsed.href.substring(mParsed.href.length -2);
+
       wss.broadcast(message);
     } else if (mParsed.type === 'reconnect') {
       wss.broadcast(message);

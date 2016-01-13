@@ -31,6 +31,10 @@ var questionResults = {
 	},
 	getTotalVotesPercentage: function() {
 		return Math.round((parseInt(this.getTotalVotes(), 10) / parseInt(usersConnected, 10))*100) || 0;
+	},
+	getAverageVotes: function() {
+		
+		return (this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10) || 0;
 	}
 };
 
@@ -192,7 +196,6 @@ angular.module('LiveFeedbackService', [])
 		var _LFFactory = {};
 
 		_LFFactory.saveQuestionResults = function(data) {
-			console.log('el puto ',data);
 			return $http.put('/api/votaciones', data);
 		};
 

@@ -88,7 +88,7 @@
                     <header class="accesible-hide">
                         <h3>Usuarios conectados</h3>
                     </header>
-                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getAverageVotes() * 20}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
                         </span>
@@ -98,16 +98,16 @@
                         <div class="circle">
                             <div class="users-count">
                                 <span class="label result">Nota</span>
-                                <span id="votes-percentage" class="number result">{{main.questionResults.getTotalVotesPercentage()}}</span>
+                                <span id="votes-percentage" class="number result">{{main.questionResults.getAverageVotes()}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="users-count">
                         <span class="label">Votos</span>
-                        <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
+                        <span id="total-votes" class="number">{{main.questionResults.getTotalVotes()}}</span>
                     </div>
                     <div class="users-count">
-                        <span class="label">Sockets</span>
+                        <span class="label">Conectados</span>
                         <span id="pings" class="number">00</span>
                     </div>
                 </article>
