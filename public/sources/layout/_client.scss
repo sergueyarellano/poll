@@ -3,6 +3,18 @@
 	align-items: center;
 	flex-direction: column;
 }
+.client_header
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: $paddingBase;
+
+    background-color: $navy;
+    z-index: 10;
+}
 .poll_client
 {
 	width: 100%;
@@ -15,7 +27,7 @@
 
 .poll_client-status
 {
-	flex: 0 0 1em;
+	flex: 0 0 .5em;
 	display: block;
 	&[data-status="conected"]
 	{
