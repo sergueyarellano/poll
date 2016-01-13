@@ -1,3 +1,6 @@
+/* Variables */
+$anim-timing: 5s;
+
 .logo-container {
     padding: $paddingBase;
     display: flex;
@@ -11,27 +14,47 @@
             fill: $cyan;
         }
         .st0 {
-            opacity: 0.8;
-        }
-        
-        .st1 {
-            opacity: 0.7;
-        }
-        
-        .st2 {
             opacity: 0.6;
         }
         
-        .st3 {
+        .st1 {
             opacity: 0.5;
         }
         
-        .st4 {
+        .st2 {
             opacity: 0.4;
+        }
+        
+        .st3 {
+            opacity: 0.3;
+        }
+        
+        .st4 {
+            opacity: 0.2;
         }
         &.animation
         {
-            animation: starAnimation 3s linear infinite;
+            animation: starAnimation $anim-timing linear infinite;
+            .st0 {
+                animation: bling-1 $anim-timing linear infinite;
+                animation-delay: 0s;
+            }
+            .st4 {
+                animation: bling-5 $anim-timing linear infinite;
+                animation-delay: 1s;
+            }
+            .st3 {
+                animation: bling-4 $anim-timing linear infinite;
+                animation-delay: 2s;
+            }
+            .st2 {
+                animation: bling-3 $anim-timing linear infinite;
+                animation-delay: 3s;
+            }
+            .st1 {
+                animation: bling-2 $anim-timing linear infinite;
+                animation-delay: 4s;
+            }
         }
     }
 }
@@ -41,5 +64,28 @@
     100%
     {
         transform: rotate(360deg);
+    }
+}
+
+@for $i from 1 to 6
+{
+    @keyframes bling-#{$i}
+    {
+        0%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
+        5%
+        {
+            opacity: (0.7 - ($i / 10))+0.3;
+        }
+        10%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
+        100%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
     }
 }
