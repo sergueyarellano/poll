@@ -60,6 +60,19 @@ $anim-timing: 5s;
     }
 }
 
+.client_header {
+    &.subhome {
+        justify-content: flex-start;
+    }
+    .logo-container {
+        height: auto;
+        .star-logo {
+            font-size: 2em;
+            margin-right: 0.5em;
+        }
+    }
+}
+
 @keyframes starAnimation
 {
     100%
