@@ -22,20 +22,31 @@ var questionResults = {
 	fourStar:0, 
 	fiveStar: 0,
 	getTotal: function() {
-	 return this.oneStar + this.twoStar + this.threeStar + this.fourStar + this.fiveStar;
+		var total = this.oneStar + this.twoStar + this.threeStar + this.fourStar + this.fiveStar;
+		return (total < 10) ? '0' + total: total;
 	},
 	getStarPercentage: function(star) {
 
-		return Math.round((this[star] / this.getTotal())*100) || 0;
+		return Math.round((this[star] / parseInt(this.getTotal(), 10))*100) || 0;
+	},
+	getTotalVotesPercentage: function() {
+		return Math.round((parseInt(this.getTotal(), 10) / parseInt(usersConnected, 10))*100) || 0;
 	}
 };
 
+var usersConnected = 0;
+var started = false;
+
 angular.module('adminApp',['adminRoutes'])
-	.controller('mainController', function($scope) {
+	.controller('mainController', function($scope, $location) {
 		var vm = this;
 
+		ws.onopen = function() {
+			ws.send(JSON.stringify({admin:'admin'}));
+		};
+
 		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:false,r6:false,r7:false,r8:false};
-		vm.started = false;
+		vm.started = started;
 		vm.literals = {
 			r0:'Valora la demo del programa "Venta Digital"',
 			r1:'Valora la demo del programa "DBI"',
@@ -48,7 +59,6 @@ angular.module('adminApp',['adminRoutes'])
 			r8:'Valora la demo del "Mobile Channel"'
 		};
 		vm.questionHeader = vm.literals.r0;
-		vm.pollState = 'Pulsa Start para comenzar con la votacion';
 		vm.pollResults = pollResults;
 		vm.questionActive = 'r0';
 		vm.questionResults = questionResults;
@@ -56,11 +66,11 @@ angular.module('adminApp',['adminRoutes'])
 		ws.onmessage = function (event) {
 
 			var data = JSON.parse(event.data);
-
 			switch (data.type) {
 				case 'connected':
 					if (!!document.getElementById('pings')) {
-						document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value; data.value;
+						usersConnected = data.value;
+						document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value;
 					}
 					break;
 				case 'poll':
@@ -89,14 +99,12 @@ angular.module('adminApp',['adminRoutes'])
 		};
 
 		vm.startPoll = function($event) {
-
 			if (!vm.started) {
 
 				for (r in vm.results) {
 					if (vm.results[r] === true) {
 
-						ws.send(JSON.stringify({type:'nextQuestion',value:r}));
-						vm.pollState = 'La votacion ha comenzado :)';
+						ws.send(JSON.stringify({type:'nextQuestion', href: '/welcome/' + r, qId:r}));
 						vm.started = true;
 					}
 				}
@@ -106,10 +114,13 @@ angular.module('adminApp',['adminRoutes'])
 
 			if (vm.started) {
 
-				ws.send(JSON.stringify({type:'standBy'}));
-				vm.pollState = 'No hay ninguna votacion en curso :(';
+				ws.send(JSON.stringify({type:'standBy', href:''}));
 				vm.started = false;
 			}
+		};
+
+		vm.refreshConnections = function () {
+			ws.send(JSON.stringify({type:'reconnect'}));
 		};
 	})
 	.directive('pollstar', function() {
@@ -123,7 +134,7 @@ angular.module('adminApp',['adminRoutes'])
 	      		$scope.myvotes = attributes.myvotes;
 	      		attributes.$observe('myvotes', function(value){
 
-                $scope.myvotes = (value < 10) ? '0' + value : value;
+                $scope.myvotes = (value < 10 || value < 0) ? '0' + value : value;
             });
 	      		attributes.$observe('myvalue', function(value){
 
@@ -147,5 +158,4 @@ angular.module('adminApp',['adminRoutes'])
 					'<span class="{{myclass}}-value">{{myvotes}}</span></li>',
 	      replace: true
 	    };
-	});
-
+	})

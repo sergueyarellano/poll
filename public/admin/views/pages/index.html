@@ -31,10 +31,11 @@
     </header>
     <div class="scroll-area">
         <div class="dashboard_poll-title">
-            <h2>Poll's Title</h2>
+            <h2>Demo PI3 BBVA</h2>
             <ul>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.startPoll()">Start Poll</span></li>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-show="main.started" ng-click="main.stopPoll()">Stop Poll</span></li>
+                <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.refreshConnections()">Refresh connections</span></li>
             </ul>
         </div>
         <section class="dashboard_question-results">
@@ -74,7 +75,7 @@
                         <h3>Linked users</h3>
                     </header>
                     <div id="pings" class="dashboard_users-pings text">00</div>
-                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="progressbar">
+                    <div id="votes-percentage" class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getTotalVotesPercentage()}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
                         </span>
@@ -82,8 +83,8 @@
                                 <span class="circle"></span>
                         </span>
                         <div class="circle users-count">
-                            <span class="label">votes</span>
-                            <span class="number">01</span>
+                            <span class="label">total votes</span>
+                            <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
                         </div>
                     </div>
                 </article>

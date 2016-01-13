@@ -7,13 +7,8 @@ angular.module('adminRoutes', ['ngRoute'])
 			controller: 'mainController',
 			controllerAs: 'main'
 		})
-		.when('/admin/q1', {
-			templateUrl: 'admin/views/pages/q1.html',
-			controller: 'q1Controller',
-			controllerAs: 'q1'
-		})
 		.when('/results', {
-			templateUrl: 'admin/views/pages/results.html'
+			templateUrl: 'admin/views/pages/index.html',
 		});
 
 		$locationProvider.html5Mode(true);

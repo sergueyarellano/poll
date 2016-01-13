@@ -62,6 +62,11 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'thanksController',
 			controllerAs: 'thanks'
 		})
+		.when('/welcome/voted', {
+			templateUrl: 'client/views/pages/voted.html',
+			controller: 'votedController',
+			controllerAs: 'voted'
+		})
 
 		$locationProvider.html5Mode(true);
 });
