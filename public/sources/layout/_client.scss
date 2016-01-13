@@ -3,6 +3,18 @@
 	align-items: center;
 	flex-direction: column;
 }
+.client_header
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: $paddingBase;
+
+    background-color: $navy;
+    z-index: 10;
+}
 .poll_client
 {
 	width: 100%;
@@ -15,7 +27,7 @@
 
 .poll_client-status
 {
-	flex: 0 0 1em;
+	flex: 0 0 .5em;
 	display: block;
 	&[data-status="conected"]
 	{
@@ -35,8 +47,8 @@
 {
 	flex: 0 0 auto;
 	text-align: center;
-	padding: $paddingBase/2 $paddingBase 0;
-	font-size: 1.5em;
+	padding: $paddingBase $paddingBase 0;
+	font-size: 2em;
 }
 
 .poll_client-content
@@ -53,6 +65,10 @@
 	&.active
 	{
 		justify-content: space-between;
+	}
+	.logo-container
+	{
+		font-size: 2em;
 	}
 }
 

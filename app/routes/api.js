@@ -79,6 +79,18 @@ module.exports = function(app, express) {
 			})
 		});
 
+	apiRouter.route('/votaciones/:votacion')
+		.get(function(req, res) {
+			 Model.votacion
+      .findOne({ q_id: req.params.votacion}, function (err, votos) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(votos);
+      });
+		});
+
+
 	apiRouter.route('/totales')
 		.post(function(req, res) {
 
