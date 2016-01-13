@@ -42,7 +42,9 @@ angular.module('welcomeApp',['welcomeRoutes'])
 					break;
 
 				case 'reconnect':
-					window.location.href = '/welcome/init';
+					console.log("entro");
+					savedVote.currentTarget = '/welcome/init';
+					window.location.href = savedVote.currentTarget;
 					break;
 				case 'connected':
 					if (!!document.querySelector('#pings p')) {

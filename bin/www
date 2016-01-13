@@ -37,6 +37,19 @@ console.log("websocket server created");
 var usersConnected = -1;
 var wsAdmin = {};
 var pollStatus = {type:'',href:'',qId:''};
+var pollResults = {
+  type:'update',
+  current:'',
+  r0:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r1:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r2:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r3:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r4:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r5:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r6:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r7:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''},
+  r8:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0, select:''}
+};
 // socket broadcasting
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
@@ -69,6 +82,12 @@ wss.on("connection", function(ws) {
       pollStatus.type = mParsed.type;
       pollStatus.href = mParsed.href;
       wsAdmin.send(message);
+
+      pollResults[mParsed.results][mParsed.index] += mParsed.value;
+      pollResults[mParsed.results].select = mParsed.index;
+      pollResults.current = mParsed.results;
+
+      console.log("pollResults",pollResults);
     } else if (mParsed.type === 'nextQuestion' || mParsed.type === 'standBy') {
 
       pollStatus.type = mParsed.type;
@@ -82,6 +101,9 @@ wss.on("connection", function(ws) {
 
       // capture the admin object
       wsAdmin = ws;
+
+      // update poll results to admin
+      wsAdmin.send(JSON.stringify(pollResults));
     }
   });
 

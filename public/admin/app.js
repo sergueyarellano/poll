@@ -79,10 +79,21 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 					}
 					break;
 				case 'poll':
+
 					vm.pollResults[data.results][data.index] += parseInt(data.value,10);
 					vm.questionResults[data.index] += parseInt(data.value,10);
 
 					$scope.$apply();
+					break;
+				case 'update':
+					pollResults = data;
+
+					questionResults.oneStar = data[data.current].oneStar;
+					questionResults.twoStar = data[data.current].twoStar;
+					questionResults.threeStar = data[data.current].threeStar;
+					questionResults.fourStar = data[data.current].fourStar;
+					questionResults.fiveStar = data[data.current].fiveStar;
+					// $scope.$apply();
 					break;
 				default:
 					break;
@@ -105,6 +116,9 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 		};
 
 		vm.startPoll = function($event) {
+			if ($location.path() === '/results') {
+				return;
+			}
 			if (!vm.started) {
 
 				for (r in vm.results) {
@@ -147,6 +161,9 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 		};
 
 		vm.refreshConnections = function () {
+			if ($location.path() === '/results') {
+				return;
+			}
 			ws.send(JSON.stringify({type:'reconnect'}));
 		};
 	})
