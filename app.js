@@ -33,11 +33,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(compass({
-   project: path.join(__dirname, 'public/sources'),
-   sass: 'layout',
-   css: 'css'
-}));
+// app.use(compass({
+//    project: path.join(__dirname, 'public/sources'),
+//    sass: 'layout',
+//    css: 'css'
+// }));
 
 // connect to the database
 mongoose.connect(config.database);
