@@ -74,6 +74,8 @@ wss.on("connection", function(ws) {
       pollStatus.type = mParsed.type;
       pollStatus.href = mParsed.href;
       wss.broadcast(message);
+    } else if (mParsed.type === 'reconnect') {
+      wss.broadcast(message);
     } else if (mParsed.admin) {
 
       // capture the admin object

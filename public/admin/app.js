@@ -104,7 +104,7 @@ angular.module('adminApp',['adminRoutes'])
 				for (r in vm.results) {
 					if (vm.results[r] === true) {
 
-						ws.send(JSON.stringify({type:'nextQuestion', href: '/welcome/' + r}));
+						ws.send(JSON.stringify({type:'nextQuestion', href: '/welcome/' + r, qId:r}));
 						vm.started = true;
 					}
 				}
@@ -117,6 +117,10 @@ angular.module('adminApp',['adminRoutes'])
 				ws.send(JSON.stringify({type:'standBy', href:''}));
 				vm.started = false;
 			}
+		};
+
+		vm.refreshConnections = function () {
+			ws.send(JSON.stringify({type:'reconnect'}));
 		};
 	})
 	.directive('pollstar', function() {
