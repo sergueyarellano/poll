@@ -34,7 +34,7 @@ var questionResults = {
 	},
 	getAverageVotes: function() {
 		
-		return (this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10) || 0;
+		return Math.floor((this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10),-1);
 	}
 };
 
