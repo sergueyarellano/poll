@@ -32,10 +32,9 @@ angular.module('welcomeApp',['welcomeRoutes'])
 					} else {
 						savedVote.currentTarget = data.qId;
 						savedVote[data.qId].send = false;
-						console.log(savedVote);
 						$location.path(data.href);
 					}
-					vm.applyThings();
+						vm.applyThings();
 					break;
 				case 'standBy':
 					$location.path('/welcome/standBy');
