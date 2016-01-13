@@ -14,13 +14,18 @@
 .dashboard_header-action
 {
     display: flex;
-    .dashboard_header-action_item
+}
+.dashboard_header-action_item
+{
+    display: inline-block;
+    [role="button"]
     {
-        display: inline-block;
-        [role="button"]
+    	border-radius: 0;
+        background-color: transparent;
+        &:hover
         {
-        	border-radius: 0;
-        	background-color: transparent;
+    	   background-color: transparent;
+            color: $cyan;
         }
     }
 }

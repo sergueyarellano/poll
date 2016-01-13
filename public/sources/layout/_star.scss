@@ -1,55 +1,92 @@
+/* Variables */
+$anim-timing: 5s;
+
 .logo-container {
-    padding: $paddingBase;
+    height: 6.25em;
     display: flex;
     justify-content: center;
+    align-items: center;
     .star-logo {
-        position: relative;
         font-size: 4em;
-        .arm
+        width: 1em;
+        height: 1em;
+        path
         {
-            width: 1em;
-            height: 1em;
-            display: inline-block;
-            border-radius: 1em;
-            background-color: red;
-            &:before
-            {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                
+            fill: $cyan;
+        }
+        .st0 {
+            opacity: 0.6;
+        }
+        
+        .st1 {
+            opacity: 0.5;
+        }
+        
+        .st2 {
+            opacity: 0.4;
+        }
+        
+        .st3 {
+            opacity: 0.3;
+        }
+        
+        .st4 {
+            opacity: 0.2;
+        }
+        &.animation
+        {
+            animation: starAnimation $anim-timing linear infinite;
+            .st0 {
+                animation: bling-1 $anim-timing linear infinite;
+                animation-delay: 0s;
+            }
+            .st4 {
+                animation: bling-5 $anim-timing linear infinite;
+                animation-delay: 1s;
+            }
+            .st3 {
+                animation: bling-4 $anim-timing linear infinite;
+                animation-delay: 2s;
+            }
+            .st2 {
+                animation: bling-3 $anim-timing linear infinite;
+                animation-delay: 3s;
+            }
+            .st1 {
+                animation: bling-2 $anim-timing linear infinite;
+                animation-delay: 4s;
             }
         }
-        /* .patricio {
-            width: 1em;
-            height: 1em;
-            transform-origin: 0.5em 0.73em;
-            g path {
-                fill: rgba($blue, .6);
-            }
-            &:not(:first-child) {
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-            @for $i from 1 to 6
-            {
-                &:nth-child(#{$i})
-                {
-                    transform: rotate(72deg * $i);
-                    g path {
-                        fill: rgba($blue, (1 * ($i/10)));
-                    }
-                }
-            }
-        } */
     }
 }
 
 @keyframes starAnimation
 {
-    0%
+    100%
     {
-        // transform: rotate(72deg * $i);
+        transform: rotate(360deg);
+    }
+}
+
+@for $i from 1 to 6
+{
+    @keyframes bling-#{$i}
+    {
+        0%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
+        5%
+        {
+            opacity: (0.7 - ($i / 10))+0.3;
+        }
+        10%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
+        100%
+        {
+            opacity: (0.7 - ($i / 10));
+        }
     }
 }
