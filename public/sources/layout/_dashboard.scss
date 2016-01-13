@@ -26,8 +26,8 @@ $height: goldenCalc($width);
         border-radius: .2em;
     }
     @media (max-width: 1024px) {
-        > nav,
-        > div
+        .dashboard_nav,
+        .dashboard_content
         {
             transition: $globalTransition;
         }
@@ -43,6 +43,7 @@ $height: goldenCalc($width);
         }
     }
     @media (max-width: 1024px) and (orientation: portrait) {
+        overflow: hidden;
         &:before
         {
             content: 'Por favor, gira tu dispositivo.';
@@ -52,8 +53,8 @@ $height: goldenCalc($width);
             padding: $paddingBase * 2;
             text-align: center;
         }
-        > nav,
-        > div
+        .dashboard_nav,
+        .dashboard_content
         {
             transform: translateY(100%);
             opacity: 0;
@@ -182,13 +183,17 @@ $height: goldenCalc($width);
 
         display: block;
 
-        padding-left: 0;
+        padding-left: $paddingBase * 3;
 
         background-color: transparent;
         color: $white;
         &:before
         {
             display: inline-block;
+
+            position: absolute;
+            left: 0;
+            top: $paddingBase / 2;
 
             width: 1em;
             height: 1em;
