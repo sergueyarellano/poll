@@ -52,6 +52,7 @@ module.exports = function(app, express) {
 				if (err) {
 					res.send(err);
 				}
+
 				votacion = votacion[0];
 				if (req.body.poll_id) votacion.poll_id = req.body.poll_id;
 				if (req.body.q_id) votacion.q_id = req.body.q_id;

@@ -16,29 +16,29 @@ var pollResults = {
 };
 
 var questionResults = {
-	oneStar: 0, 
-	twoStar:0, 
-	threeStar:0, 
-	fourStar:0, 
+	oneStar: 0,
+	twoStar:0,
+	threeStar:0,
+	fourStar:0,
 	fiveStar: 0,
-	getTotal: function() {
+	getTotalVotes: function() {
 		var total = this.oneStar + this.twoStar + this.threeStar + this.fourStar + this.fiveStar;
 		return (total < 10) ? '0' + total: total;
 	},
-	getStarPercentage: function(star) {
+	getVotePercentage: function(star) {
 
-		return Math.round((this[star] / parseInt(this.getTotal(), 10))*100) || 0;
+		return Math.round((this[star] / parseInt(this.getTotalVotes(), 10))*100) || 0;
 	},
 	getTotalVotesPercentage: function() {
-		return Math.round((parseInt(this.getTotal(), 10) / parseInt(usersConnected, 10))*100) || 0;
+		return Math.round((parseInt(this.getTotalVotes(), 10) / parseInt(usersConnected, 10))*100) || 0;
 	}
 };
 
 var usersConnected = 0;
 var started = false;
 
-angular.module('adminApp',['adminRoutes'])
-	.controller('mainController', function($scope, $location) {
+angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
+	.controller('mainController', function($scope, $location, LiveFeedback) {
 		var vm = this;
 
 		ws.onopen = function() {
@@ -63,6 +63,7 @@ angular.module('adminApp',['adminRoutes'])
 		vm.questionActive = 'r0';
 		vm.questionResults = questionResults;
 		vm.disabled = "disabled";
+
 		ws.onmessage = function (event) {
 
 			var data = JSON.parse(event.data);
@@ -76,6 +77,7 @@ angular.module('adminApp',['adminRoutes'])
 				case 'poll':
 					vm.pollResults[data.results][data.index] += parseInt(data.value,10);
 					vm.questionResults[data.index] += parseInt(data.value,10);
+
 					$scope.$apply();
 					break;
 				default:
@@ -116,6 +118,27 @@ angular.module('adminApp',['adminRoutes'])
 
 				ws.send(JSON.stringify({type:'standBy', href:''}));
 				vm.started = false;
+
+				var data = {
+					'poll_id' : 'demopi3',
+					'q_id' : vm.questionActive,
+					'oneStar' : questionResults.oneStar,
+					'twoStar' : questionResults.twoStar,
+					'threeStar' : questionResults.threeStar,
+					'fourStar' : questionResults.fourStar,
+					'fiveStar' : questionResults.fiveStar
+				};
+				LiveFeedback.saveQuestionResults(JSON.stringify(data));
+
+				data = {
+					'poll_id' : 'demopi3',
+					'total_votes' : vm.getTotalVotes,
+   					'total_connected' : usersConnected,
+   					'percentage_share' : vm.getTotalVotesPercentage
+				};
+
+				LiveFeedback.saveTotalVotes(JSON.stringify(data));
+
 			}
 		};
 
@@ -146,16 +169,45 @@ angular.module('adminApp',['adminRoutes'])
 	      },
 	      controller: function($scope, $element) {},
 	      template:
-	       	'<li><div class="{{myclass}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar">' +
-					'<span class="left-mask">' +
-					'<span class="circle"></span>' +
-					'</span>' +
-					'<span class="right-mask">' +
-					'<span class="circle"></span>' +
-					'</span>' +
-					'<div class="circle icon star"></div>' +
-					'</div>' +
-					'<span class="{{myclass}}-value">{{myvotes}}</span></li>',
+	       	'<li>' +
+	       		'<div class="{{myclass}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar">' +
+				'<span class="left-mask">' +
+				'<span class="circle"></span>' +
+				'</span>' +
+				'<span class="right-mask">' +
+				'<span class="circle"></span>' +
+				'</span>' +
+				'<div class="circle icon star"></div>' +
+				'</div>' +
+				'<span class="{{myclass}}-value">{{myvotes}}</span>' +
+			'</li>',
 	      replace: true
 	    };
 	})
+
+angular.module('LiveFeedbackService', [])
+
+	.factory('LiveFeedback', function($http) {
+
+		var _LFFactory = {};
+
+		_LFFactory.saveQuestionResults = function(data) {
+			console.log('el puto ',data);
+			return $http.put('/api/votaciones', data);
+		};
+
+		_LFFactory.getPollResults = function() {
+			return $http.get('/api/votaciones');
+		};
+
+		_LFFactory.getQuestionResults = function(id) {
+			return $http.get('/api/votaciones/' + id);
+		};
+
+		_LFFactory.saveTotalVotes = function(data) {
+			return $http.put('/api/totales', data);
+		};
+
+		return _LFFactory;
+
+	});
