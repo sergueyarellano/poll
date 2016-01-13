@@ -48,7 +48,7 @@ app.use('/', root);
 app.use('/welcome', welcomeJSON);
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
-app.use('/results', results);
+// app.use('/results', results);
 app.use('/closedPoll', closedPoll);
 
 // API ROUTES ------------------------

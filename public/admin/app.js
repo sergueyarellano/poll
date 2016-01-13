@@ -49,6 +49,10 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 			ws.send(JSON.stringify({admin:'admin'}));
 		};
 
+		ws.onclose = function () {
+			console.log('me piro');
+			ws.send(JSON.stringify({type: 'resetAdmin'}));
+		}
 		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:false,r6:false,r7:false,r8:false};
 		vm.started = started;
 		vm.literals = {
@@ -85,14 +89,18 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 
 					$scope.$apply();
 					break;
-				case 'update':
-					pollResults = data;
 
-					questionResults.oneStar = data[data.current].oneStar;
-					questionResults.twoStar = data[data.current].twoStar;
-					questionResults.threeStar = data[data.current].threeStar;
-					questionResults.fourStar = data[data.current].fourStar;
-					questionResults.fiveStar = data[data.current].fiveStar;
+				case 'update':
+					if (data.current) {
+
+						pollResults = data;
+
+						questionResults.oneStar = data[data.current].oneStar;
+						questionResults.twoStar = data[data.current].twoStar;
+						questionResults.threeStar = data[data.current].threeStar;
+						questionResults.fourStar = data[data.current].fourStar;
+						questionResults.fiveStar = data[data.current].fiveStar;
+					}
 					// $scope.$apply();
 					break;
 				default:

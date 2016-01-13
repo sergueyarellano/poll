@@ -35,7 +35,7 @@ var wss = new WebSocketServer({server: server});
 console.log("websocket server created");
 
 var usersConnected = -1;
-var wsAdmin = {};
+var wsAdmin = null;
 var pollStatus = {type:'',href:'',qId:''};
 var pollResults = {
   type:'update',
@@ -87,7 +87,6 @@ wss.on("connection", function(ws) {
       pollResults[mParsed.results].select = mParsed.index;
       pollResults.current = mParsed.results;
 
-      console.log("pollResults",pollResults);
     } else if (mParsed.type === 'nextQuestion' || mParsed.type === 'standBy') {
 
       pollStatus.type = mParsed.type;
@@ -98,12 +97,10 @@ wss.on("connection", function(ws) {
     } else if (mParsed.type === 'reconnect') {
       wss.broadcast(message);
     } else if (mParsed.admin) {
-
-      // capture the admin object
-      wsAdmin = ws;
-
-      // update poll results to admin
-      wsAdmin.send(JSON.stringify(pollResults));
+        // capture the admin object
+        wsAdmin = ws;
+        // update poll results to admin
+        wsAdmin.send(JSON.stringify(pollResults));
     }
   });
 
