@@ -155,6 +155,15 @@
         font-family: 'Oswald', sans-serif;
         font-size: 2.375em;
         color: rgba($cyan, .5);
+        position: relative;
+        sup
+        {
+            font-size: .5em;
+            position: absolute;
+            top: .1em;
+            left: 110%;
+            opacity: .5;
+        }
     }
     .label
     {
