@@ -10,6 +10,7 @@ var root = require('./routes/root');
 var admin = require('./routes/admin');
 var welcome = require('./routes/welcome');
 var results = require('./routes/results');
+var closedPoll = require('./routes/closedPoll');
 
 var welcomeJSON = require('./routes/welcomeJSON');
 var app = express();
@@ -31,11 +32,12 @@ app.use(function(req, res, next) {
   Authorization');
   next();
 });
-// app.use(compass({
-//   project: path.join(__dirname, 'public/sources'),
-//   sass: 'layout',
-//   css: 'css'
-// }));
+
+app.use(compass({
+   project: path.join(__dirname, 'public/sources'),
+   sass: 'layout',
+   css: 'css'
+}));
 
 // connect to the database
 mongoose.connect(config.database);
@@ -47,6 +49,7 @@ app.use('/welcome', welcomeJSON);
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
 app.use('/results', results);
+app.use('/closedPoll', closedPoll);
 
 // API ROUTES ------------------------
 var apiRoutes = require('./app/routes/api')(app, express);

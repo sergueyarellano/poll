@@ -67,6 +67,11 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'votedController',
 			controllerAs: 'voted'
 		})
+		.when('/closedPoll', {
+			templateUrl: 'client/views/pages/closedPoll.html',
+			controller: 'closedPollController',
+			controllerAs: 'closedPoll'
+		})
 
 		$locationProvider.html5Mode(true);
 });
