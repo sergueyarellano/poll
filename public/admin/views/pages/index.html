@@ -76,11 +76,11 @@
             </header>
             <article>
               <ol class="dashboard_question-charts">
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getStarPercentage('oneStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getStarPercentage('twoStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getStarPercentage('threeStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getStarPercentage('fourStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getStarPercentage('fiveStar')}}"></pollstar>
+								<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getVotePercentage('oneStar')}}"></pollstar>
+								<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getVotePercentage('twoStar')}}"></pollstar>
+								<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getVotePercentage('threeStar')}}"></pollstar>
+								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getVotePercentage('fourStar')}}"></pollstar>
+								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getVotePercentage('fiveStar')}}"></pollstar>
 							</ol>
             </article>
         </section>
@@ -116,7 +116,7 @@
                         </span>
                         <div class="circle users-count">
                             <span class="label">total votes</span>
-                            <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
+                            <span id="total-votes" class="number">{{main.questionResults.getTotalVotes()}}</span>
                         </div>
                     </div>
                 </article>
