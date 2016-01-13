@@ -13,32 +13,45 @@ var results = require('./routes/results');
 
 var welcomeJSON = require('./routes/welcomeJSON');
 var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+var mongoose = require('mongoose');
+var config = require('./config');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// configure our app to handle CORS requests
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, \
+  Authorization');
+  next();
+});
 // app.use(compass({
 //   project: path.join(__dirname, 'public/sources'),
 //   sass: 'layout',
 //   css: 'css'
 // }));
 
+// connect to the database
+mongoose.connect(config.database);
+
 app.use(express.static(path.join(__dirname, 'public/')));
 
 app.use('/', root);
 app.use('/welcome', welcomeJSON);
-
 app.use('/admin/*', admin);
 app.use('/welcome/*', welcome);
 app.use('/results', results);
+
+// API ROUTES ------------------------
+var apiRoutes = require('./app/routes/api')(app, express);
+app.use('/api', apiRoutes);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
