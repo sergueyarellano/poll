@@ -21,11 +21,11 @@
                 </div>
             </header>
         </li>
-        <li class="dashboard_nav-list_item"><a href="" title="Current Poll" role="button" class="dashboard_nav-list_link active">Current Poll <span class="icon speech-bubble"></span></a></li>
-        <li class="dashboard_nav-list_item"><a href="" title="Stats" role="button" class="dashboard_nav-list_link">Stats <span class="icon bar-graph-2"></span></a></li>
-        <li class="dashboard_nav-list_item"><a href="" title="Manage" role="button" class="dashboard_nav-list_link">Manage <span class="icon cog"></span></a></li>
+        <li class="dashboard_nav-list_item"><a href="" title="Current Poll" role="button" class="dashboard_nav-list_link active">Ejecutando <span class="icon speech-bubble"></span></a></li>
+        <li class="dashboard_nav-list_item"><a href="" title="Stats" role="button" class="dashboard_nav-list_link">Resultados <span class="icon bar-graph-2"></span></a></li>
+        <li class="dashboard_nav-list_item"><a href="" title="Manage" role="button" class="dashboard_nav-list_link">Encuestas <span class="icon cog"></span></a></li>
         <li class="dashboard_nav-list_item"><a href="" title="Manage" role="button" class="dashboard_nav-list_link">Settings <span class="icon cog"></span></a></li>
-        <li class="dashboard_nav-list_item"><a href="" title="Help" role="button" class="dashboard_nav-list_link">Help <span class="icon help"></span></a></li>
+        <li class="dashboard_nav-list_item"><a href="" title="Help" role="button" class="dashboard_nav-list_link">Ayuda <span class="icon help"></span></a></li>
     </ul>
 </nav>
 <div class="dashboard_content ng-scope">
@@ -47,48 +47,77 @@
         <div class="dashboard_poll-title">
             <h2>Demo PI3 BBVA</h2>
             <ul>
-                <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.startPoll()">Start Poll</span></li>
-                <li class="dashboard_poll-title_actions"><span role="button" ng-show="main.started" ng-click="main.stopPoll()">Stop Poll</span></li>
-                <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.refreshConnections()">Refresh connections</span></li>
+                <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.startPoll()">Lanzar encuesta</span></li>
+                <li class="dashboard_poll-title_actions"><span role="button" ng-show="main.started" ng-click="main.stopPoll()">Parar encuesta</span></li>
+                <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.refreshConnections()">Refrescar</span></li>
             </ul>
         </div>
         <section class="dashboard_question-results">
             <header class="accesible-hide">
-                <h3>Poll's results</h3>
+                <h3>Resultados</h3>
             </header>
             <article>
-              <ol class="dashboard_question-charts">
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getStarPercentage('oneStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getStarPercentage('twoStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getStarPercentage('threeStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getStarPercentage('fourStar')}}"></pollstar>
-								<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getStarPercentage('fiveStar')}}"></pollstar>
-							</ol>
+                <ol class="dashboard_question-charts">
+					<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getStarPercentage('oneStar')}}"></pollstar>
+					<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getStarPercentage('twoStar')}}"></pollstar>
+					<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getStarPercentage('threeStar')}}"></pollstar>
+					<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getStarPercentage('fourStar')}}"></pollstar>
+					<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getStarPercentage('fiveStar')}}"></pollstar>
+				</ol>
             </article>
         </section>
         <div class="dashboard_manage ng-pristine ng-valid">
             <section class="dashboard_admin">
                 <article>
-                  <h3 class="accesible-hide">Questions</h3>
-                  <ol>
-										<li ng-class="{'disabled':!main.results.r0}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r0')" role="button" class="dashboard_manage-question">{{main.literals.r0}}</span></li>
-										<li ng-class="{'disabled':!main.results.r1}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r1')" role="button" class="dashboard_manage-question">{{main.literals.r1}}</span></li>
-										<li ng-class="{'disabled':!main.results.r2}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r2')" role="button" class="dashboard_manage-question">{{main.literals.r2}}</span></li>
-										<li ng-class="{'disabled':!main.results.r3}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r3')" role="button" class="dashboard_manage-question">{{main.literals.r3}}</span></li>
-										<li ng-class="{'disabled':!main.results.r4}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r4')" role="button" class="dashboard_manage-question">{{main.literals.r4}}</span></li>
-										<li ng-class="{'disabled':!main.results.r5}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r5')" role="button" class="dashboard_manage-question">{{main.literals.r5}}</span></li>
-										<li ng-class="{'disabled':!main.results.r6}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r6')" role="button" class="dashboard_manage-question">{{main.literals.r6}}</span></li>
-										<li ng-class="{'disabled':!main.results.r7}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r7')" role="button" class="dashboard_manage-question">{{main.literals.r7}}</span></li>
-										<li ng-class="{'disabled':!main.results.r8}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r8')" role="button" class="dashboard_manage-question">{{main.literals.r8}}</span></li>						
-									</ol>
+                    <h3 class="accesible-hide">Questions</h3>
+                    <ol>
+						<li ng-class="{'disabled':!main.results.r0}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r0')" role="button" class="dashboard_manage-question">{{main.literals.r0}}</span></li>
+						<li ng-class="{'disabled':!main.results.r1}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r1')" role="button" class="dashboard_manage-question">{{main.literals.r1}}</span></li>
+						<li ng-class="{'disabled':!main.results.r2}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r2')" role="button" class="dashboard_manage-question">{{main.literals.r2}}</span></li>
+						<li ng-class="{'disabled':!main.results.r3}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r3')" role="button" class="dashboard_manage-question">{{main.literals.r3}}</span></li>
+						<li ng-class="{'disabled':!main.results.r4}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r4')" role="button" class="dashboard_manage-question">{{main.literals.r4}}</span></li>
+						<li ng-class="{'disabled':!main.results.r5}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r5')" role="button" class="dashboard_manage-question">{{main.literals.r5}}</span></li>
+						<li ng-class="{'disabled':!main.results.r6}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r6')" role="button" class="dashboard_manage-question">{{main.literals.r6}}</span></li>
+						<li ng-class="{'disabled':!main.results.r7}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r7')" role="button" class="dashboard_manage-question">{{main.literals.r7}}</span></li>
+						<li ng-class="{'disabled':!main.results.r8}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r8')" role="button" class="dashboard_manage-question">{{main.literals.r8}}</span></li>						
+					</ol>
                 </article>
             </section>
             <section class="dashboard_users">
                 <article class="dashboard_clients">
                     <header class="accesible-hide">
-                        <h3>Linked users</h3>
+                        <h3>Usuarios conectados</h3>
                     </header>
-                    <div id="pings" class="dashboard_users-pings text">00</div>
+                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                        <span class="left-mask">
+                                <span class="circle"></span>
+                        </span>
+                        <span class="right-mask">
+                                <span class="circle"></span>
+                        </span>
+                        <div class="circle">
+                            <div class="users-count">
+                                <span class="label result">Nota</span>
+                                <span id="votes-percentage" class="number result">{{main.questionResults.getTotalVotesPercentage()}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users-count">
+                        <span class="label">Votos</span>
+                        <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
+                    </div>
+                    <div class="users-count">
+                        <span class="label">Sockets</span>
+                        <span id="pings" class="number">00</span>
+                    </div>
+                    <!-- <div class="users-count">
+                        <span class="label result">Nota</span>
+                        <span class="number result">3</span>
+                    </div>
+                    <div class="users-count">
+                        <span class="label">Sockets</span>
+                        <span id="pings" class="number">00</span>
+                    </div>
                     <div id="votes-percentage" class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getTotalVotesPercentage()}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
@@ -96,11 +125,13 @@
                         <span class="right-mask">
                                 <span class="circle"></span>
                         </span>
-                        <div class="circle users-count">
-                            <span class="label">total votes</span>
-                            <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
+                        <div class="circle">
+                            <div class="users-count">
+                                <span class="label">Votos</span>
+                                <span id="total-votes" class="number">{{main.questionResults.getTotal()}}</span>
+                            </div>
                         </div>
-                    </div>
+                    </div> -->
                 </article>
             </section>
         </div>

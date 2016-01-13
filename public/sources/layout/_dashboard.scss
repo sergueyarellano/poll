@@ -45,7 +45,7 @@ $height: goldenCalc($width);
     .dashboard_poll-title
     {
         text-align: center;
-        padding: ($paddingBase * 3) 0;
+        padding: ($paddingBase * 3) 0 ($paddingBase * 4);
         h2
         {
             font-size: 3em;
@@ -99,26 +99,24 @@ $height: goldenCalc($width);
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    font-size: 1.5em;
 }
 .dashboard_users
 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    padding-left: $paddingBase * 2;
+    justify-content: flex-start;
 
     text-align: center;
-    .dashboard_users-pings
+    .dashboard_users-total
     {
-        .text
+
+        .dashboard_users-pings
         {
+            display: block;
             font-family: 'Oswald', sans-serif;
-            font-size: 5.5em;
+            // font-size: 6em;
             font-weight: 300;
-
-            padding: .18em 0 .1em;
-
             color: $green;
         }
     }
