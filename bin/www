@@ -59,7 +59,7 @@ wss.broadcast = function broadcast(data) {
 
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
-    
+
     ws.send(JSON.stringify({type:'connected', value:usersConnected.toString()}))
   }, 1000)
 
@@ -94,21 +94,30 @@ wss.on("connection", function(ws) {
       pollStatus.qId = mParsed.href.substring(mParsed.href.length -2);
 
       wss.broadcast(message);
+      // console.log('wss',wss);
     } else if (mParsed.type === 'reconnect') {
       wss.broadcast(message);
     } else if (mParsed.admin) {
         // capture the admin object
         wsAdmin = ws;
+        // console.log('.............................................................', ws);
+
         // update poll results to admin
+        // REVISAR
         wsAdmin.send(JSON.stringify(pollResults));
     }
+  });
+  
+  ws.on("open", function() {
+    console.log("websocket connection open qq");
+
   });
 
   ws.on("close", function() {
     console.log("websocket connection close");
     --usersConnected;
     clearInterval(id);
-  })
+  });
 });
 
 

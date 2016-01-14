@@ -15,15 +15,7 @@ var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and i
     total_connected: { type: Number, default: 0 },
     percentage_share: { type: Number, default: 0 },
     average_votes: { type: Number, default: 0 }
-  }),
-
-  TotalesSchema = new Schema({
-    poll_id: { type: String, required: true, lowercase: true },
-  	total_votes: { type: Number, default: 0 },
-    total_connected: { type: Number, default: 0 },
-    percentage_share: { type: Number, default: 0 }
-  })
+  });
 
 	module.exports.votacion = mongoose.model('Votacion', VotacionSchema);
-	module.exports.totales = mongoose.model('Totales', TotalesSchema);
 })();

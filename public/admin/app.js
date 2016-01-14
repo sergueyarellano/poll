@@ -2,6 +2,19 @@
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
+ws.onopen = function() {
+	    ws.domain = 'titan';
+	    console.log(ws.send);
+			// identify 
+			ws.send(JSON.stringify({admin:'admin'}));
+
+			// keep socket alive
+			var alive = setInterval(function() {
+
+		    ws.send(JSON.stringify({type:'alive'}))
+		  }, 110000);
+		};
+
 var pollResults = {
 	
 	r0:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
@@ -15,7 +28,7 @@ var pollResults = {
 	r8:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0}
 };
 
-var questionResults = {
+var currentQVotes = {
 	oneStar: 0,
 	twoStar:0,
 	threeStar:0,
@@ -34,7 +47,7 @@ var questionResults = {
 	},
 	getAverageVotes: function() {
 		
-		return Math.round((this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10),-1) || 0;
+		return Math.round((this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10)*100)/100 || 0;
 	}
 };
 
@@ -42,17 +55,65 @@ var usersConnected = 0;
 var started = false;
 
 angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
-	.controller('mainController', function($scope, $location, LiveFeedback) {
+	.controller('mainController', function($scope, $location, $q, $timeout, LiveFeedback) {
 		var vm = this;
 
-		ws.onopen = function() {
-			ws.send(JSON.stringify({admin:'admin'}));
+		// socket listeners
+		
+
+		ws.onmessage = function (event) {
+
+			var data = JSON.parse(event.data);
+			switch (data.type) {
+				case 'connected':
+					if (!!document.getElementById('pings')) {
+						usersConnected = data.value;
+						document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value;
+					}
+					break;
+				case 'poll':
+
+					vm.pollResults[data.results][data.index] += parseInt(data.value,10);
+					vm.currentQVotes[data.index] += parseInt(data.value,10);
+
+					$scope.$apply();
+					break;
+				case 'update':
+					if (data.current) {
+
+						pollResults = data;
+
+						currentQVotes.oneStar = data[data.current].oneStar;
+						currentQVotes.twoStar = data[data.current].twoStar;
+						currentQVotes.threeStar = data[data.current].threeStar;
+						currentQVotes.fourStar = data[data.current].fourStar;
+						currentQVotes.fiveStar = data[data.current].fiveStar;
+					}
+					break;
+				default:
+					break;
+			}
 		};
 
-		ws.onclose = function () {
-			console.log('me piro');
-			ws.send(JSON.stringify({type: 'resetAdmin'}));
-		}
+		// get DB and update current votes
+		$q.all([LiveFeedback.getPollResults()]).then(function(data) {
+			data = data[0].data
+				data.forEach(function(qData) {
+					pollResults[qData.q_id].oneStar = qData.oneStar;
+					pollResults[qData.q_id].twoStar = qData.twoStar; 
+					pollResults[qData.q_id].threeStar = qData.threeStar; 
+					pollResults[qData.q_id].fourStar = qData.fourStar; 
+					pollResults[qData.q_id].fiveStar = qData.fiveStar;  
+				});
+
+		}).then(function() {
+			// init current votes
+			for (star in pollResults.r0) {
+				currentQVotes[star] = pollResults.r0[star];
+			}
+		});
+
+		// init variables
 		vm.results = {r0:true,r1:false,r2:false,r3:false,r4:false,r5:false,r6:false,r7:false,r8:false};
 		vm.started = started;
 		vm.literals = {
@@ -69,44 +130,9 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 		vm.questionHeader = vm.literals.r0;
 		vm.pollResults = pollResults;
 		vm.questionActive = 'r0';
-		vm.questionResults = questionResults;
+		vm.currentQVotes = currentQVotes;
+
 		vm.disabled = "disabled";
-
-		ws.onmessage = function (event) {
-
-			var data = JSON.parse(event.data);
-			switch (data.type) {
-				case 'connected':
-					if (!!document.getElementById('pings')) {
-						usersConnected = data.value;
-						document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value;
-					}
-					break;
-				case 'poll':
-
-					vm.pollResults[data.results][data.index] += parseInt(data.value,10);
-					vm.questionResults[data.index] += parseInt(data.value,10);
-
-					$scope.$apply();
-					break;
-
-				case 'update':
-					if (data.current) {
-
-						pollResults = data;
-
-						questionResults.oneStar = data[data.current].oneStar;
-						questionResults.twoStar = data[data.current].twoStar;
-						questionResults.threeStar = data[data.current].threeStar;
-						questionResults.fourStar = data[data.current].fourStar;
-						questionResults.fiveStar = data[data.current].fiveStar;
-					}
-					// $scope.$apply();
-					break;
-				default:
-					break;
-			}
-		}
 
 		vm.showQuestionResults = function(rId) {
 			for (r in vm.results) {
@@ -116,9 +142,9 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 
 			vm.questionHeader = vm.literals[rId];
 			vm.questionActive = rId;
-			for (starIndex in vm.questionResults) {
+			for (starIndex in vm.currentQVotes) {
 				if (!starIndex.startsWith('get')) {
-					vm.questionResults[starIndex] = vm.pollResults[rId][starIndex];
+					vm.currentQVotes[starIndex] = vm.pollResults[rId][starIndex];
 				}
 			}
 		};
@@ -148,15 +174,15 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 				var data = {
 					'poll_id' : 'demopi3',
 					'q_id' : vm.questionActive,
-					'oneStar' : questionResults.oneStar,
-					'twoStar' : questionResults.twoStar,
-					'threeStar' : questionResults.threeStar,
-					'fourStar' : questionResults.fourStar,
-					'fiveStar' : questionResults.fiveStar,
-					'total_votes' : questionResults.getTotalVotes(),
+					'oneStar' : currentQVotes.oneStar,
+					'twoStar' : currentQVotes.twoStar,
+					'threeStar' : currentQVotes.threeStar,
+					'fourStar' : currentQVotes.fourStar,
+					'fiveStar' : currentQVotes.fiveStar,
+					'total_votes' : currentQVotes.getTotalVotes(),
    					'total_connected' : usersConnected,
-   					'percentage_share' : questionResults.getTotalVotesPercentage(),
-   					'average_votes' : questionResults.getAverageVotes()
+   					'percentage_share' : currentQVotes.getTotalVotesPercentage(),
+   					'average_votes' : currentQVotes.getAverageVotes()
 				};
 				LiveFeedback.saveQuestionResults(JSON.stringify(data));
 			}
@@ -210,7 +236,7 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 
 angular.module('LiveFeedbackService', [])
 
-	.factory('LiveFeedback', function($http) {
+	.factory('LiveFeedback', function($http, $q, $timeout) {
 
 		var _LFFactory = {};
 
@@ -228,6 +254,15 @@ angular.module('LiveFeedbackService', [])
 
 		_LFFactory.saveTotalVotes = function(data) {
 			return $http.put('/api/totales', data);
+		};
+
+		_LFFactory.getCurrentQVotes = function(data) {
+			var deferred = $q.defer();
+
+			$timeout(function() {
+      	deferred.resolve(currentQVotes);
+    	}, 2000);
+    	return deferred.promise;
 		};
 
 		return _LFFactory;

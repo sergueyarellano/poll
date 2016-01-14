@@ -40,7 +40,7 @@ angular.module('welcomeApp',['welcomeRoutes'])
 					$location.path('/welcome/standBy');
 					vm.applyThings();
 					break;
-
+					
 				case 'reconnect':
 					console.log("entro");
 					savedVote.currentTarget = '/welcome/init';

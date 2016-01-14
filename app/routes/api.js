@@ -31,7 +31,7 @@ module.exports = function(app, express) {
 				if (err) {
  					if (err.code == 11000) {
 
-              			return res.json({status: 409, success: false, message: 'You cannot push a poll with the same name' });
+             return res.json({status: 409, success: false, message: 'You cannot push a poll with the same name' });
  					}
          
 					return res.send(err);
@@ -97,62 +97,7 @@ module.exports = function(app, express) {
         }
         res.json(votos);
       });
-		});
-
-
-	apiRouter.route('/totales')
-		.post(function(req, res) {
-
-			var totales = new Model.totales();
-			totales.poll_id = req.body.poll_id;
-			totales.total_votes = parseInt(req.body.total_votes);
-			totales.total_connected = parseInt(req.body.total_connected);
-			totales.percentage_share = parseInt(req.body.percentage_share);
-
-			totales.save(function(err) {
-				if (err) {
-
-					return res.send(err);
-				}
-
-				res.json({ message: 'total stats poll created!' });
-			});
-		})
-
-		.put(function(req, res) {
-			Model.totales.find({poll_id:req.body.poll_id}, function(err, totales) {
-				if (err) {
-					res.send(err);
-				}
-				totales = totales[0];
-				if (req.body.poll_id) totales.poll_id = req.body.poll_id;
-				if (req.body.total_votes) totales.total_votes = parseInt(req.body.total_votes);
-				if (req.body.total_connected) totales.total_connected = parseInt(req.body.total_connected);
-				if (req.body.percentage_share) totales.percentage_share = parseInt(req.body.percentage_share);
-
-				totales.save(function(err) {
-					if (err) res.send(err);
-
-					res.json({message: 'poll totals updated'});
-				})
-			});
-		})
-		.get(function(req, res) {
-			Model.totales.find({}, function(err, totales) {
-				if (err) res.send(err);
-
-				res.json(totales);
-			});
-		})
-
-		.delete(function(req, res) {
-			Model.totales.remove({}, function(err) {
-				if (err) {
-                	res.send(err)
-              	}
-              	res.json({message: 'Successfully deleted'});
-			})
-		});
+	});
 
 	return apiRouter;
 };

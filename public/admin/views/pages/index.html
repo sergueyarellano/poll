@@ -58,11 +58,11 @@
             </header>
             <article>
               <ol class="dashboard_question-charts">
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getVotePercentage('oneStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getVotePercentage('twoStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getVotePercentage('threeStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getVotePercentage('fourStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getVotePercentage('fiveStar')}}"></pollstar>
+				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.oneStar}}" myvalue="{{main.currentQVotes.getVotePercentage('oneStar')}}"></pollstar>
+				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.twoStar}}" myvalue="{{main.currentQVotes.getVotePercentage('twoStar')}}"></pollstar>
+				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.threeStar}}" myvalue="{{main.currentQVotes.getVotePercentage('threeStar')}}"></pollstar>
+				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.fourStar}}" myvalue="{{main.currentQVotes.getVotePercentage('fourStar')}}"></pollstar>
+				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.fiveStar}}" myvalue="{{main.currentQVotes.getVotePercentage('fiveStar')}}"></pollstar>
 			</ol>
             </article>
         </section>
@@ -88,7 +88,7 @@
                     <header class="accesible-hide">
                         <h3>Usuarios conectados</h3>
                     </header>
-                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getAverageVotes() * 20}}" role="progressbar">
+                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.currentQVotes.getAverageVotes() * 20}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
                         </span>
@@ -98,13 +98,13 @@
                         <div class="circle">
                             <div class="users-count">
                                 <span class="label result">Nota</span>
-                                <span id="votes-percentage" class="number result">{{main.questionResults.getAverageVotes()}}<sup>/5</sup></span>
+                                <span id="votes-percentage" class="number result">{{main.currentQVotes.getAverageVotes()}}<sup>/5</sup></span>
                             </div>
                         </div>
                     </div>
                     <div class="users-count">
                         <span class="label">Votos</span>
-                        <span id="total-votes" class="number">{{main.questionResults.getTotalVotes()}}</span>
+                        <span id="total-votes" class="number">{{main.currentQVotes.getTotalVotes()}}</span>
                     </div>
                     <div class="users-count">
                         <span class="label">Conectados</span>
