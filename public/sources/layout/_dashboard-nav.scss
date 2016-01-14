@@ -1,28 +1,67 @@
 .dashboard_nav
 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 
     width: 9.688em;
 
     background-color: $white;
 
-    align-self: stretch;
+    -webkit-align-self: stretch;
+
+        -ms-flex-item-align: stretch;
+
+            align-self: stretch;
     /* box-shadow: 0 0 20px 5px rgba(black, .1),
                 2px 0 10px 0 rgba(black, .2); */
     .dashboard_nav-list
     {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
 
-        justify-content: flex-start;
-        flex: 1;
+        -webkit-box-pack: start;
+
+        -webkit-justify-content: flex-start;
+
+            -ms-flex-pack: start;
+
+                justify-content: flex-start;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
         li:last-child
         {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                    flex-direction: column;
 
-            flex: 1;
-            justify-content: flex-end;
+            -webkit-box-flex: 1;
+
+            -webkit-flex: 1;
+
+                -ms-flex: 1;
+
+                    flex: 1;
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
             // padding: $paddingBase;
             .dashboard_nav-list_link
             {
@@ -44,15 +83,28 @@
 
             z-index: 1;
 
+            display: -webkit-box;
+
+            display: -webkit-flex;
+
+            display: -ms-flexbox;
+
             display: flex;
             // margin: 0 $paddingBase;
             // padding: $paddingBase 0;
-            border-radius: 0;
+            -webkit-border-radius: 0;
+                    border-radius: 0;
 
             background-color: $white;
             color: lighten($gray, 50);
 
-            justify-content: space-between;
+            -webkit-box-pack: justify;
+
+            -webkit-justify-content: space-between;
+
+                -ms-flex-pack: justify;
+
+                    justify-content: space-between;
             &:hover,
             &.active
             {

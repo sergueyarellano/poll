@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
 //    project: path.join(__dirname, 'public/sources'),
 //    sass: 'layout',
 //    css: 'css'
-// }));
+//}));
 
 // connect to the database
 mongoose.connect(config.database);
