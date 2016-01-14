@@ -152,19 +152,13 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 					'twoStar' : questionResults.twoStar,
 					'threeStar' : questionResults.threeStar,
 					'fourStar' : questionResults.fourStar,
-					'fiveStar' : questionResults.fiveStar
+					'fiveStar' : questionResults.fiveStar,
+					'total_votes' : questionResults.getTotalVotes(),
+   					'total_connected' : usersConnected,
+   					'percentage_share' : questionResults.getTotalVotesPercentage(),
+   					'average_votes' : questionResults.getAverageVotes()
 				};
 				LiveFeedback.saveQuestionResults(JSON.stringify(data));
-
-				data = {
-					'poll_id' : 'demopi3',
-					'total_votes' : vm.getTotalVotes,
-   					'total_connected' : usersConnected,
-   					'percentage_share' : vm.getTotalVotesPercentage
-				};
-
-				LiveFeedback.saveTotalVotes(JSON.stringify(data));
-
 			}
 		};
 

@@ -64,12 +64,13 @@ angular.module('welcomeApp',['welcomeRoutes'])
 
 			savedVote[results] = {type:'poll',results:results, index:starId, value:1, href:$location.path(), send:true};
 			savedVote.currentTarget = results;
+			savedVote.select = true;
 		}
 
 		// $scope.$apply();
 		vm.sendPoll = function () {
 
-			if (savedVote[savedVote.currentTarget].send) {
+			if (savedVote[savedVote.currentTarget].send && savedVote.select) {
 
 				ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
 				$location.path('/welcome/thanks');
@@ -80,6 +81,7 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			savedVote[savedVote.currentTarget].value = -1;
 			ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
 			$location.path(savedVote[savedVote.currentTarget].href);
+			savedVote.select = false;
 			// vm.applyThings();
 		}
 	})

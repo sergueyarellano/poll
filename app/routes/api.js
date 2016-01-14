@@ -22,6 +22,10 @@ module.exports = function(app, express) {
 			votacion.threeStar = parseInt(req.body.threeStar);
 			votacion.fourStar = parseInt(req.body.fourStar);
 			votacion.fiveStar = parseInt(req.body.fiveStar);
+			votacion.total_votes = parseInt(req.body.total_votes);
+			votacion.total_connected = parseInt(req.body.total_connected);
+			votacion.percentage_share = parseInt(req.body.percentage_share);
+
 
 			votacion.save(function(err) {
 				if (err) {
@@ -61,7 +65,12 @@ module.exports = function(app, express) {
 				if (req.body.threeStar) votacion.threeStar = parseInt(req.body.threeStar);
 				if (req.body.fourStar) votacion.fourStar = parseInt(req.body.fourStar);
 				if (req.body.fiveStar) votacion.fiveStar = parseInt(req.body.fiveStar);
-
+				if (req.body.total_votes) votacion.total_votes = parseInt(req.body.total_votes);
+				if (req.body.total_connected) votacion.total_connected = parseInt(req.body.total_connected);
+				if (req.body.percentage_share) votacion.percentage_share = parseInt(req.body.percentage_share);
+				if (req.body.average_votes) votacion.average_votes = parseInt(req.body.average_votes);
+				
+			
 				votacion.save(function(err) {
 					if (err) res.send(err);
 

@@ -10,7 +10,11 @@ var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and i
   	twoStar: { type: Number, default: 0 },
   	threeStar: { type: Number, default: 0 },
   	fourStar: { type: Number, default: 0 },
-  	fiveStar: { type: Number, default: 0 }
+  	fiveStar: { type: Number, default: 0 },
+    total_votes: { type: Number, default: 0 },
+    total_connected: { type: Number, default: 0 },
+    percentage_share: { type: Number, default: 0 },
+    average_votes: { type: Number, default: 0 }
   }),
 
   TotalesSchema = new Schema({
