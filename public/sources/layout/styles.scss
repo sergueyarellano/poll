@@ -19,7 +19,7 @@ $globalTransition: all .3s ease-in-out;
 $globalTransitionBezier: all 0.5s cubic-bezier(0.6, -0.54, 0.44, 1.47);
 
 @function goldenCalc($amount) {
-	@return ($amount * 1.618) - $amount;
+    @return ($amount * 1.618) - $amount;
 }
 
 .global-padding
@@ -52,10 +52,26 @@ body
 
     position: relative;
 
+    display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     width: 100%;
     height: 100%;

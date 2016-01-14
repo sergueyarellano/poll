@@ -1,14 +1,33 @@
 .body_client
 {
-	align-items: center;
-	flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 .client_header
 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+
+    -webkit-justify-content: space-between;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     padding: $paddingBase;
 
@@ -18,16 +37,32 @@
 .poll_client
 {
 	width: 100%;
-	flex: 1;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	background-color: $blue;
 }
 
 .poll_client-status
 {
-	flex: 0 0 .5em;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 .5em;
+	    -ms-flex: 0 0 .5em;
+	        flex: 0 0 .5em;
 	display: block;
 	&[data-status="conected"]
 	{
@@ -45,7 +80,10 @@
 
 .poll_client-title
 {
-	flex: 0 0 auto;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	    -ms-flex: 0 0 auto;
+	        flex: 0 0 auto;
 	text-align: center;
 	padding: $paddingBase $paddingBase 0;
 	font-size: 2em;
@@ -54,17 +92,37 @@
 .poll_client-content
 {
 	width: 100%;
-	flex: 1;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	padding: 0 $paddingBase;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	text-align: center;
 	&.active
 	{
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 	.logo-container
 	{
@@ -79,8 +137,14 @@
 
 .poll_client-rating_stars
 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	position: relative;
 	.poll_client-rating_option
 	{
@@ -104,7 +168,8 @@
 	&:before
 	{
 		background-color: $navy;
-    	border-radius: 1em;
+    	-webkit-border-radius: 1em;
+    	        border-radius: 1em;
     	position: absolute;
 	    top: 0;
 	    left: 0;
@@ -114,6 +179,7 @@
     	z-index: 1;
     	padding: .5em;
     	opacity: 0;
+    	-webkit-transition: $globalTransitionBezier;
     	transition: $globalTransitionBezier;
 	}
 }
@@ -121,12 +187,21 @@
 .poll_client-rating_button
 {
 	padding: $paddingBase;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	[role="button"]
 	{
-		flex: 1;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		    -ms-flex: 1;
+		        flex: 1;
 	}
 }
 
