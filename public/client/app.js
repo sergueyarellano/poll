@@ -82,7 +82,6 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
 			$location.path(savedVote[savedVote.currentTarget].href);
 			savedVote.select = false;
-			// vm.applyThings();
 		}
 	})
 	.controller('welcomeController', function() {
