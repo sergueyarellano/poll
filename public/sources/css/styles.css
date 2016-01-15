@@ -631,10 +631,18 @@ html,
 body {
   font-family: 'Open Sans', sans-serif;
   position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   height: 100%;
   color: #f0f0f0;
@@ -648,7 +656,9 @@ body {
 }
 .border-chart .circle {
   border-radius: 50%;
+  transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   width: 1em;
   height: 1em;
   display: inline-block;
@@ -668,7 +678,8 @@ body {
 .border-chart .left-mask .circle,
 .border-chart .right-mask .circle {
   border-width: 6px;
-  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
   position: absolute;
   top: 0;
   left: 0;
@@ -683,7 +694,8 @@ body {
   width: 50%;
 }
 .border-chart .right-mask .circle {
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   right: 0;
   left: auto;
   border-top-color: rgba(47, 130, 184, 0.5);
@@ -701,7 +713,8 @@ body {
   z-index: 2;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 .border-chart .users-count {
   position: absolute;
@@ -718,755 +731,956 @@ body {
   font-size: .125em;
 }
 .border-chart[aria-valuenow='0'] .right-mask .circle {
-  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 .border-chart[aria-valuenow='1'] .right-mask .circle {
-  transform: rotate(-131.4deg);
+  -webkit-transform: rotate(-131.4deg);
+          transform: rotate(-131.4deg);
 }
 .border-chart[aria-valuenow='2'] .right-mask .circle {
-  transform: rotate(-127.8deg);
+  -webkit-transform: rotate(-127.8deg);
+          transform: rotate(-127.8deg);
 }
 .border-chart[aria-valuenow='3'] .right-mask .circle {
-  transform: rotate(-124.2deg);
+  -webkit-transform: rotate(-124.2deg);
+          transform: rotate(-124.2deg);
 }
 .border-chart[aria-valuenow='4'] .right-mask .circle {
-  transform: rotate(-120.6deg);
+  -webkit-transform: rotate(-120.6deg);
+          transform: rotate(-120.6deg);
 }
 .border-chart[aria-valuenow='5'] .right-mask .circle {
-  transform: rotate(-117deg);
+  -webkit-transform: rotate(-117deg);
+          transform: rotate(-117deg);
 }
 .border-chart[aria-valuenow='6'] .right-mask .circle {
-  transform: rotate(-113.4deg);
+  -webkit-transform: rotate(-113.4deg);
+          transform: rotate(-113.4deg);
 }
 .border-chart[aria-valuenow='7'] .right-mask .circle {
-  transform: rotate(-109.8deg);
+  -webkit-transform: rotate(-109.8deg);
+          transform: rotate(-109.8deg);
 }
 .border-chart[aria-valuenow='8'] .right-mask .circle {
-  transform: rotate(-106.2deg);
+  -webkit-transform: rotate(-106.2deg);
+          transform: rotate(-106.2deg);
 }
 .border-chart[aria-valuenow='9'] .right-mask .circle {
-  transform: rotate(-102.6deg);
+  -webkit-transform: rotate(-102.6deg);
+          transform: rotate(-102.6deg);
 }
 .border-chart[aria-valuenow='10'] .right-mask .circle {
-  transform: rotate(-99deg);
+  -webkit-transform: rotate(-99deg);
+          transform: rotate(-99deg);
 }
 .border-chart[aria-valuenow='11'] .right-mask .circle {
-  transform: rotate(-95.4deg);
+  -webkit-transform: rotate(-95.4deg);
+          transform: rotate(-95.4deg);
 }
 .border-chart[aria-valuenow='12'] .right-mask .circle {
-  transform: rotate(-91.8deg);
+  -webkit-transform: rotate(-91.8deg);
+          transform: rotate(-91.8deg);
 }
 .border-chart[aria-valuenow='13'] .right-mask .circle {
-  transform: rotate(-88.2deg);
+  -webkit-transform: rotate(-88.2deg);
+          transform: rotate(-88.2deg);
 }
 .border-chart[aria-valuenow='14'] .right-mask .circle {
-  transform: rotate(-84.6deg);
+  -webkit-transform: rotate(-84.6deg);
+          transform: rotate(-84.6deg);
 }
 .border-chart[aria-valuenow='15'] .right-mask .circle {
-  transform: rotate(-81deg);
+  -webkit-transform: rotate(-81deg);
+          transform: rotate(-81deg);
 }
 .border-chart[aria-valuenow='16'] .right-mask .circle {
-  transform: rotate(-77.4deg);
+  -webkit-transform: rotate(-77.4deg);
+          transform: rotate(-77.4deg);
 }
 .border-chart[aria-valuenow='17'] .right-mask .circle {
-  transform: rotate(-73.8deg);
+  -webkit-transform: rotate(-73.8deg);
+          transform: rotate(-73.8deg);
 }
 .border-chart[aria-valuenow='18'] .right-mask .circle {
-  transform: rotate(-70.2deg);
+  -webkit-transform: rotate(-70.2deg);
+          transform: rotate(-70.2deg);
 }
 .border-chart[aria-valuenow='19'] .right-mask .circle {
-  transform: rotate(-66.6deg);
+  -webkit-transform: rotate(-66.6deg);
+          transform: rotate(-66.6deg);
 }
 .border-chart[aria-valuenow='20'] .right-mask .circle {
-  transform: rotate(-63deg);
+  -webkit-transform: rotate(-63deg);
+          transform: rotate(-63deg);
 }
 .border-chart[aria-valuenow='21'] .right-mask .circle {
-  transform: rotate(-59.4deg);
+  -webkit-transform: rotate(-59.4deg);
+          transform: rotate(-59.4deg);
 }
 .border-chart[aria-valuenow='22'] .right-mask .circle {
-  transform: rotate(-55.8deg);
+  -webkit-transform: rotate(-55.8deg);
+          transform: rotate(-55.8deg);
 }
 .border-chart[aria-valuenow='23'] .right-mask .circle {
-  transform: rotate(-52.2deg);
+  -webkit-transform: rotate(-52.2deg);
+          transform: rotate(-52.2deg);
 }
 .border-chart[aria-valuenow='24'] .right-mask .circle {
-  transform: rotate(-48.6deg);
+  -webkit-transform: rotate(-48.6deg);
+          transform: rotate(-48.6deg);
 }
 .border-chart[aria-valuenow='25'] .right-mask .circle {
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 .border-chart[aria-valuenow='26'] .right-mask .circle {
-  transform: rotate(-41.4deg);
+  -webkit-transform: rotate(-41.4deg);
+          transform: rotate(-41.4deg);
 }
 .border-chart[aria-valuenow='27'] .right-mask .circle {
-  transform: rotate(-37.8deg);
+  -webkit-transform: rotate(-37.8deg);
+          transform: rotate(-37.8deg);
 }
 .border-chart[aria-valuenow='28'] .right-mask .circle {
-  transform: rotate(-34.2deg);
+  -webkit-transform: rotate(-34.2deg);
+          transform: rotate(-34.2deg);
 }
 .border-chart[aria-valuenow='29'] .right-mask .circle {
-  transform: rotate(-30.6deg);
+  -webkit-transform: rotate(-30.6deg);
+          transform: rotate(-30.6deg);
 }
 .border-chart[aria-valuenow='30'] .right-mask .circle {
-  transform: rotate(-27deg);
+  -webkit-transform: rotate(-27deg);
+          transform: rotate(-27deg);
 }
 .border-chart[aria-valuenow='31'] .right-mask .circle {
-  transform: rotate(-23.4deg);
+  -webkit-transform: rotate(-23.4deg);
+          transform: rotate(-23.4deg);
 }
 .border-chart[aria-valuenow='32'] .right-mask .circle {
-  transform: rotate(-19.8deg);
+  -webkit-transform: rotate(-19.8deg);
+          transform: rotate(-19.8deg);
 }
 .border-chart[aria-valuenow='33'] .right-mask .circle {
-  transform: rotate(-16.2deg);
+  -webkit-transform: rotate(-16.2deg);
+          transform: rotate(-16.2deg);
 }
 .border-chart[aria-valuenow='34'] .right-mask .circle {
-  transform: rotate(-12.6deg);
+  -webkit-transform: rotate(-12.6deg);
+          transform: rotate(-12.6deg);
 }
 .border-chart[aria-valuenow='35'] .right-mask .circle {
-  transform: rotate(-9deg);
+  -webkit-transform: rotate(-9deg);
+          transform: rotate(-9deg);
 }
 .border-chart[aria-valuenow='36'] .right-mask .circle {
-  transform: rotate(-5.4deg);
+  -webkit-transform: rotate(-5.4deg);
+          transform: rotate(-5.4deg);
 }
 .border-chart[aria-valuenow='37'] .right-mask .circle {
-  transform: rotate(-1.8deg);
+  -webkit-transform: rotate(-1.8deg);
+          transform: rotate(-1.8deg);
 }
 .border-chart[aria-valuenow='38'] .right-mask .circle {
-  transform: rotate(1.8deg);
+  -webkit-transform: rotate(1.8deg);
+          transform: rotate(1.8deg);
 }
 .border-chart[aria-valuenow='39'] .right-mask .circle {
-  transform: rotate(5.4deg);
+  -webkit-transform: rotate(5.4deg);
+          transform: rotate(5.4deg);
 }
 .border-chart[aria-valuenow='40'] .right-mask .circle {
-  transform: rotate(9deg);
+  -webkit-transform: rotate(9deg);
+          transform: rotate(9deg);
 }
 .border-chart[aria-valuenow='41'] .right-mask .circle {
-  transform: rotate(12.6deg);
+  -webkit-transform: rotate(12.6deg);
+          transform: rotate(12.6deg);
 }
 .border-chart[aria-valuenow='42'] .right-mask .circle {
-  transform: rotate(16.2deg);
+  -webkit-transform: rotate(16.2deg);
+          transform: rotate(16.2deg);
 }
 .border-chart[aria-valuenow='43'] .right-mask .circle {
-  transform: rotate(19.8deg);
+  -webkit-transform: rotate(19.8deg);
+          transform: rotate(19.8deg);
 }
 .border-chart[aria-valuenow='44'] .right-mask .circle {
-  transform: rotate(23.4deg);
+  -webkit-transform: rotate(23.4deg);
+          transform: rotate(23.4deg);
 }
 .border-chart[aria-valuenow='45'] .right-mask .circle {
-  transform: rotate(27deg);
+  -webkit-transform: rotate(27deg);
+          transform: rotate(27deg);
 }
 .border-chart[aria-valuenow='46'] .right-mask .circle {
-  transform: rotate(30.6deg);
+  -webkit-transform: rotate(30.6deg);
+          transform: rotate(30.6deg);
 }
 .border-chart[aria-valuenow='47'] .right-mask .circle {
-  transform: rotate(34.2deg);
+  -webkit-transform: rotate(34.2deg);
+          transform: rotate(34.2deg);
 }
 .border-chart[aria-valuenow='48'] .right-mask .circle {
-  transform: rotate(37.8deg);
+  -webkit-transform: rotate(37.8deg);
+          transform: rotate(37.8deg);
 }
 .border-chart[aria-valuenow='49'] .right-mask .circle {
-  transform: rotate(41.4deg);
+  -webkit-transform: rotate(41.4deg);
+          transform: rotate(41.4deg);
 }
 .border-chart[aria-valuenow='50'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .border-chart[aria-valuenow='51'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='51'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='51'] .left-mask .circle {
-  transform: rotate(228.6deg);
+  -webkit-transform: rotate(228.6deg);
+          transform: rotate(228.6deg);
   transition-duration: 0.153s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='52'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='52'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='52'] .left-mask .circle {
-  transform: rotate(232.2deg);
+  -webkit-transform: rotate(232.2deg);
+          transform: rotate(232.2deg);
   transition-duration: 0.156s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='53'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='53'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='53'] .left-mask .circle {
-  transform: rotate(235.8deg);
+  -webkit-transform: rotate(235.8deg);
+          transform: rotate(235.8deg);
   transition-duration: 0.159s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='54'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='54'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='54'] .left-mask .circle {
-  transform: rotate(239.4deg);
+  -webkit-transform: rotate(239.4deg);
+          transform: rotate(239.4deg);
   transition-duration: 0.162s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='55'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='55'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='55'] .left-mask .circle {
-  transform: rotate(243deg);
+  -webkit-transform: rotate(243deg);
+          transform: rotate(243deg);
   transition-duration: 0.165s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='56'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='56'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='56'] .left-mask .circle {
-  transform: rotate(246.6deg);
+  -webkit-transform: rotate(246.6deg);
+          transform: rotate(246.6deg);
   transition-duration: 0.168s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='57'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='57'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='57'] .left-mask .circle {
-  transform: rotate(250.2deg);
+  -webkit-transform: rotate(250.2deg);
+          transform: rotate(250.2deg);
   transition-duration: 0.171s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='58'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='58'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='58'] .left-mask .circle {
-  transform: rotate(253.8deg);
+  -webkit-transform: rotate(253.8deg);
+          transform: rotate(253.8deg);
   transition-duration: 0.174s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='59'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='59'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='59'] .left-mask .circle {
-  transform: rotate(257.4deg);
+  -webkit-transform: rotate(257.4deg);
+          transform: rotate(257.4deg);
   transition-duration: 0.177s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='60'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='60'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='60'] .left-mask .circle {
-  transform: rotate(261deg);
+  -webkit-transform: rotate(261deg);
+          transform: rotate(261deg);
   transition-duration: 0.18s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='61'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='61'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='61'] .left-mask .circle {
-  transform: rotate(264.6deg);
+  -webkit-transform: rotate(264.6deg);
+          transform: rotate(264.6deg);
   transition-duration: 0.183s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='62'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='62'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='62'] .left-mask .circle {
-  transform: rotate(268.2deg);
+  -webkit-transform: rotate(268.2deg);
+          transform: rotate(268.2deg);
   transition-duration: 0.186s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='63'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='63'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='63'] .left-mask .circle {
-  transform: rotate(271.8deg);
+  -webkit-transform: rotate(271.8deg);
+          transform: rotate(271.8deg);
   transition-duration: 0.189s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='64'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='64'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='64'] .left-mask .circle {
-  transform: rotate(275.4deg);
+  -webkit-transform: rotate(275.4deg);
+          transform: rotate(275.4deg);
   transition-duration: 0.192s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='65'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='65'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='65'] .left-mask .circle {
-  transform: rotate(279deg);
+  -webkit-transform: rotate(279deg);
+          transform: rotate(279deg);
   transition-duration: 0.195s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='66'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='66'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='66'] .left-mask .circle {
-  transform: rotate(282.6deg);
+  -webkit-transform: rotate(282.6deg);
+          transform: rotate(282.6deg);
   transition-duration: 0.198s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='67'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='67'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='67'] .left-mask .circle {
-  transform: rotate(286.2deg);
+  -webkit-transform: rotate(286.2deg);
+          transform: rotate(286.2deg);
   transition-duration: 0.201s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='68'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='68'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='68'] .left-mask .circle {
-  transform: rotate(289.8deg);
+  -webkit-transform: rotate(289.8deg);
+          transform: rotate(289.8deg);
   transition-duration: 0.204s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='69'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='69'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='69'] .left-mask .circle {
-  transform: rotate(293.4deg);
+  -webkit-transform: rotate(293.4deg);
+          transform: rotate(293.4deg);
   transition-duration: 0.207s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='70'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='70'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='70'] .left-mask .circle {
-  transform: rotate(297deg);
+  -webkit-transform: rotate(297deg);
+          transform: rotate(297deg);
   transition-duration: 0.21s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='71'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='71'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='71'] .left-mask .circle {
-  transform: rotate(300.6deg);
+  -webkit-transform: rotate(300.6deg);
+          transform: rotate(300.6deg);
   transition-duration: 0.213s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='72'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='72'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='72'] .left-mask .circle {
-  transform: rotate(304.2deg);
+  -webkit-transform: rotate(304.2deg);
+          transform: rotate(304.2deg);
   transition-duration: 0.216s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='73'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='73'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='73'] .left-mask .circle {
-  transform: rotate(307.8deg);
+  -webkit-transform: rotate(307.8deg);
+          transform: rotate(307.8deg);
   transition-duration: 0.219s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='74'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='74'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='74'] .left-mask .circle {
-  transform: rotate(311.4deg);
+  -webkit-transform: rotate(311.4deg);
+          transform: rotate(311.4deg);
   transition-duration: 0.222s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='75'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='75'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='75'] .left-mask .circle {
-  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
   transition-duration: 0.225s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='76'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='76'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='76'] .left-mask .circle {
-  transform: rotate(318.6deg);
+  -webkit-transform: rotate(318.6deg);
+          transform: rotate(318.6deg);
   transition-duration: 0.228s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='77'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='77'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='77'] .left-mask .circle {
-  transform: rotate(322.2deg);
+  -webkit-transform: rotate(322.2deg);
+          transform: rotate(322.2deg);
   transition-duration: 0.231s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='78'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='78'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='78'] .left-mask .circle {
-  transform: rotate(325.8deg);
+  -webkit-transform: rotate(325.8deg);
+          transform: rotate(325.8deg);
   transition-duration: 0.234s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='79'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='79'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='79'] .left-mask .circle {
-  transform: rotate(329.4deg);
+  -webkit-transform: rotate(329.4deg);
+          transform: rotate(329.4deg);
   transition-duration: 0.237s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='80'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='80'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='80'] .left-mask .circle {
-  transform: rotate(333deg);
+  -webkit-transform: rotate(333deg);
+          transform: rotate(333deg);
   transition-duration: 0.24s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='81'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='81'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='81'] .left-mask .circle {
-  transform: rotate(336.6deg);
+  -webkit-transform: rotate(336.6deg);
+          transform: rotate(336.6deg);
   transition-duration: 0.243s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='82'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='82'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='82'] .left-mask .circle {
-  transform: rotate(340.2deg);
+  -webkit-transform: rotate(340.2deg);
+          transform: rotate(340.2deg);
   transition-duration: 0.246s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='83'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='83'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='83'] .left-mask .circle {
-  transform: rotate(343.8deg);
+  -webkit-transform: rotate(343.8deg);
+          transform: rotate(343.8deg);
   transition-duration: 0.249s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='84'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='84'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='84'] .left-mask .circle {
-  transform: rotate(347.4deg);
+  -webkit-transform: rotate(347.4deg);
+          transform: rotate(347.4deg);
   transition-duration: 0.252s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='85'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='85'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='85'] .left-mask .circle {
-  transform: rotate(351deg);
+  -webkit-transform: rotate(351deg);
+          transform: rotate(351deg);
   transition-duration: 0.255s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='86'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='86'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='86'] .left-mask .circle {
-  transform: rotate(354.6deg);
+  -webkit-transform: rotate(354.6deg);
+          transform: rotate(354.6deg);
   transition-duration: 0.258s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='87'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='87'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='87'] .left-mask .circle {
-  transform: rotate(358.2deg);
+  -webkit-transform: rotate(358.2deg);
+          transform: rotate(358.2deg);
   transition-duration: 0.261s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='88'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='88'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='88'] .left-mask .circle {
-  transform: rotate(361.8deg);
+  -webkit-transform: rotate(361.8deg);
+          transform: rotate(361.8deg);
   transition-duration: 0.264s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='89'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='89'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='89'] .left-mask .circle {
-  transform: rotate(365.4deg);
+  -webkit-transform: rotate(365.4deg);
+          transform: rotate(365.4deg);
   transition-duration: 0.267s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='90'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='90'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='90'] .left-mask .circle {
-  transform: rotate(369deg);
+  -webkit-transform: rotate(369deg);
+          transform: rotate(369deg);
   transition-duration: 0.27s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='91'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='91'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='91'] .left-mask .circle {
-  transform: rotate(372.6deg);
+  -webkit-transform: rotate(372.6deg);
+          transform: rotate(372.6deg);
   transition-duration: 0.273s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='92'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='92'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='92'] .left-mask .circle {
-  transform: rotate(376.2deg);
+  -webkit-transform: rotate(376.2deg);
+          transform: rotate(376.2deg);
   transition-duration: 0.276s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='93'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='93'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='93'] .left-mask .circle {
-  transform: rotate(379.8deg);
+  -webkit-transform: rotate(379.8deg);
+          transform: rotate(379.8deg);
   transition-duration: 0.279s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='94'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='94'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='94'] .left-mask .circle {
-  transform: rotate(383.4deg);
+  -webkit-transform: rotate(383.4deg);
+          transform: rotate(383.4deg);
   transition-duration: 0.282s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='95'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='95'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='95'] .left-mask .circle {
-  transform: rotate(387deg);
+  -webkit-transform: rotate(387deg);
+          transform: rotate(387deg);
   transition-duration: 0.285s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='96'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='96'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='96'] .left-mask .circle {
-  transform: rotate(390.6deg);
+  -webkit-transform: rotate(390.6deg);
+          transform: rotate(390.6deg);
   transition-duration: 0.288s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='97'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='97'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='97'] .left-mask .circle {
-  transform: rotate(394.2deg);
+  -webkit-transform: rotate(394.2deg);
+          transform: rotate(394.2deg);
   transition-duration: 0.291s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='98'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='98'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='98'] .left-mask .circle {
-  transform: rotate(397.8deg);
+  -webkit-transform: rotate(397.8deg);
+          transform: rotate(397.8deg);
   transition-duration: 0.294s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='99'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='99'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='99'] .left-mask .circle {
-  transform: rotate(401.4deg);
+  -webkit-transform: rotate(401.4deg);
+          transform: rotate(401.4deg);
   transition-duration: 0.297s;
   transition-delay: 0.3s;
 }
 .border-chart[aria-valuenow='100'] .right-mask .circle {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   transition-timing-function: linear;
 }
 .border-chart[aria-valuenow='100'] .left-mask {
-  animation: adjustPosition 0s linear forwards 0.3s;
+  -webkit-animation: adjustPosition 0s linear forwards 0.3s;
+          animation: adjustPosition 0s linear forwards 0.3s;
 }
 .border-chart[aria-valuenow='100'] .left-mask .circle {
-  transform: rotate(405deg);
+  -webkit-transform: rotate(405deg);
+          transform: rotate(405deg);
   transition-duration: 0.3s;
   transition-delay: 0.3s;
 }
@@ -1488,10 +1702,18 @@ body {
 }
 
 .users-count {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2.3em 1em;
 }
 .users-count .number {
@@ -1515,6 +1737,15 @@ body {
   color: #f0f0f0;
 }
 
+@-webkit-keyframes adjustPosition {
+  0% {
+    width: 49%;
+  }
+  100% {
+    width: 51%;
+  }
+}
+
 @keyframes adjustPosition {
   0% {
     width: 49%;
@@ -1527,12 +1758,16 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
   color: #f0f0f0;
   background-color: #37495d;
-  align-items: flex-start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .dashboard.golden {
   overflow: hidden;
@@ -1568,7 +1803,8 @@ body {
   }
   .dashboard .dashboard_nav,
   .dashboard .dashboard_content {
-    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
     opacity: 0;
     position: absolute;
     left: 0;
@@ -1577,9 +1813,15 @@ body {
 }
 
 .dashboard_header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 1em;
   background-color: #2d3e50;
   box-shadow: 5em 0.5em 5em 3em #37495d;
@@ -1587,6 +1829,8 @@ body {
 }
 
 .dashboard_header-action {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1603,24 +1847,44 @@ body {
 }
 
 .dashboard_nav {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 9.688em;
   background-color: #f0f0f0;
-  align-self: stretch;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   /* box-shadow: 0 0 20px 5px rgba(black, .1),
               2px 0 10px 0 rgba(black, .2); */
 }
 .dashboard_nav .dashboard_nav-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .dashboard_nav .dashboard_nav-list li:last-child {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: flex-end;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .dashboard_nav .dashboard_nav-list li:last-child .dashboard_nav-list_link {
   background-position: left top;
@@ -1633,11 +1897,15 @@ body {
 .dashboard_nav .dashboard_nav-list_item .dashboard_nav-list_link {
   font-size: .875em;
   z-index: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   border-radius: 0;
   background-color: #f0f0f0;
   color: #b0b0b0;
-  justify-content: space-between;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .dashboard_nav .dashboard_nav-list_item .dashboard_nav-list_link:hover, .dashboard_nav .dashboard_nav-list_item .dashboard_nav-list_link.active {
   color: #f0f0f0;
@@ -1665,10 +1933,18 @@ body {
 }
 
 .dashboard_content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  flex: 1;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .dashboard_content .dashboard_poll-title {
   text-align: center;
@@ -1688,7 +1964,9 @@ body {
 
 .dashboard_admin,
 .dashboard_users {
-  flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .dashboard_manage,
@@ -1697,28 +1975,48 @@ body {
 }
 
 .dashboard_question-results {
-  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   padding-bottom: 2em;
 }
 
 .dashboard_question-charts {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-align: center;
 }
 
 .dashboard_clients {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 1.3em;
 }
 
 .dashboard_users {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   text-align: center;
 }
 .dashboard_users .dashboard_users-total .dashboard_users-pings {
@@ -1729,8 +2027,12 @@ body {
 }
 
 .dashboard_manage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .dashboard_manage-list_item {
@@ -1874,14 +2176,24 @@ body {
 }
 
 .body_client {
-  align-items: center;
-  flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .client_header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 1em;
   background-color: #2d3e50;
   z-index: 10;
@@ -1889,15 +2201,25 @@ body {
 
 .poll_client {
   width: 100%;
-  flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #37495d;
 }
 
 .poll_client-status {
-  flex: 0 0 .5em;
+  -webkit-flex: 0 0 .5em;
+      -ms-flex: 0 0 .5em;
+          flex: 0 0 .5em;
   display: block;
 }
 .poll_client-status[data-status="conected"] {
@@ -1911,7 +2233,9 @@ body {
 }
 
 .poll_client-title {
-  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   text-align: center;
   padding: 1em 1em 0;
   font-size: 2em;
@@ -1919,17 +2243,29 @@ body {
 
 .poll_client-content {
   width: 100%;
-  flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 1em;
   box-sizing: border-box;
   text-align: center;
 }
 .poll_client-content.active {
-  justify-content: space-between;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .poll_client-content .logo-container {
   font-size: 2em;
@@ -1940,8 +2276,12 @@ body {
 }
 
 .poll_client-rating_stars {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
 }
 .poll_client-rating_stars .poll_client-rating_option {
@@ -1982,12 +2322,18 @@ body {
 
 .poll_client-rating_button {
   padding: 1em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  justify-content: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .poll_client-rating_button [role="button"] {
-  flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 [name="rating"] {
@@ -2021,9 +2367,15 @@ body {
 /* Variables */
 .logo-container {
   height: 6.25em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .logo-container .star-logo {
   font-size: 4em;
@@ -2049,31 +2401,44 @@ body {
   opacity: 0.2;
 }
 .logo-container .star-logo.animation {
-  animation: starAnimation 5s linear infinite;
+  -webkit-animation: starAnimation 5s linear infinite;
+          animation: starAnimation 5s linear infinite;
 }
 .logo-container .star-logo.animation .st0 {
-  animation: bling-1 5s linear infinite;
-  animation-delay: 0s;
+  -webkit-animation: bling-1 5s linear infinite;
+          animation: bling-1 5s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
 }
 .logo-container .star-logo.animation .st4 {
-  animation: bling-5 5s linear infinite;
-  animation-delay: 1s;
+  -webkit-animation: bling-5 5s linear infinite;
+          animation: bling-5 5s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 .logo-container .star-logo.animation .st3 {
-  animation: bling-4 5s linear infinite;
-  animation-delay: 2s;
+  -webkit-animation: bling-4 5s linear infinite;
+          animation: bling-4 5s linear infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 .logo-container .star-logo.animation .st2 {
-  animation: bling-3 5s linear infinite;
-  animation-delay: 3s;
+  -webkit-animation: bling-3 5s linear infinite;
+          animation: bling-3 5s linear infinite;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 .logo-container .star-logo.animation .st1 {
-  animation: bling-2 5s linear infinite;
-  animation-delay: 4s;
+  -webkit-animation: bling-2 5s linear infinite;
+          animation: bling-2 5s linear infinite;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 .client_header.subhome {
-  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .client_header .logo-container {
   height: auto;
@@ -2083,9 +2448,31 @@ body {
   margin-right: 0.5em;
 }
 
+@-webkit-keyframes starAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 @keyframes starAnimation {
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes bling-1 {
+  0% {
+    opacity: 0.6;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
 @keyframes bling-1 {
@@ -2102,6 +2489,20 @@ body {
     opacity: 0.6;
   }
 }
+@-webkit-keyframes bling-2 {
+  0% {
+    opacity: 0.5;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
 @keyframes bling-2 {
   0% {
     opacity: 0.5;
@@ -2114,6 +2515,20 @@ body {
   }
   100% {
     opacity: 0.5;
+  }
+}
+@-webkit-keyframes bling-3 {
+  0% {
+    opacity: 0.4;
+  }
+  5% {
+    opacity: 0.7;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.4;
   }
 }
 @keyframes bling-3 {
@@ -2130,6 +2545,20 @@ body {
     opacity: 0.4;
   }
 }
+@-webkit-keyframes bling-4 {
+  0% {
+    opacity: 0.3;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
 @keyframes bling-4 {
   0% {
     opacity: 0.3;
@@ -2142,6 +2571,20 @@ body {
   }
   100% {
     opacity: 0.3;
+  }
+}
+@-webkit-keyframes bling-5 {
+  0% {
+    opacity: 0.2;
+  }
+  5% {
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.2;
   }
 }
 @keyframes bling-5 {

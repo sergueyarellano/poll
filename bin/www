@@ -100,7 +100,7 @@ wss.on("connection", function(ws) {
     } else if (mParsed.admin) {
         // capture the admin object
         wsAdmin = ws;
-        // console.log('.............................................................', ws);
+        console.log('.............................................................', ws);
 
         // update poll results to admin
         // REVISAR
