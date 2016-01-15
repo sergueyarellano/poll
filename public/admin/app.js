@@ -1,3 +1,10 @@
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function(stringBuscada, posicion) {
+    posicion = posicion || 0;
+    return this.indexOf(stringBuscada, posicion) === posicion;
+  };
+}
+
 // Init admin socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
