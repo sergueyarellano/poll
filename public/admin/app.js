@@ -48,6 +48,9 @@ var currentQVotes = {
 	getAverageVotes: function() {
 		
 		return Math.round((this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10)*100)/100 || 0;
+	},
+	getAverageRepCircle: function() {
+		return Math.round(this.getAverageVotes()*20);
 	}
 };
 

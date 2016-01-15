@@ -9,6 +9,8 @@ angular.module('adminRoutes', ['ngRoute'])
 		})
 		.when('/results', {
 			templateUrl: 'admin/views/pages/index.html',
+			controller: 'mainController',
+			controllerAs: 'main'
 		});
 
 		$locationProvider.html5Mode(true);
