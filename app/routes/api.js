@@ -1,103 +1,101 @@
-var Model      = require('../models/model');
+var Model = require('../models/model');
 
 module.exports = function(app, express) {
+    'use strict';
 
-	var apiRouter = express.Router();
+    let apiRouter = express.Router();
 
-	// test route to make sure everything is working 
-	// accessed at GET http://localhost:3000/api
-	apiRouter.get('/', function(req, res) {
-		res.json({ message: 'hooray! welcome to our api!' });	
-	});
+    // test route to make sure everything is working 
+    // accessed at GET http://localhost:3000/api
+    apiRouter.get('/', function(req, res) {
+        res.json({
+            message: 'hooray! welcome to our api!'
+        });
+    });
 
-	apiRouter.route('/votaciones')
+    apiRouter.route('/votaciones')
 
-		.post(function(req, res) {
-			
-			var votacion = new Model.votacion();
-			votacion.poll_id = req.body.poll_id;
-			votacion.q_id = req.body.q_id;
-			votacion.oneStar = parseInt(req.body.oneStar);
-			votacion.twoStar = parseInt(req.body.twoStar);
-			votacion.threeStar = parseInt(req.body.threeStar);
-			votacion.fourStar = parseInt(req.body.fourStar);
-			votacion.fiveStar = parseInt(req.body.fiveStar);
-			votacion.total_votes = parseInt(req.body.total_votes);
-			votacion.total_connected = parseInt(req.body.total_connected);
-			votacion.percentage_share = parseInt(req.body.percentage_share);
+    .post(function(req, res) {
 
+        let votacion = new Model.votacion();
 
-			votacion.save(function(err) {
-				if (err) {
- 					if (err.code == 11000) {
+        // assign req.body values to the model object
+        Object.keys(req.body).forEach(function(e, i) {
 
-             return res.json({status: 409, success: false, message: 'You cannot push a poll with the same name' });
- 					}
-         
-					return res.send(err);
-				}
+        		// we do not want to parseInt the two first values in req.body
+            votacion[e] = i < 2 ? req.body[e] : parseInt(req.body[e]);
 
-				res.json({ message: 'question poll created!' });
-			});
+        });
 
-		})
+        // save the current model object
+        votacion.save(function(err) {
+            if (err) {
+                if (err.code == 11000) {
 
-		.get(function(req, res) {
+                    return res.json({
+                        status: 409,
+                        success: false,
+                        message: 'You cannot push a poll with the same name'
+                    });
+                }
 
-			Model.votacion.find({}, function(err, votaciones) {
-				if (err) res.send(err);
+                return res.send(err);
+            }
 
-				res.json(votaciones);
-			});
-		})
+            res.json({message: 'question poll created!'});
+        });
+    })
 
-		.put(function(req, res) {
-			Model.votacion.find({poll_id:req.body.poll_id, q_id:req.body.q_id}, function(err, votacion) {
-				if (err) {
-					res.send(err);
-				}
+    .get(function(req, res) {
 
-				votacion = votacion[0];
-				if (req.body.poll_id) votacion.poll_id = req.body.poll_id;
-				if (req.body.q_id) votacion.q_id = req.body.q_id;
-				if (req.body.oneStar) votacion.oneStar = parseInt(req.body.oneStar);
-				if (req.body.twoStar) votacion.twoStar = parseInt(req.body.twoStar);
-				if (req.body.threeStar) votacion.threeStar = parseInt(req.body.threeStar);
-				if (req.body.fourStar) votacion.fourStar = parseInt(req.body.fourStar);
-				if (req.body.fiveStar) votacion.fiveStar = parseInt(req.body.fiveStar);
-				if (req.body.total_votes) votacion.total_votes = parseInt(req.body.total_votes);
-				if (req.body.total_connected) votacion.total_connected = parseInt(req.body.total_connected);
-				if (req.body.percentage_share) votacion.percentage_share = parseInt(req.body.percentage_share);
-				if (req.body.average_votes) votacion.average_votes = parseInt(req.body.average_votes);
-				
-			
-				votacion.save(function(err) {
-					if (err) res.send(err);
+        Model.votacion.find({}, function(err, votaciones) {
+            err ? res.send(err) : res.json(votaciones);
+        });
+    })
 
-					res.json({message: 'poll updated'});
-				})
-			});
-		})
+    .put(function(req, res) {
+        Model.votacion.find({
+            poll_id: req.body.poll_id,
+            q_id: req.body.q_id
+        }, function(err, votacion) {
 
-		.delete(function(req, res) {
-			Model.votacion.remove({}, function(err) {
-				if (err) {
-                	res.send(err)
-              	}
-              	res.json({message: 'Successfully deleted'});
-			})
-		});
+            err ? res.send(err) : function() {
 
-	apiRouter.route('/votaciones/:votacion')
-		.get(function(req, res) {
-			 Model.votacion
-      .findOne({ q_id: req.params.votacion}, function (err, votos) {
-        if (err) {
-          res.send(err);
-        }
-        res.json(votos);
-      });
-	});
+            		// votacion comes as an Array with a single object
+                votacion = votacion[0];
 
-	return apiRouter;
+                // Iterate through req.body and assign its values to votacion
+                Object.keys(req.body).forEach(function(e, i) {
+
+        					// we do not want to parseInt the two first values in req.body
+                   votacion[e] =  i < 2 ? req.body[e] : parseInt(req.body[e]);
+                });
+
+                votacion.save(function(err) {
+
+                    err ? res.send(err) : res.json({
+                        message: 'poll updated'
+                    });
+                });
+            }();
+        });
+    })
+
+    .delete(function(req, res) {
+        Model.votacion.remove({}, function(err) {
+            err ? res.send(err) : res.json({message: 'Successfully deleted'});
+        })
+    });
+
+    apiRouter.route('/votaciones/:votacion')
+        .get(function(req, res) {
+            Model.votacion
+                .findOne({
+                    q_id: req.params.votacion
+                }, function(err, votos) {
+                    err ? res.send(err) : res.json(votos);
+                });
+        });
+
+    return apiRouter;
 };

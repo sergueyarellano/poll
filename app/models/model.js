@@ -1,8 +1,8 @@
-'use strict';
-(function() {
-var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and install mongoose 3.8.35
-    Schema    = mongoose.Schema,
-// reference http://mongoosejs.com/docs/schematypes.html
+// if problems with mongo 2.6 remove, and install mongoose 3.8.35
+const mongoose = require('mongoose'), 
+  Schema = mongoose.Schema,
+
+  // reference http://mongoosejs.com/docs/schematypes.html
   VotacionSchema = new Schema({
     poll_id: { type: String, required: true, lowercase: true },
   	q_id: { type: String, required: true, lowercase: true },
@@ -17,5 +17,4 @@ var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and i
     average_votes: { type: Number, default: 0 }
   });
 
-	module.exports.votacion = mongoose.model('Votacion', VotacionSchema);
-})();
+module.exports.votacion = mongoose.model('Votacion', VotacionSchema);

@@ -1,10 +1,3 @@
-if (!String.prototype.startsWith) {
-  String.prototype.startsWith = function(stringBuscada, posicion) {
-    posicion = posicion || 0;
-    return this.indexOf(stringBuscada, posicion) === posicion;
-  };
-}
-
 // Init admin socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
@@ -60,6 +53,14 @@ var currentQVotes = {
 		return Math.round(this.getAverageVotes()*20);
 	}
 };
+
+Object.defineProperties(currentQVotes,{
+	getTotalVotes:{enumerable:false,writable:false},
+	getVotePercentage: {enumerable:false,writable:false},
+	getTotalVotesPercentage: {enumerable:false,writable:false},
+	getAverageVotes: {enumerable:false,writable:false},
+	getAverageRepCircle: {enumerable:false,writable:false}
+})
 
 var usersConnected = 0;
 var started = false;
@@ -153,9 +154,9 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 			vm.questionHeader = vm.literals[rId];
 			vm.questionActive = rId;
 			for (starIndex in vm.currentQVotes) {
-				if (!starIndex.startsWith('get')) {
-					vm.currentQVotes[starIndex] = vm.pollResults[rId][starIndex];
-				}
+
+				// the methods in currentQVotes are set to non enumerable
+				vm.currentQVotes[starIndex] = vm.pollResults[rId][starIndex];
 			}
 		};
 
