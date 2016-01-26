@@ -1,10 +1,11 @@
+// nota: controlar si al refrescar la encuesta esta lanzada y recuperar el estado del admin
+
 // Init admin socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
 ws.onopen = function() {
 	    ws.domain = 'titan';
-	    console.log(ws.send);
 			// identify 
 			ws.send(JSON.stringify({admin:'admin'}));
 

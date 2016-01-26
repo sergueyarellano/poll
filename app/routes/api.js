@@ -17,16 +17,15 @@ module.exports = function(app, express) {
 
     .post(function(req, res) {
 
-        let votacion = new Model.votacion();
+        var votacion = new Model.votacion();
 
         // assign req.body values to the model object
         Object.keys(req.body).forEach(function(e, i) {
-
         		// we do not want to parseInt the two first values in req.body
             votacion[e] = i < 2 ? req.body[e] : parseInt(req.body[e]);
 
-        });
 
+        });
         // save the current model object
         votacion.save(function(err) {
             if (err) {
@@ -59,9 +58,10 @@ module.exports = function(app, express) {
             q_id: req.body.q_id
         }, function(err, votacion) {
 
+            // CONTROLAR SI VOTACION VIENE VACIO E INICIALIZAR || POST DATA INIT
             err ? res.send(err) : function() {
 
-            		// votacion comes as an Array with a single object
+            	// votacion comes as an Array with a single object
                 votacion = votacion[0];
 
                 // Iterate through req.body and assign its values to votacion
@@ -70,7 +70,6 @@ module.exports = function(app, express) {
         					// we do not want to parseInt the two first values in req.body
                    votacion[e] =  i < 2 ? req.body[e] : parseInt(req.body[e]);
                 });
-
                 votacion.save(function(err) {
 
                     err ? res.send(err) : res.json({
