@@ -1,23 +1,21 @@
-'use strict';
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var compass = require('node-compass');
 
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const compass = require('node-compass');
+var root = require('./routes/root');
+var admin = require('./routes/admin');
+var welcome = require('./routes/welcome');
+var results = require('./routes/results');
+var closedPoll = require('./routes/closedPoll');
+var welcomeJSON = require('./routes/welcomeJSON');
 
-const root = require('./routes/root');
-const admin = require('./routes/admin');
-const welcome = require('./routes/welcome');
-const results = require('./routes/results');
-const closedPoll = require('./routes/closedPoll');
-const welcomeJSON = require('./routes/welcomeJSON');
-
-const app = express();
-const mongoose = require('mongoose');
-const config = require('./config');
+var app = express();
+var mongoose = require('mongoose');
+var config = require('./config');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
@@ -54,12 +52,12 @@ app.use('/results', results);
 app.use('/closedPoll', closedPoll);
 
 // API ROUTES ------------------------
-const apiRoutes = require('./app/routes/api')(app, express);
+var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    const err = new Error('Not Found');
+    var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
