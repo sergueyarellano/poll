@@ -5,19 +5,16 @@ const ipFilter = require('ip-filter');
 
 /* GET client */
 router.get('/', function(req, res, next) {
-    var ipArray = req._remoteAddress.split(':')[3].split('.');
+    var reqIP = req._remoteAddress.split(':')[3];
 
-    console.log('request',req._remoteAddress.split(':')[3]);
-    if (parseInt(ipArray[0]) === 127 && parseInt(ipArray[2]) === 0) {
-        res.send({
-            message: 'Esta Ip no tiene permitido el acceso',
-            ip: req._remoteAddress.split(':')[3]
-
-    });
-    } else {
-
-        res.sendFile(path.join(__dirname + '/../public/client/views/index.html'));
-    }
+    ipFilter(reqIP, ['127.0.0.1']) ||
+    ipFilter(reqIP, ['89.107.180.*']) || 
+    ipFilter(reqIP, ['89.107.177.*']) || 
+    ipFilter(reqIP, ['89.107.183.*']) ?
+        console.log('\n[ACCESS GRANTED] %s \n', reqIP) ||
+        res.sendFile(path.join(__dirname + '/../public/client/views/index.html')) :
+        console.log('\n[ACCESS DENIED] %s \n', reqIP) ||
+        res.json({denied: 'Invalid NetWork',ip: reqIP, maybe: 'access via WiFi'});
 });
 
 module.exports = router;
