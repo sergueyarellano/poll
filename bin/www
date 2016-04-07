@@ -31,12 +31,17 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 // START SOCKET INSTANCE
-var wss = new WebSocketServer({server: server});
+var wss = new WebSocketServer({
+  server: server
+});
 console.log("websocket server created");
 
 var usersConnected = -1;
 var wsAdmin = {};
-var pollStatus = {type:'',href:''};
+var pollStatus = {
+  type: '',
+  href: ''
+};
 // socket broadcasting
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
@@ -44,22 +49,39 @@ wss.broadcast = function broadcast(data) {
   });
 };
 
-wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    
-    ws.send(JSON.stringify({type:'connected', value:usersConnected.toString()}))
-  }, 1000)
+wss.on("connection", function (ws) {
+  var id = setInterval(function () {
 
+    ws.send(JSON.stringify({
+      type: 'connected',
+      value: usersConnected.toString()
+    }))
+  }, 1000)
   if (pollStatus.type === 'poll' || pollStatus.type === 'nextQuestion') {
-    ws.send(JSON.stringify({type:'nextQuestion', href:pollStatus.href}));
+    ws.send(JSON.stringify({
+      type: 'nextQuestion',
+      href: pollStatus.href
+    }));
   } else if (pollStatus.type === 'standBy') {
-    ws.send(JSON.stringify({type:'standBy'}));
+    ws.send(JSON.stringify({
+      type: 'standBy'
+    }));
   }
 
   usersConnected++;
-  console.log("websocket connection open")
+  console.log("websocket connection open via", ws.upgradeReq.connection.remoteAddress.split(':')[3]);
 
-  ws.on('message', function incoming(message) {
+  app.use(function (req, res, next) {
+
+    if (ws.upgradeReq.connection.remoteAddress.split(':')[3] === '127.0.0.1') {
+        res.send('Not Allowed');
+    }
+    console.log('entro');
+    next();
+  });
+
+
+    ws.on('message', function incoming(message) {
     console.log('server received: %s', message);
 
     // if a client connects later we will send him the actual state of the poll.
@@ -83,7 +105,7 @@ wss.on("connection", function(ws) {
     }
   });
 
-  ws.on("close", function() {
+  ws.on("close", function () {
     console.log("websocket connection close");
     --usersConnected;
     clearInterval(id);
@@ -120,22 +142,20 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
+  case 'EACCES':
+    console.error(bind + ' requires elevated privileges');
+    process.exit(1);
+    break;
+  case 'EADDRINUSE':
+    console.error(bind + ' is already in use');
+    process.exit(1);
+    break;
+  default:
+    throw error;
   }
 }
 
@@ -145,8 +165,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
