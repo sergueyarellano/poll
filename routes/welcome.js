@@ -9,7 +9,7 @@ const ipFilter = require('ip-filter');
 /* GET client */
 router.get('/', function(req, res, next) {
     var reqIP = req._remoteAddress.split(':')[3];
-
+//https://nodejs.org/docs/latest/api/url.html#url_url_format_urlobj
     if (ipFilter(reqIP, ['127.0.0.1']) ||
         ipFilter(reqIP, ['89.107.180.*']) ||
         ipFilter(reqIP, ['89.107.177.*']) ||

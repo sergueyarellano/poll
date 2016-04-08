@@ -81,8 +81,7 @@ var savedVote = {
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
-// listen to messages
-angular.module('welcomeApp', ['welcomeRoutes'])
+angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 .controller('mainController', function ($scope, $location) {
 		var vm = this;
@@ -116,6 +115,9 @@ angular.module('welcomeApp', ['welcomeRoutes'])
 
 					document.querySelector('#pings p').innerHTML = data.value;
 				}
+				break;
+			case 'address':
+				console.log(data);
 				break;
 			default:
 				break;
@@ -208,6 +210,49 @@ angular.module('welcomeApp', ['welcomeRoutes'])
 		var vm = this;
 
 	})
-	.controller('thanksController', function () {
+	.controller('selectCommentController', function () {
 		var vm = this;
-	})
+
+		vm.goToCommentText = function() {
+			// save vote
+			var data = {
+				// ip: 
+			}
+			LiveFeedback.saveVote()
+		}
+	});
+
+angular.module('LiveFeedbackService', [])
+
+	.factory('LiveFeedback', function($http, $q, $timeout) {
+
+		var _LFFactory = {};
+
+		_LFFactory.saveQuestionResults = function(data) {
+			return $http.put('/api/votaciones', data);
+		};
+
+		_LFFactory.getPollResults = function() {
+			return $http.get('/api/votaciones');
+		};
+
+		_LFFactory.getQuestionResults = function(id) {
+			return $http.get('/api/votaciones/' + id);
+		};
+
+		_LFFactory.saveVote = function(data) {
+			return $http.put('/api/registro', data);
+		};
+
+		_LFFactory.getCurrentQVotes = function(data) {
+			var deferred = $q.defer();
+
+			$timeout(function() {
+      	deferred.resolve(currentQVotes);
+    	}, 2000);
+    	return deferred.promise;
+		};
+
+		return _LFFactory;
+
+	});
