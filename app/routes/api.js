@@ -1,9 +1,8 @@
 var Model = require('../models/model');
 
 module.exports = function(app, express) {
-    'use strict';
 
-    let apiRouter = express.Router();
+    var apiRouter = express.Router();
 
     // test route to make sure everything is working 
     // accessed at GET http://localhost:3000/api

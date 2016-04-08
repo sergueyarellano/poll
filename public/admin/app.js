@@ -6,7 +6,7 @@ var ws = new WebSocket(host);
 
 ws.onopen = function() {
 	    ws.domain = 'titan';
-			// identify 
+			// identify
 			ws.send(JSON.stringify({admin:'admin'}));
 
 			// keep socket alive
@@ -17,7 +17,7 @@ ws.onopen = function() {
 		};
 
 var pollResults = {
-	
+
 	r0:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
 	r1:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
 	r2:{oneStar:0, twoStar:0, threeStar:0, fourStar:0, fiveStar:0},
@@ -47,7 +47,7 @@ var currentQVotes = {
 		return Math.round((parseInt(this.getTotalVotes(), 10) / parseInt(usersConnected, 10))*100) || 0;
 	},
 	getAverageVotes: function() {
-		
+
 		return Math.round((this.oneStar*1 + this.twoStar*2 + this.threeStar*3 + this.fourStar*4 + this.fiveStar*5) / parseInt(this.getTotalVotes(), 10)*100)/100 || 0;
 	},
 	getAverageRepCircle: function() {
@@ -71,7 +71,7 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 		var vm = this;
 
 		// socket listeners
-		
+
 
 		ws.onmessage = function (event) {
 
@@ -112,10 +112,10 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 			data = data[0].data
 				data.forEach(function(qData) {
 					pollResults[qData.q_id].oneStar = qData.oneStar;
-					pollResults[qData.q_id].twoStar = qData.twoStar; 
-					pollResults[qData.q_id].threeStar = qData.threeStar; 
-					pollResults[qData.q_id].fourStar = qData.fourStar; 
-					pollResults[qData.q_id].fiveStar = qData.fiveStar;  
+					pollResults[qData.q_id].twoStar = qData.twoStar;
+					pollResults[qData.q_id].threeStar = qData.threeStar;
+					pollResults[qData.q_id].fourStar = qData.fourStar;
+					pollResults[qData.q_id].fiveStar = qData.fiveStar;
 				});
 
 		}).then(function() {
@@ -231,17 +231,29 @@ angular.module('adminApp',['adminRoutes','LiveFeedbackService'])
 	      controller: function($scope, $element) {},
 	      template:
 	       	'<li>' +
-	       		'<div class="{{myclass}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar">' +
-				'<span class="left-mask">' +
-				'<span class="circle"></span>' +
-				'</span>' +
-				'<span class="right-mask">' +
-				'<span class="circle"></span>' +
-				'</span>' +
-				'<div class="circle icon star"></div>' +
-				'</div>' +
-				'<span class="{{myclass}}-value">{{myvotes}}</span>' +
-			'</li>',
+						'<svg width="8em" height="8em" class="chart">' +
+							'<circle r="4em" cx="4em" cy="4em" stroke="#2d3e50" fill="none" stroke-width=".15em" class="background" />' +
+							'<circle r="3.8em" cx="4em" cy="4em" stroke="rgba(47,130,184,0.5)" fill="none" stroke-width=".375em" ' +
+							'aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar" />' +
+						'</svg>' +
+					'</li>',
+
+
+
+
+
+
+	       // 		'<div class="{{myclass}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar">' +
+					// 	'<span class="left-mask">' +
+					// 	'<span class="circle"></span>' +
+					// 	'</span>' +
+					// 	'<span class="right-mask">' +
+					// 	'<span class="circle"></span>' +
+					// 	'</span>' +
+					// 	'<div class="circle icon star"></div>' +
+					// 	'</div>' +
+					// 	'<span class="{{myclass}}-value">{{myvotes}}</span>' +
+					// '</li>',
 	      replace: true
 	    };
 	})

@@ -40,7 +40,7 @@ angular.module('welcomeApp',['welcomeRoutes'])
 					$location.path('/welcome/standBy');
 					vm.applyThings();
 					break;
-					
+
 				case 'reconnect':
 					console.log("entro");
 					savedVote.currentTarget = '/welcome/init';
@@ -73,7 +73,7 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			if (savedVote[savedVote.currentTarget].send && savedVote.select) {
 
 				ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
-				$location.path('/welcome/thanks');
+				$location.path('/welcome/selectComment');
 			}
 
 		}
@@ -83,6 +83,12 @@ angular.module('welcomeApp',['welcomeRoutes'])
 			$location.path(savedVote[savedVote.currentTarget].href);
 			savedVote.select = false;
 		}
+
+		vm.commentText = function () {
+				$location.path('/welcome/commentText');
+		}
+
+
 	})
 	.controller('welcomeController', function() {
 		var vm = this;
@@ -141,4 +147,9 @@ angular.module('welcomeApp',['welcomeRoutes'])
 	.controller('thanksController', function() {
 		var vm = this;
 	})
-	
+	.controller('selectCommentController', function() {
+		var vm = this;
+	})
+	.controller('commentTextController', function() {
+		var vm = this;
+	})

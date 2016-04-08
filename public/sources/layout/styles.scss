@@ -113,6 +113,8 @@ body
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+.flex-expand{
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0%;
@@ -148,6 +150,9 @@ body
 .align-self-middle{
   -webkit-align-self: center; /* Safari 7.0+ */
       align-self: center;
+}
+strong{
+  font-family: $book;
 }
 
 @import '../components/pure-css-charts/scss/pie-chart.scss';

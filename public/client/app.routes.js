@@ -72,6 +72,15 @@ angular.module('welcomeRoutes', ['ngRoute'])
 			controller: 'closedPollController',
 			controllerAs: 'closedPoll'
 		})
+		.when('/welcome/selectComment', {
+			templateUrl: 'client/views/pages/selectComment.html',
+			controller: 'selectCommentController',
+			controllerAs: 'selectComment'
+		}).when('/welcome/commentText', {
+			templateUrl: 'client/views/pages/commentText.html',
+			controller: 'commentTextController',
+			controllerAs: 'commentText'
+		})
 
 		$locationProvider.html5Mode(true);
 });
