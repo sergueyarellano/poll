@@ -34,7 +34,7 @@ server.on('listening', onListening);
 var wss = new WebSocketServer({
   server: server
 });
-console.log("[SOCKET] Server created");
+console.log("websocket server created");
 
 var usersConnected = -1;
 var wsAdmin = {};
@@ -67,17 +67,25 @@ wss.on("connection", function (ws) {
       type: 'standBy'
     }));
   }
-
   usersConnected++;
-  console.log('\n[SOCKET] websocket connection open via %s \n', ws.upgradeReq.connection.remoteAddress);
+  console.log("websocket connection open via", ws.upgradeReq.connection.remoteAddress.split(':')[3]);
+
+  app.use(function (req, res, next) {
+
+    if (ws.upgradeReq.connection.remoteAddress.split(':')[3] === '127.0.0.1') {
+        res.send('Not Allowed');
+    }
+    console.log('entro');
+    next();
+  });
+
 
 
     ws.on('message', function incoming(message) {
-    console.log('\n[SERVER]: Received %s \n', message);
+    console.log('server received: %s', message);
 
     // if a client connects later we will send him the actual state of the poll.
     var mParsed = JSON.parse(message);
-
     if (mParsed.type === 'poll') {
       pollStatus.type = mParsed.type;
       pollStatus.href = mParsed.href;
@@ -97,7 +105,7 @@ wss.on("connection", function (ws) {
   });
 
   ws.on("close", function () {
-    console.log("[SOCKET] %s left", ws.upgradeReq.connection.remoteAddress);
+    console.log("websocket connection close");
     --usersConnected;
     clearInterval(id);
   })
