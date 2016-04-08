@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @import 'compass/css3';
 @import 'compass/reset';
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
-@import url(https://fonts.googleapis.com/css?family=Oswald:700,300);
+@include font-face("BBVA Book", font-files("bbvaweb-book.ttf", "bbvaweb-book.otf"));
+@include font-face("BBVA Light", font-files("bbvaweb-light.ttf", "bbvaweb-light.otf"));
 
- 
+
 @import 'icons';
 $white: #f0f0f0;
 $gray: #303030;
@@ -14,9 +14,24 @@ $cyan: #2F82B8;
 $green: #6DB53D;
 $yellow: #A89F2B;
 $pink: #F73292;
+
+$bbva_blue: #009ee5;
+$bbva_green: #59c000;
+$bbva_pink: #cc0966;
+$bbva_yellow: #fdbd2c;
+$bbva_orange: #f39200;
+
+
 $paddingBase: 1em;
 $globalTransition: all .3s ease-in-out;
 $globalTransitionBezier: all 0.5s cubic-bezier(0.6, -0.54, 0.44, 1.47);
+
+$book: 'BBVA Book', sans-serif;
+$light: 'BBVA Light', sans-serif;
+
+.blueGradient{
+  @include background-image(linear-gradient(120deg, #00A7E2, #006EC1));
+}
 
 @function goldenCalc($amount) {
     @return ($amount * 1.618) - $amount;
@@ -37,7 +52,10 @@ $globalTransitionBezier: all 0.5s cubic-bezier(0.6, -0.54, 0.44, 1.47);
 
 .txt_size-medium
 {
-    font-size: 1.4em;
+    font-size: 1em;
+}
+.center-self{
+  text-align: center;
 }
 
 em
@@ -48,7 +66,7 @@ em
 html,
 body
 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'BBVA Book', sans-serif;
 
     position: relative;
 
@@ -77,7 +95,59 @@ body
     height: 100%;
 
     color: $white;
-    background-color: $blue;
+    @extend .blueGradient;
+}
+
+//flexbox helpers
+.flex-container{
+  display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flex-item{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+.flex-nowrap{
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.flex-column{
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.flex-row{
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.align-center{
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.align-self-middle{
+  -webkit-align-self: center; /* Safari 7.0+ */
+      align-self: center;
 }
 
 @import '../components/pure-css-charts/scss/pie-chart.scss';

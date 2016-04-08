@@ -2,7 +2,7 @@
 $anim-timing: 5s;
 
 .logo-container {
-    height: 6.25em;
+    width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -21,24 +21,24 @@ $anim-timing: 5s;
         height: 1em;
         path
         {
-            fill: $cyan;
+            fill: #fff;
         }
         .st0 {
             opacity: 0.6;
         }
-        
+
         .st1 {
             opacity: 0.5;
         }
-        
+
         .st2 {
             opacity: 0.4;
         }
-        
+
         .st3 {
             opacity: 0.3;
         }
-        
+
         .st4 {
             opacity: 0.2;
         }
@@ -82,6 +82,7 @@ $anim-timing: 5s;
 
 .client_header {
     &.subhome {
+      flex-wrap: wrap;
         -webkit-box-pack: start;
         -webkit-justify-content: flex-start;
             -ms-flex-pack: start;
