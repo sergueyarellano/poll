@@ -143,7 +143,7 @@ angular.module('welcomeApp', ['welcomeRoutes'])
 
 			if (savedVote[savedVote.currentTarget].send) {
 				ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
-				$location.path('/welcome/thanks');
+				$location.path('/welcome/selectComment');
 			}
 
 		}

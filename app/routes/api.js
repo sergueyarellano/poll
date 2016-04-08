@@ -152,15 +152,15 @@ module.exports = function (app, express) {
 	apiRouter.route('/registro')
 		.post(function (req, res) {
 			var registro = new Model.registro();
-			registro.ip = req.body.ip;
-			if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0);
-			if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1);
-			if (req.body.r2) registro.votes.r2 = parseInt(req.body.r2);
-			if (req.body.r3) registro.votes.r3 = parseInt(req.body.r3);
-			if (req.body.r4) registro.votes.r4 = parseInt(req.body.r4);
-			if (req.body.r5) registro.votes.r5 = parseInt(req.body.r5);
-			if (req.body.r6) registro.votes.r6 = parseInt(req.body.r6);
-			if (req.body.r7) registro.votes.r7 = parseInt(req.body.r7);
+			registro.ip = req.body.ip || '1';
+			if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0) || 0;
+			if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1) || 0;
+			if (req.body.r2) registro.votes.r2 = parseInt(req.body.r2) || 0;
+			if (req.body.r3) registro.votes.r3 = parseInt(req.body.r3) || 0;
+			if (req.body.r4) registro.votes.r4 = parseInt(req.body.r4) || 0;
+			if (req.body.r5) registro.votes.r5 = parseInt(req.body.r5) || 0;
+			if (req.body.r6) registro.votes.r6 = parseInt(req.body.r6) || 0;
+			if (req.body.r7) registro.votes.r7 = parseInt(req.body.r7) || 0;
 
 			registro.save(function (err) {
 				if (err) {
@@ -172,7 +172,7 @@ module.exports = function (app, express) {
 			});
 		})
 		.get(function (req, res) {
-			Model.registro.find({}, function (err, registro) {
+			Model.registro.findOne({ip: req.query.ip}, function (err, registro) {
 				if (err) res.send(err);
 				res.json(registro);
 			});
