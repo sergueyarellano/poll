@@ -80,6 +80,7 @@ var savedVote = {
 // Init client socket interface
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
+var ip = '';
 
 angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
@@ -117,7 +118,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 				}
 				break;
 			case 'address':
-				console.log(data);
+				ip = data.ip;
 				break;
 			default:
 				break;
