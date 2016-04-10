@@ -40,7 +40,8 @@ var usersConnected = -1;
 var wsAdmin = {};
 var pollStatus = {
     type: '',
-    href: ''
+    href: '',
+    qId: ''
 };
 // socket broadcasting
 wss.broadcast = function broadcast(data) {
@@ -60,7 +61,8 @@ wss.on("connection", function(ws) {
     if (pollStatus.type === 'poll' || pollStatus.type === 'nextQuestion') {
         ws.send(JSON.stringify({
             type: 'nextQuestion',
-            href: pollStatus.href
+            href: pollStatus.href,
+            qId: pollStatus.qId
         }));
     } else if (pollStatus.type === 'standBy') {
         ws.send(JSON.stringify({
@@ -84,6 +86,8 @@ wss.on("connection", function(ws) {
 
             pollStatus.type = mParsed.type;
             pollStatus.href = mParsed.href;
+            pollStatus['qId'] = mParsed.qId;
+
             wss.broadcast(message);
         } else if (mParsed.type === 'reconnect') {
             wss.broadcast(message);

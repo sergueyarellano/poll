@@ -184,6 +184,7 @@ module.exports = function (app, express) {
 				if (err) {
 					res.send(err);
 				}
+				console.log(registro);
 				registro = registro[0];
 				if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0);
 				if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1);
