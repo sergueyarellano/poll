@@ -286,7 +286,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                 vm.started = false;
 
                 var data = {
-                    'poll_id': 'demopi3',
+                    'poll_id': 'demopi4',
                     'q_id': vm.questionActive,
                     'oneStar': currentQVotes.rating0,
                     'twoStar': currentQVotes.rating1,

@@ -147,17 +147,16 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
     // $scope.$apply();
     vm.sendPoll = function() {
-
         // if client has voted before, redirect to standby
-        if (clientInfo.data.votes[savedVote.currentTarget] === 0) {
+        if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
 
             if (savedVote[savedVote.currentTarget].send) {
                 ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
                 var data = {
-                    ip: clientInfo.data.ip
+                    ip: clientInfo.data[0].ip
                 }
-                data[nextQuestion.qId] = 1;
-
+                data[nextQuestion.qId] = parseInt(savedVote[nextQuestion.qId].index.slice(-1)) + 1;
+                console.log('data send poll', data);
                 // save vote
                 LiveFeedback.saveVote(data);
 
@@ -168,20 +167,17 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
         }
 
     }
-    vm.changeVote = function() {
-        savedVote[savedVote.currentTarget].value = -1;
-        ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
-        $location.path(savedVote[savedVote.currentTarget].href);
-        // vm.applyThings();
-    }
+
     vm.goToVoted = function() {
         $location.path('/welcome/voted');
+    }
+    vm.goToSelectComment = function () {
+        $location.path('/welcome/selectComment');
     }
 })
     .controller('welcomeController', function() {
         var vm = this;
 
-        vm.q0 = nextQuestion.literal;
     })
     .controller('q0Controller', function() {
         var vm = this;
@@ -198,14 +194,9 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
         vm.q = nextQuestion.literal;
         vm.goToCommentText = function(type, literalSelect) {
 
-            // initialize
-            nextQuestion['stopDoing'] = false;
-            nextQuestion['keepDoing'] = false;
-            nextQuestion['suggestion'] = false;
-
             // assign
             nextQuestion['literalSelect'] = literalSelect;
-            nextQuestion[type] = true;
+            nextQuestion['commentType'] = type;
 
             // redirect
             $location.path('/welcome/commentText');
@@ -214,10 +205,42 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
     .controller('commentTextController', function($location, LiveFeedback) {
         var vm = this;
         vm.q = nextQuestion;
+        vm.comment = '';
+
+        vm.submitComment = function() {
+    	    var data = {
+                ip: clientInfo.data[0].ip,
+                r: nextQuestion.qId,
+                type: nextQuestion.commentType,
+                comment: vm.comment
+            }
+
+            // submit comment
+            LiveFeedback.saveVote(data);
+            $location.path('/welcome/voted');
+        }
+
     })
-    .controller('votedController', function() {
+    .controller('votedController', function($location, LiveFeedback) {
         var vm = this;
 
+		vm.changeVote = function() {
+        savedVote[savedVote.currentTarget].value = -1;
+
+        ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
+        // TODO: actualizar base de datos, a cero
+	    var dataChange = {
+            ip: clientInfo.data[0].ip
+        }
+
+		dataChange[nextQuestion.qId] = 0;
+		console.log('data changeVote',dataChange);
+        // submit comment
+        LiveFeedback.saveVote(dataChange);
+        
+        $location.path(savedVote[savedVote.currentTarget].href);
+        // vm.applyThings();
+    }
     })
 
 angular.module('LiveFeedbackService', [])
@@ -231,6 +254,7 @@ angular.module('LiveFeedbackService', [])
     };
 
     _LFFactory.saveVote = function(data) {
+    	console.log('factory',data)
         return $http.put('/api/registro', data);
     };
 
