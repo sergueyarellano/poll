@@ -1,5 +1,5 @@
 <section class="poll_client-content active fadeIn">
-	<h2 class="poll_client-title">{{ q0.q0 }}</h2>
+	<h2 class="poll_client-title">{{ q0.q }}</h2>
 	<article class="poll_client-rating" ng-click="isRated = !isRated">
 		<input type="radio" id="rating0" name="rating" value="1">
 		<input type="radio" id="rating1" name="rating" value="2">
@@ -8,19 +8,19 @@
 		<input type="radio" id="rating4" name="rating" value="5">
 		<ol class="poll_client-rating_stars">
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.savePoll('r0','oneStar');"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.savePoll($event);"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.savePoll('r0','twoStar')"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.savePoll($event)"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.savePoll('r0','threeStar')"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.savePoll($event)"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.savePoll('r0','fourStar')"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.savePoll($event)"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.savePoll('r0','fiveStar')"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.savePoll($event)"></label>
 			</li>
 		</ol>
 	</article>

@@ -23,78 +23,78 @@ ws.onopen = function() {
 var pollResults = {
 
     r0: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r1: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r2: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r3: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r4: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r5: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r6: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r7: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     },
     r8: {
-        oneStar: 0,
-        twoStar: 0,
-        threeStar: 0,
-        fourStar: 0,
-        fiveStar: 0
+        rating0: 0,
+        rating1: 0,
+        rating2: 0,
+        rating3: 0,
+        rating4: 0
     }
 };
 
 var currentQVotes = {
-    oneStar: 0,
-    twoStar: 0,
-    threeStar: 0,
-    fourStar: 0,
-    fiveStar: 0,
+    rating0: 0,
+    rating1: 0,
+    rating2: 0,
+    rating3: 0,
+    rating4: 0,
     getTotalVotes: function() {
-        var total = this.oneStar + this.twoStar + this.threeStar + this.fourStar + this.fiveStar;
+        var total = this.rating0 + this.rating1 + this.rating2 + this.rating3 + this.rating4;
         return (total < 10) ? '0' + total : total;
     },
     getVotePercentage: function(star) {
@@ -106,7 +106,7 @@ var currentQVotes = {
     },
     getAverageVotes: function() {
 
-        return Math.round((this.oneStar * 1 + this.twoStar * 2 + this.threeStar * 3 + this.fourStar * 4 + this.fiveStar * 5) / parseInt(this.getTotalVotes(), 10) * 100) / 100 || 0;
+        return Math.round((this.rating0 * 1 + this.rating1 * 2 + this.rating2 * 3 + this.rating3 * 4 + this.rating4 * 5) / parseInt(this.getTotalVotes(), 10) * 100) / 100 || 0;
     },
     getAverageRepCircle: function() {
         return Math.round(this.getAverageVotes() * 20);
@@ -168,7 +168,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                     }
                     break;
                 case 'poll':
-
+                	console.log('data from poll',data)
                     vm.pollResults[data.results][data.index] += parseInt(data.value, 10);
                     vm.currentQVotes[data.index] += parseInt(data.value, 10);
 
@@ -179,11 +179,11 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
 
                         pollResults = data;
 
-                        currentQVotes.oneStar = data[data.current].oneStar;
-                        currentQVotes.twoStar = data[data.current].twoStar;
-                        currentQVotes.threeStar = data[data.current].threeStar;
-                        currentQVotes.fourStar = data[data.current].fourStar;
-                        currentQVotes.fiveStar = data[data.current].fiveStar;
+                        currentQVotes.rating0 = data[data.current].rating0;
+                        currentQVotes.rating1 = data[data.current].rating1;
+                        currentQVotes.rating2 = data[data.current].rating2;
+                        currentQVotes.rating3 = data[data.current].rating3;
+                        currentQVotes.rating4 = data[data.current].rating4;
                     }
                     break;
                 default:
@@ -195,11 +195,11 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
         $q.all([LiveFeedback.getPollResults()]).then(function(data) {
             data = data[0].data
             data.forEach(function(qData) {
-                pollResults[qData.q_id].oneStar = qData.oneStar;
-                pollResults[qData.q_id].twoStar = qData.twoStar;
-                pollResults[qData.q_id].threeStar = qData.threeStar;
-                pollResults[qData.q_id].fourStar = qData.fourStar;
-                pollResults[qData.q_id].fiveStar = qData.fiveStar;
+                pollResults[qData.q_id].rating0 = qData.oneStar;
+                pollResults[qData.q_id].rating1 = qData.twoStar;
+                pollResults[qData.q_id].rating2 = qData.threeStar;
+                pollResults[qData.q_id].rating3 = qData.fourStar;
+                pollResults[qData.q_id].rating4 = qData.fiveStar;
             });
 
         }).then(function() {
@@ -288,11 +288,11 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                 var data = {
                     'poll_id': 'demopi3',
                     'q_id': vm.questionActive,
-                    'oneStar': currentQVotes.oneStar,
-                    'twoStar': currentQVotes.twoStar,
-                    'threeStar': currentQVotes.threeStar,
-                    'fourStar': currentQVotes.fourStar,
-                    'fiveStar': currentQVotes.fiveStar,
+                    'oneStar': currentQVotes.rating0,
+                    'twoStar': currentQVotes.rating1,
+                    'threeStar': currentQVotes.rating2,
+                    'fourStar': currentQVotes.rating3,
+                    'fiveStar': currentQVotes.rating4,
                     'total_votes': currentQVotes.getTotalVotes(),
                     'total_connected': usersConnected,
                     'percentage_share': currentQVotes.getTotalVotesPercentage(),

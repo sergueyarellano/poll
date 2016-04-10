@@ -96,13 +96,12 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
         switch (data.type) {
             case 'nextQuestion':
                 nextQuestion = data;
-                console.log(data);
                 if (savedVote[data.qId].href === data.href && savedVote[data.qId].value === 1) {
                     $location.path('/welcome/voted');
                 } else {
                     savedVote.currentTarget = data.qId;
                     savedVote[data.qId].send = false;
-                    $location.path(data.href);
+                    $location.path('/welcome/r0');
                 }
                 vm.applyThings();
                 break;
@@ -133,17 +132,17 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
         $scope.$apply();
     }
-    vm.savePoll = function(results, starId) {
+    vm.savePoll = function($event) {
 
-        savedVote[results] = {
+        savedVote[nextQuestion.qId] = {
             type: 'poll',
-            results: results,
-            index: starId,
+            results: nextQuestion.qId,
+            index: $event.target.htmlFor,
             value: 1,
             href: $location.path(),
             send: true
         };
-        savedVote.currentTarget = results;
+        savedVote.currentTarget = nextQuestion.qId;
     }
 
     // $scope.$apply();
@@ -182,52 +181,12 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
     .controller('welcomeController', function() {
         var vm = this;
 
-        vm.q0 = questions.q0;
+        vm.q0 = nextQuestion.literal;
     })
     .controller('q0Controller', function() {
         var vm = this;
 
-        vm.q0 = nextQuestion.literal;
-    })
-    .controller('q1Controller', function() {
-        var vm = this;
-
-        vm.q1 = questions.q1;
-    })
-    .controller('q2Controller', function() {
-        var vm = this;
-
-        vm.q2 = questions.q2;
-    })
-    .controller('q3Controller', function() {
-        var vm = this;
-
-        vm.q3 = questions.q3;
-    })
-    .controller('q4Controller', function() {
-        var vm = this;
-
-        vm.q4 = questions.q4;
-    })
-    .controller('q5Controller', function() {
-        var vm = this;
-
-        vm.q5 = questions.q5;
-    })
-    .controller('q6Controller', function() {
-        var vm = this;
-
-        vm.q6 = questions.q6;
-    })
-    .controller('q7Controller', function() {
-        var vm = this;
-
-        vm.q7 = questions.q7;
-    })
-    .controller('q8Controller', function() {
-        var vm = this;
-
-        vm.q8 = questions.q8;
+        vm.q = nextQuestion.literal;
     })
     .controller('standByController', function() {
         var vm = this;
@@ -254,7 +213,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
     })
     .controller('commentTextController', function($location, LiveFeedback) {
         var vm = this;
-        console.log(nextQuestion);
         vm.q = nextQuestion;
     })
     .controller('votedController', function() {

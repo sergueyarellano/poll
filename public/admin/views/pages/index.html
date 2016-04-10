@@ -45,7 +45,7 @@
     </header>
     <div class="scroll-area">
         <div class="dashboard_poll-title">
-            <h2>Demo PI3 BBVA</h2>
+            <h2>Demo PI4 BBVA</h2>
             <ul>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.startPoll()">Lanzar encuesta</span></li>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-show="main.started" ng-click="main.stopPoll()">Parar encuesta</span></li>
@@ -58,11 +58,11 @@
             </header>
             <article>
               <ol class="dashboard_question-charts">
-        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.oneStar}}" myvalue="{{main.currentQVotes.getVotePercentage('oneStar')}}"></pollstar>
-        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.twoStar}}" myvalue="{{main.currentQVotes.getVotePercentage('twoStar')}}"></pollstar>
-        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.threeStar}}" myvalue="{{main.currentQVotes.getVotePercentage('threeStar')}}"></pollstar>
-        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.fourStar}}" myvalue="{{main.currentQVotes.getVotePercentage('fourStar')}}"></pollstar>
-        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.fiveStar}}" myvalue="{{main.currentQVotes.getVotePercentage('fiveStar')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating0}}" myvalue="{{main.currentQVotes.getVotePercentage('rating0')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating1}}" myvalue="{{main.currentQVotes.getVotePercentage('rating1')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating2}}" myvalue="{{main.currentQVotes.getVotePercentage('rating2')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating3}}" myvalue="{{main.currentQVotes.getVotePercentage('rating3')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating4}}" myvalue="{{main.currentQVotes.getVotePercentage('rating4')}}"></pollstar>
         			</ol>
             </article>
         </section>
