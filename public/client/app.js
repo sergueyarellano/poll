@@ -79,7 +79,7 @@ var savedVote = {
 };
 
 // Init client socket interface
-var host = location.origin.replace(/^http/, 'ws');
+var host = document.location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 var clientInfo;
 var nextQuestion;
@@ -148,6 +148,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
     // $scope.$apply();
     vm.sendPoll = function() {
         // if client has voted before, redirect to standby
+        console.log('clientInfo',clientInfo);
         if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
 
             if (savedVote[savedVote.currentTarget].send) {
