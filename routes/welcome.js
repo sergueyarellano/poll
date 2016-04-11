@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
         ipFilter(reqIP, ['89.107.183.*'])
         ) {
 
+        // reqIP = req._remoteAddress.split(':')[3];
         console.log('\n[ACCESS GRANTED] %s \n', reqIP);
         res.sendFile(path.join(__dirname + '/../public/client/views/index.html'));
 
