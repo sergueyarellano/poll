@@ -178,6 +178,7 @@ module.exports = function(app, express) {
                     res.json(registro);
                 });
             } else {
+            	console.log('geeeeeeeeeeeeeeeeeeeet ip',req.query)
 	            Model.registro.find({
 	                ip: req.query.ip
 	            }, function(err, registro) {

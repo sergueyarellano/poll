@@ -3,7 +3,7 @@ angular.module('welcomeRoutes', ['ngRoute'])
 .config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/welcome/init', {
-            templateUrl: 'client/views/pages/index.html',
+            templateUrl: 'client/views/pages/standBy.html',
             controller: 'welcomeController',
             controllerAs: 'welcome'
         })
