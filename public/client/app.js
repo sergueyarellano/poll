@@ -135,18 +135,11 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 					document.querySelector('#pings p').innerHTML = data.value;
 				}
 				break;
-			case 'address':
-				console.log('address', data, nextQuestion);
-				// $q.all([LiveFeedback.getRegistry(data.ip)]).then(function (data) {
-
-				// 	clientInfo = data[0];
-				// });
-				break;
 			case 'handshake':
 				document.cookie = 'LiveFeedbackClientId=' + data.clientId;
 				$q.all([LiveFeedback.postRegistry({ip:data.clientId}),LiveFeedback.getRegistry(data.clientId)]).then(function(data) {
 					console.log('finally_my registry', data);
-					clientInfo = data[0];
+					clientInfo = data[1];
 				})
 				break;
 			default:
@@ -172,6 +165,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 		// $scope.$apply();
 		vm.sendPoll = function () {
+
+			//TODO: votes of undefined
 			// if client has voted before, redirect to standby
 			console.log('clientInfo', clientInfo);
 			if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
