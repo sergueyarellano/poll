@@ -120,6 +120,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
                 }
                 break;
             case 'address':
+            	console.log('address',data, nextQuestion);
                 $q.all([LiveFeedback.getRegistry(data.ip)]).then(function(data) {
                     clientInfo = data[0];
                 });

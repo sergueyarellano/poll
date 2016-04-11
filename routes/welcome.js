@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 //https://nodejs.org/docs/latest/api/url.html#url_url_format_urlobj
     if (ipFilter(reqIP, ['127.0.0.1']) ||
         ipFilter(reqIP, ['89.107.180.*']) ||
-        ipFilter(reqIP, ['89.107.177.*'])
-        // ipFilter(reqIP, ['89.107.183.*'])
+        ipFilter(reqIP, ['89.107.177.*']) ||
+        ipFilter(reqIP, ['89.107.183.*'])
         ) {
 
         console.log('\n[ACCESS GRANTED] %s \n', reqIP);
