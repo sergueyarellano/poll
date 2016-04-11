@@ -1,0 +1,32 @@
+<section class="poll_client-content active">
+	<header>
+		<h1 class="poll_client-title">{{selectComment.q}}</h1>
+	</header>
+	<article class="poll_client-comment_buttons">
+		<header>
+			<h2 class="poll_client-subtitle fadeIn">Gracias por votar.<br /><strong>¿Tienes algo que aportar?</strong></h2>
+		</header>
+		<ul>
+			<li>
+				<a ng-click="selectComment.goToCommentText('keepDoing', 'Seguir haciendo')">
+					<img src="sources/img/seguir_icon.svg" role="button">
+					<p><strong>Seguir</strong><br/>haciendo</p>
+				</a>
+			</li>
+			<li>
+				<a ng-click="selectComment.goToCommentText('stopDoing', 'Dejar de hacer')">
+					<img src="sources/img/dejar_icon.svg" role="button">
+					<p><strong>Dejar</strong><br />de hacer</p>
+				</a>
+			</li>
+			<li>
+				<a ng-click="selectComment.goToCommentText('suggestion', 'Sugerir una idea')">
+					<img src="sources/img/sugerir_icon.svg" role="button">
+					<p><strong>Sugerir</strong><br />una idea</p>
+				</a>
+			</li>
+		</ul>
+	</article>
+	<footer class="poll_client-button">
+		<div role="button" ng-click="main.goToVoted()" class="simple">Mejor en otro momento</div>
+	</footer>

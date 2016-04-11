@@ -1,0 +1,18 @@
+<section class="poll_client-content active">
+	<h2 class="poll_client-title">{{commentText.q.literal}}</h2>
+	<article class="poll_client-msgtext fadeIn">
+		<header>
+			<h1>{{commentText.q.literalSelect}}</h1>
+		</header>
+		<section class="poll_client-textarea">
+			<textarea placeholder="¿Alguna ocurrencia?" ng-model="commentText.comment"></textarea>
+		</section>
+		<footer class="poll_client-button">
+			<div role="button" ng-click="commentText.submitComment()" class="positive">Enviar comentario</div>
+			<div role="button" ng-click="main.goToVoted()" class="simple">Mejor en otro momento</div>
+		</footer>
+	</article>
+	<footer class="poll_client-button secondary">
+		<!-- <div role="button" ng-click="main.changeVote()">Cambiar votación</div> -->
+	</footer>
+</section>
