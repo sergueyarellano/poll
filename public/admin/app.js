@@ -157,7 +157,6 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                     }
                     break;
                 case 'poll':
-                	console.log('data from poll',data)
                     vm.pollResults[data.results][data.index] += parseInt(data.value, 10);
                     vm.currentQVotes[data.index] += parseInt(data.value, 10);
 

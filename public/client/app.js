@@ -70,7 +70,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 				})); // Send the message 'Ping' to the server
 			} else {
 				$q.all([LiveFeedback.getRegistry(storage)]).then(function (data) {
-					console.log('getRegistry', data);
 					clientInfo = data[0];
 				});
 			}
@@ -108,7 +107,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			case 'handshake':
 				document.cookie = 'LiveFeedbackClientId=' + data.clientId;
 				$q.all([LiveFeedback.postRegistry({ip:data.clientId}),LiveFeedback.getRegistry(data.clientId)]).then(function(data) {
-					console.log('finally_my registry', data);
 					clientInfo = data[1];
 				})
 				break;
@@ -138,7 +136,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 			//TODO: votes of undefined
 			// if client has voted before, redirect to standby
-			console.log('clientInfo', clientInfo);
 			if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
 
 				if (savedVote[savedVote.currentTarget].send) {
@@ -147,7 +144,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 						ip: clientInfo.data[0].ip
 					}
 					data[nextQuestion.qId] = parseInt(savedVote[nextQuestion.qId].index.slice(-1)) + 1;
-					console.log('data send poll', data);
 					// save vote
 					LiveFeedback.saveVote(data);
 
@@ -177,7 +173,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 		vm.displayButton = function() {
 			vm.class = 'active';
-			
+
 		}
 	})
 	.controller('standByController', function () {
@@ -230,7 +226,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			}
 
 			dataChange[nextQuestion.qId] = 0;
-			console.log('data changeVote', dataChange);
 			// submit comment
 			LiveFeedback.saveVote(dataChange);
 
@@ -246,12 +241,10 @@ angular.module('LiveFeedbackService', [])
 	var _LFFactory = {};
 
 	_LFFactory.getRegistry = function (ip) {
-		console.log('getRegistry', ip);
 		return $http.get('/api/registro?ip=' + ip);
 	};
 
 	_LFFactory.saveVote = function (data) {
-		console.log('factory', data)
 		return $http.put('/api/registro', data);
 	};
 

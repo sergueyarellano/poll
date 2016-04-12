@@ -178,7 +178,6 @@ module.exports = function(app, express) {
                     res.json(registro);
                 });
             } else {
-            	console.log('geeeeeeeeeeeeeeeeeeeet ip',req.query)
 	            Model.registro.find({
 	                ip: req.query.ip
 	            }, function(err, registro) {
@@ -196,7 +195,6 @@ module.exports = function(app, express) {
                 }
                 
                 registro = registro[0];
-                console.log('-------REGISTRO_________',registro);
                 
                 if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0);
                 if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1);
