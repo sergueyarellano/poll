@@ -1,33 +1,3 @@
-var questions = {
-	q0: {
-		title: 'Valora la demo del programa "Venta Digital"'
-	},
-	q1: {
-		title: 'Valora la demo del programa "DBI"'
-	},
-	q2: {
-		title: 'Valora la demo del programa "Alta y Contratación"'
-	},
-	q3: {
-		title: 'Valora la demo del programa "MOOM"'
-	},
-	q4: {
-		title: 'Valora la demo del programa "Feedback"'
-	},
-	q5: {
-		title: 'Valora la demo del programa "SDM"'
-	},
-	q6: {
-		title: 'Valora la demo del programa "Digital Payments"'
-	},
-	q7: {
-		title: 'Valora la demo del programa "CARE"'
-	},
-	q8: {
-		title: 'Valora la demo del "Mobile Channel"'
-	},
-	currentQuestion: ''
-}
 var savedVote = {
 	r0: {
 		href: '',
