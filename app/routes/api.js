@@ -18,11 +18,11 @@ module.exports = function(app, express) {
             var votacion = new Model.votacion();
             votacion.poll_id = 'demopi4';
             votacion.q_id = req.body.q_id;
-            votacion.oneStar = parseInt(req.body.oneStar);
-            votacion.twoStar = parseInt(req.body.twoStar);
-            votacion.threeStar = parseInt(req.body.threeStar);
-            votacion.fourStar = parseInt(req.body.fourStar);
-            votacion.fiveStar = parseInt(req.body.fiveStar);
+            votacion.oneStar = parseInt(req.body.oneStar) || 0;
+            votacion.twoStar = parseInt(req.body.twoStar) || 0;
+            votacion.threeStar = parseInt(req.body.threeStar) || 0;
+            votacion.fourStar = parseInt(req.body.fourStar) || 0;
+            votacion.fiveStar = parseInt(req.body.fiveStar) || 0;
 
             votacion.save(function(err) {
                 if (err) {
