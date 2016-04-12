@@ -4,7 +4,13 @@ var path = require('path');
 
 /* GET admin. */
 router.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname + '/../public/admin/views/index.html'));
+
+	if (req.query.user && req.query.user === 'titan') {
+
+  	res.sendFile(path.join(__dirname + '/../public/admin/views/index.html'));
+	} else {
+  	res.redirect('/welcome/init');
+	}
 });
 
 module.exports = router;

@@ -2,61 +2,107 @@
 $anim-timing: 5s;
 
 .logo-container {
-    height: 6.25em;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     .star-logo {
         font-size: 4em;
         width: 1em;
         height: 1em;
         path
         {
-            fill: $cyan;
+            fill: #fff;
         }
         .st0 {
             opacity: 0.6;
         }
-        
+
         .st1 {
             opacity: 0.5;
         }
-        
+
         .st2 {
             opacity: 0.4;
         }
-        
+
         .st3 {
             opacity: 0.3;
         }
-        
+
         .st4 {
             opacity: 0.2;
         }
         &.animation
         {
-            animation: starAnimation $anim-timing linear infinite;
+            -webkit-animation: starAnimation $anim-timing linear infinite;
+                    animation: starAnimation $anim-timing linear infinite;
             .st0 {
-                animation: bling-1 $anim-timing linear infinite;
-                animation-delay: 0s;
+                -webkit-animation: bling-1 $anim-timing linear infinite;
+                        animation: bling-1 $anim-timing linear infinite;
+                -webkit-animation-delay: 0s;
+                        animation-delay: 0s;
             }
             .st4 {
-                animation: bling-5 $anim-timing linear infinite;
-                animation-delay: 1s;
+                -webkit-animation: bling-5 $anim-timing linear infinite;
+                        animation: bling-5 $anim-timing linear infinite;
+                -webkit-animation-delay: 1s;
+                        animation-delay: 1s;
             }
             .st3 {
-                animation: bling-4 $anim-timing linear infinite;
-                animation-delay: 2s;
+                -webkit-animation: bling-4 $anim-timing linear infinite;
+                        animation: bling-4 $anim-timing linear infinite;
+                -webkit-animation-delay: 2s;
+                        animation-delay: 2s;
             }
             .st2 {
-                animation: bling-3 $anim-timing linear infinite;
-                animation-delay: 3s;
+                -webkit-animation: bling-3 $anim-timing linear infinite;
+                        animation: bling-3 $anim-timing linear infinite;
+                -webkit-animation-delay: 3s;
+                        animation-delay: 3s;
             }
             .st1 {
-                animation: bling-2 $anim-timing linear infinite;
-                animation-delay: 4s;
+                -webkit-animation: bling-2 $anim-timing linear infinite;
+                        animation: bling-2 $anim-timing linear infinite;
+                -webkit-animation-delay: 4s;
+                        animation-delay: 4s;
             }
         }
+    }
+}
+
+.client_header {
+    &.subhome {
+      flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .logo-container {
+        height: auto;
+        .star-logo {
+            font-size: 2em;
+            margin-right: 0.5em;
+        }
+    }
+}
+
+@-webkit-keyframes starAnimation
+{
+    100%
+    {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
     }
 }
 
@@ -64,12 +110,14 @@ $anim-timing: 5s;
 {
     100%
     {
-        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
     }
 }
 
 @for $i from 1 to 6
 {
+    @-webkit-keyframes bling-#{$i}
     @keyframes bling-#{$i}
     {
         0%

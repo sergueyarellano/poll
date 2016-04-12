@@ -45,7 +45,7 @@
     </header>
     <div class="scroll-area">
         <div class="dashboard_poll-title">
-            <h2>Demo PI3 BBVA</h2>
+            <h2>Demo PI4</h2>
             <ul>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-hide="main.started" ng-click="main.startPoll()">Lanzar encuesta</span></li>
                 <li class="dashboard_poll-title_actions"><span role="button" ng-show="main.started" ng-click="main.stopPoll()">Parar encuesta</span></li>
@@ -58,12 +58,12 @@
             </header>
             <article>
               <ol class="dashboard_question-charts">
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.oneStar}}" myvalue="{{main.questionResults.getVotePercentage('oneStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.twoStar}}" myvalue="{{main.questionResults.getVotePercentage('twoStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.threeStar}}" myvalue="{{main.questionResults.getVotePercentage('threeStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.fourStar}}" myvalue="{{main.questionResults.getVotePercentage('fourStar')}}"></pollstar>
-				<pollstar myclass="border-chart" myvotes="{{main.questionResults.fiveStar}}" myvalue="{{main.questionResults.getVotePercentage('fiveStar')}}"></pollstar>
-			</ol>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating0}}" myvalue="{{main.currentQVotes.getVotePercentage('rating0')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating1}}" myvalue="{{main.currentQVotes.getVotePercentage('rating1')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating2}}" myvalue="{{main.currentQVotes.getVotePercentage('rating2')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating3}}" myvalue="{{main.currentQVotes.getVotePercentage('rating3')}}"></pollstar>
+        				<pollstar myclass="border-chart" myvotes="{{main.currentQVotes.rating4}}" myvalue="{{main.currentQVotes.getVotePercentage('rating4')}}"></pollstar>
+        			</ol>
             </article>
         </section>
         <div class="dashboard_manage ng-pristine ng-valid">
@@ -79,7 +79,7 @@
 						<li ng-class="{'disabled':!main.results.r5}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r5')" role="button" class="dashboard_manage-question">{{main.literals.r5}}</span></li>
 						<li ng-class="{'disabled':!main.results.r6}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r6')" role="button" class="dashboard_manage-question">{{main.literals.r6}}</span></li>
 						<li ng-class="{'disabled':!main.results.r7}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r7')" role="button" class="dashboard_manage-question">{{main.literals.r7}}</span></li>
-						<li ng-class="{'disabled':!main.results.r8}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r8')" role="button" class="dashboard_manage-question">{{main.literals.r8}}</span></li>						
+						<li ng-class="{'disabled':!main.results.r8}" class="dashboard_manage-list_item"><span ng-click="main.showQuestionResults('r8')" role="button" class="dashboard_manage-question">{{main.literals.r8}}</span></li>
 					</ol>
                 </article>
             </section>
@@ -88,7 +88,7 @@
                     <header class="accesible-hide">
                         <h3>Usuarios conectados</h3>
                     </header>
-                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.questionResults.getAverageVotes() * 20}}" role="progressbar">
+                    <div class="border-chart" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{main.currentQVotes.getAverageRepCircle()}}" role="progressbar">
                         <span class="left-mask">
                                 <span class="circle"></span>
                         </span>
@@ -98,13 +98,13 @@
                         <div class="circle">
                             <div class="users-count">
                                 <span class="label result">Nota</span>
-                                <span id="votes-percentage" class="number result">{{main.questionResults.getAverageVotes()}}</span>
+                                <span id="votes-percentage" class="number result">{{main.currentQVotes.getAverageVotes()}}<sup>/5</sup></span>
                             </div>
                         </div>
                     </div>
                     <div class="users-count">
                         <span class="label">Votos</span>
-                        <span id="total-votes" class="number">{{main.questionResults.getTotalVotes()}}</span>
+                        <span id="total-votes" class="number">{{main.currentQVotes.getTotalVotes()}}</span>
                     </div>
                     <div class="users-count">
                         <span class="label">Conectados</span>
