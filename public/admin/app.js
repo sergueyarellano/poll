@@ -211,15 +211,16 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
         };
         vm.started = started;
         vm.literals = {
-            r0: 'Valora la demo del programa "Venta Digital"',
-            r1: 'Valora la demo del programa "DBI"',
-            r2: 'Valora la demo del programa "Alta y Contratación"',
-            r3: 'Valora la demo del programa "MOOM"',
-            r4: 'Valora la demo del programa "Feedback"',
-            r5: 'Valora la demo del programa "SDM"',
-            r6: 'Valora la demo del programa "Digital Payments"',
-            r7: 'Valora la demo del programa "CARE"',
-            r8: 'Valora la demo del "Mobile Channel"'
+            main: 'Valora la demo del programa',
+            r0: '"Venta Digital"',
+            r1: '"DBI"',
+            r2: '"Alta y Contratación"',
+            r3: '"MOOM"',
+            r4: '"Feedback"',
+            r5: '"SDM"',
+            r6: '"Digital Payments"',
+            r7: '"CARE"',
+            r8: '"Mobile Channel"'
         };
         vm.questionHeader = vm.literals.r0;
         vm.pollResults = pollResults;
@@ -256,7 +257,8 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                             type: 'nextQuestion',
                             href: '/welcome/' + r,
                             qId: r,
-                            literal: vm.literals[r]
+                            literal: vm.literals[r],
+                            main: vm.literals.main
                         }));
                         vm.started = true;
                     }

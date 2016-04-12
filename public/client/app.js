@@ -81,7 +81,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			switch (data.type) {
 			case 'nextQuestion':
 				nextQuestion = data;
-				if (savedVote[data.qId].href === data.href && savedVote[data.qId].value === 1) {
+				if (savedVote[data.qId].href === data.href && savedVote[data.qId].value !== 0) {
 					$location.path('/welcome/voted');
 				} else {
 					savedVote.currentTarget = data.qId;
@@ -134,6 +134,10 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		// $scope.$apply();
 		vm.sendPoll = function () {
 
+			if (!clientInfo.data[0]) {
+				document.cookie = 'LiveFeedbackClientId=';
+				window.location.href = '/welcome/init';
+			}
 			//TODO: votes of undefined
 			// if client has voted before, redirect to standby
 			if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
@@ -168,8 +172,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 	})
 	.controller('q0Controller', function () {
 		var vm = this;
-
-		vm.q = nextQuestion.literal;
+		vm.q = nextQuestion;
 
 		vm.displayButton = function() {
 			vm.class = 'active';
@@ -183,7 +186,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 	.controller('selectCommentController', function ($location, LiveFeedback) {
 		var vm = this;
 
-		vm.q = nextQuestion.literal;
+		vm.q = nextQuestion;
 		vm.goToCommentText = function (type, literalSelect) {
 
 			// assign
