@@ -8,23 +8,23 @@
 		<input type="radio" id="rating4" name="rating" value="5">
 		<ol class="poll_client-rating_stars">
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.savePoll($event);"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating0" ng-click="main.savePoll($event);q0.displayButton();"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.savePoll($event)"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating1" ng-click="main.savePoll($event);q0.displayButton()"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.savePoll($event)"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating2" ng-click="main.savePoll($event);q0.displayButton()"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.savePoll($event)"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating3" ng-click="main.savePoll($event);q0.displayButton()"></label>
 			</li>
 			<li class="poll_client-rating_option">
-				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.savePoll($event)"></label>
+				<label class="poll_client-rating_option-item icon star" for="rating4" ng-click="main.savePoll($event);q0.displayButton()"></label>
 			</li>
 		</ol>
 	</article>
 	<article class="poll_client-button fadeInFromBottom">
-		<div ng-click="main.sendPoll()" role="button" class="positive">Vota!</div>
+		<div ng-click="main.sendPoll()" role="button" ng-class="q0.class" class="positive hidden">Vota!</div>
 	</article>
 </section>

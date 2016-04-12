@@ -136,17 +136,6 @@ Object.defineProperties(currentQVotes, {
     }
 })
 
-var literals = {
-    r0: 'Valora la demo del programa "Venta Digital"',
-    r1: 'Valora la demo del programa "DBI"',
-    r2: 'Valora la demo del programa "Alta y Contratación"',
-    r3: 'Valora la demo del programa "MOOM"',
-    r4: 'Valora la demo del programa "Feedback"',
-    r5: 'Valora la demo del programa "SDM"',
-    r6: 'Valora la demo del programa "Digital Payments"',
-    r7: 'Valora la demo del programa "CARE"',
-    r8: 'Valora la demo del "Mobile Channel"'
-};
 var usersConnected = 0;
 var started = false;
 
@@ -168,7 +157,6 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                     }
                     break;
                 case 'poll':
-                	console.log('data from poll',data)
                     vm.pollResults[data.results][data.index] += parseInt(data.value, 10);
                     vm.currentQVotes[data.index] += parseInt(data.value, 10);
 
@@ -233,7 +221,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
             r7: 'Valora la demo del programa "CARE"',
             r8: 'Valora la demo del "Mobile Channel"'
         };
-        vm.questionHeader = literals.r0;
+        vm.questionHeader = vm.literals.r0;
         vm.pollResults = pollResults;
         vm.questionActive = 'r0';
         vm.currentQVotes = currentQVotes;
@@ -268,7 +256,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                             type: 'nextQuestion',
                             href: '/welcome/' + r,
                             qId: r,
-                            literal: literals[r]
+                            literal: vm.literals[r]
                         }));
                         vm.started = true;
                     }
