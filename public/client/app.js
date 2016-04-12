@@ -174,6 +174,11 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		var vm = this;
 
 		vm.q = nextQuestion.literal;
+
+		vm.displayButton = function() {
+			vm.class = 'active';
+			
+		}
 	})
 	.controller('standByController', function () {
 		var vm = this;
