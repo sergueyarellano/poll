@@ -56,6 +56,7 @@
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
+		max-width: 450px;
 }
 
 .poll_client-status
@@ -231,6 +232,7 @@
 		-webkit-flex: 1;
 		    -ms-flex: 1;
 		        flex: 1;
+		box-sizing: border-box;
 
 	}
 	[role="button"].positive{
@@ -296,6 +298,7 @@
 .poll_client-msgtext{
 	@extend .flex-expand;
 	padding-top: $paddingBase *2;
+	width: 100%;
 	//align-self: stretch;
 }
 .poll_client-textarea{
@@ -316,6 +319,8 @@
     flex-shrink: 1;
     flex-basis: 0%;
 		padding: $paddingBase;
+		font-family: $light;
+		font-size: 16px;
 	}
 }
 .poll_client-comment_buttons{
@@ -523,4 +528,13 @@
 }
 .buttons-container{
 	width: 85%;
+}
+p.note{
+	font-family: $light;
+	color: rgba(#fff,.5);
+	padding-bottom: $paddingBase;
+}
+.send-msg{
+	border-radius: 0 0 3px 3px;
+	margin-bottom: 1em;
 }

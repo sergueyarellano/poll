@@ -5,14 +5,16 @@
 			<h1>{{commentText.q.literalSelect}}</h1>
 		</header>
 		<section class="poll_client-textarea">
-			<textarea placeholder="¿Alguna ocurrencia?" ng-model="commentText.comment" maxlength="140"></textarea>
+			<textarea placeholder="¿Qué opinas de la presentación? ¿Y del producto?" ng-model="commentText.comment" maxlength="140"></textarea>
 		</section>
 		<footer class="poll_client-button">
-			<div role="button" ng-click="commentText.submitComment();main.addStartClass()" class="positive">Enviar comentario</div>
-			<div role="button" ng-click="main.goToVoted()" class="simple">Mejor en otro momento</div>
+			<div role="button" ng-click="commentText.submitComment();main.addStartClass()" class="positive send-msg">Enviar comentario</div>
+			<div role="button" ng-click="main.goToVoted()" class="secondary">Cancelar</div>
 		</footer>
 	</article>
-	<footer class="poll_client-button secondary">
-		<!-- <div role="button" ng-click="main.changeVote()">Cambiar votación</div> -->
+	<footer>
+		<p class="note">
+			<strong>Nota:</strong> Máximo 140 caracteres
+		</p>
 	</footer>
 </section>
