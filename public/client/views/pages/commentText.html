@@ -8,7 +8,7 @@
 			<textarea placeholder="¿Alguna ocurrencia?" ng-model="commentText.comment" maxlength="140"></textarea>
 		</section>
 		<footer class="poll_client-button">
-			<div role="button" ng-click="commentText.submitComment()" class="positive">Enviar comentario</div>
+			<div role="button" ng-click="commentText.submitComment();main.addStartClass()" class="positive">Enviar comentario</div>
 			<div role="button" ng-click="main.goToVoted()" class="simple">Mejor en otro momento</div>
 		</footer>
 	</article>

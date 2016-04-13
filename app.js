@@ -13,7 +13,7 @@ var results = require('./routes/results');
 var closedPoll = require('./routes/closedPoll');
 var welcomeJSON = require('./routes/welcomeJSON');
 
-var livereload = require('livereload');
+// var livereload = require('livereload');
 
 var app = express();
 var mongoose = require('mongoose');
@@ -88,7 +88,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-server = livereload.createServer();
-server.watch(__dirname + "/public");
+// server = livereload.createServer();
+// server.watch(__dirname + "/public");
 
 module.exports = app;
