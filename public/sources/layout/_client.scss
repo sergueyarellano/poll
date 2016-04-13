@@ -432,11 +432,11 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: rgba($bbva_blue,0);
 	transition: $globalTransition;
+	display: none;
 	.toast{
 		box-shadow: 0 0 10px rgba(#000,0.25);
 		border-radius: 3px;
@@ -459,6 +459,7 @@
 		animation: fadeInOutBg 3s ease-in-out forwards;
 		-webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+		display: flex;
 		.toast{
 			animation: toastAnim 3s ease-in-out;
 		}
