@@ -87,9 +87,9 @@ wss.on("connection", function(ws) {
         }));
     }
 
-    ws.send(JSON.stringify({type: 'address', ip: ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress.split(':')[3]}));
+    // ws.send(JSON.stringify({type: 'address', ip: ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress.split(':')[3]}));
     usersConnected++;
-    console.log("websocket connection open via", ws.upgradeReq.connection.remoteAddress.split(':')[3]);
+    // console.log("websocket connection open via", ws.upgradeReq.connection.remoteAddress.split(':')[3]);
 
     ws.on('message', function incoming(message) {
         console.log('server received: %s', message);
