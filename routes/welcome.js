@@ -8,7 +8,7 @@ const ipFilter = require('ip-filter');
 
 /* GET client */
 router.get('/', function(req, res, next) {
-    var reqIP = req.headers['x-forwarded-for'] || req._remoteAddress.split(':')[3];
+    var reqIP = req.headers['x-forwarded-for'] || req._remoteAddress.split(':')[3] || '127.0.0.1';
 //https://nodejs.org/docs/latest/api/url.html#url_url_format_urlobj
     if (ipFilter(reqIP, ['127.0.0.1']) ||
         ipFilter(reqIP, ['89.107.180.*']) ||
@@ -20,11 +20,7 @@ router.get('/', function(req, res, next) {
         res.sendFile(path.join(__dirname + '/../public/client/views/index.html'));
     } else {
         console.log('\n[ACCESS DENIED] %s \n', reqIP);
-        res.json({
-            denied: 'Invalid NetWork',
-            ip: reqIP,
-            maybe: 'access via WiFi'
-        });
+        res.sendFile(path.join(__dirname + '/../public/client/views/invalidnetwork.html'));
     }
 });
 

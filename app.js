@@ -13,6 +13,8 @@ var results = require('./routes/results');
 var closedPoll = require('./routes/closedPoll');
 var welcomeJSON = require('./routes/welcomeJSON');
 
+// var livereload = require('livereload');
+
 var app = express();
 var mongoose = require('mongoose');
 var config = require('./config');
@@ -33,11 +35,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-// app.use(compass({
-//     project: path.join(__dirname, 'public/sources'),
-//     sass: 'layout',
-//     css: 'css'
-// }));
+app.use(compass({
+    project: path.join(__dirname, 'public/sources'),
+    sass: 'layout',
+    css: 'css'
+}));
 
 // connect to the database
 mongoose.connect(config.databaseReplica);
@@ -86,5 +88,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// server = livereload.createServer();
+// server.watch(__dirname + "/public");
 
 module.exports = app;

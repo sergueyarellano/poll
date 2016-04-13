@@ -4,7 +4,7 @@
 var host = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(host);
 
-ws.onopen = function() {
+ws.onopen = function () {
     ws.domain = 'titan';
     // identify
     ws.send(JSON.stringify({
@@ -12,7 +12,7 @@ ws.onopen = function() {
     }));
 
     // keep socket alive
-    var alive = setInterval(function() {
+    var alive = setInterval(function () {
 
         ws.send(JSON.stringify({
             type: 'alive'
@@ -93,22 +93,22 @@ var currentQVotes = {
     rating2: 0,
     rating3: 0,
     rating4: 0,
-    getTotalVotes: function() {
+    getTotalVotes: function () {
         var total = this.rating0 + this.rating1 + this.rating2 + this.rating3 + this.rating4;
         return (total < 10) ? '0' + total : total;
     },
-    getVotePercentage: function(star) {
+    getVotePercentage: function (star) {
 
         return Math.round((this[star] / parseInt(this.getTotalVotes(), 10)) * 100) || 0;
     },
-    getTotalVotesPercentage: function() {
+    getTotalVotesPercentage: function () {
         return Math.round((parseInt(this.getTotalVotes(), 10) / parseInt(usersConnected, 10)) * 100) || 0;
     },
-    getAverageVotes: function() {
+    getAverageVotes: function () {
 
         return Math.round((this.rating0 * 1 + this.rating1 * 2 + this.rating2 * 3 + this.rating3 * 4 + this.rating4 * 5) / parseInt(this.getTotalVotes(), 10) * 100) / 100 || 0;
     },
-    getAverageRepCircle: function() {
+    getAverageRepCircle: function () {
         return Math.round(this.getAverageVotes() * 20);
     }
 };
@@ -140,49 +140,49 @@ var usersConnected = 0;
 var started = false;
 
 angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
-    .controller('mainController', function($scope, $location, $q, $timeout, LiveFeedback) {
+    .controller('mainController', function ($scope, $location, $q, $timeout, LiveFeedback) {
         var vm = this;
 
         // socket listeners
 
 
-        ws.onmessage = function(event) {
+        ws.onmessage = function (event) {
 
             var data = JSON.parse(event.data);
             switch (data.type) {
-                case 'connected':
-                    if (!!document.getElementById('pings')) {
-                        usersConnected = data.value;
-                        document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value;
-                    }
-                    break;
-                case 'poll':
-                    vm.pollResults[data.results][data.index] += parseInt(data.value, 10);
-                    vm.currentQVotes[data.index] += parseInt(data.value, 10);
+            case 'connected':
+                if (!!document.getElementById('pings')) {
+                    usersConnected = data.value;
+                    document.getElementById('pings').innerHTML = (data.value < 10) ? '0' + data.value : data.value;
+                }
+                break;
+            case 'poll':
+                vm.pollResults[data.results][data.index] += parseInt(data.value, 10);
+                vm.currentQVotes[data.index] += parseInt(data.value, 10);
 
-                    $scope.$apply();
-                    break;
-                case 'update':
-                    if (data.current) {
+                $scope.$apply();
+                break;
+            case 'update':
+                if (data.current) {
 
-                        pollResults = data;
+                    pollResults = data;
 
-                        currentQVotes.rating0 = data[data.current].rating0;
-                        currentQVotes.rating1 = data[data.current].rating1;
-                        currentQVotes.rating2 = data[data.current].rating2;
-                        currentQVotes.rating3 = data[data.current].rating3;
-                        currentQVotes.rating4 = data[data.current].rating4;
-                    }
-                    break;
-                default:
-                    break;
+                    currentQVotes.rating0 = data[data.current].rating0;
+                    currentQVotes.rating1 = data[data.current].rating1;
+                    currentQVotes.rating2 = data[data.current].rating2;
+                    currentQVotes.rating3 = data[data.current].rating3;
+                    currentQVotes.rating4 = data[data.current].rating4;
+                }
+                break;
+            default:
+                break;
             }
         };
 
         // get DB and update current votes
-        $q.all([LiveFeedback.getPollResults()]).then(function(data) {
+        $q.all([LiveFeedback.getPollResults()]).then(function (data) {
             data = data[0].data
-            data.forEach(function(qData) {
+            data.forEach(function (qData) {
                 pollResults[qData.q_id].rating0 = qData.oneStar;
                 pollResults[qData.q_id].rating1 = qData.twoStar;
                 pollResults[qData.q_id].rating2 = qData.threeStar;
@@ -190,7 +190,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                 pollResults[qData.q_id].rating4 = qData.fiveStar;
             });
 
-        }).then(function() {
+        }).then(function () {
             // init current votes
             for (star in pollResults.r0) {
                 currentQVotes[star] = pollResults.r0[star];
@@ -211,15 +211,16 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
         };
         vm.started = started;
         vm.literals = {
-            r0: 'Valora la demo del programa "Venta Digital"',
-            r1: 'Valora la demo del programa "DBI"',
-            r2: 'Valora la demo del programa "Alta y Contratación"',
-            r3: 'Valora la demo del programa "MOOM"',
-            r4: 'Valora la demo del programa "Feedback"',
-            r5: 'Valora la demo del programa "SDM"',
-            r6: 'Valora la demo del programa "Digital Payments"',
-            r7: 'Valora la demo del programa "CARE"',
-            r8: 'Valora la demo del "Mobile Channel"'
+            main: 'Valora la demo del programa',
+            r0: '"MOOM"',
+            r1: '"SDM"',
+            r2: '"Digital Payments"',
+            r3: '"Feedback"',
+            r4: '"Venta Digital"',
+            r5: '"DBI"',
+            r6: '"Alta y Contratación"',
+            r7: '"CARE"',
+            r8: '"Cross Líneas"'
         };
         vm.questionHeader = vm.literals.r0;
         vm.pollResults = pollResults;
@@ -228,7 +229,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
 
         vm.disabled = "disabled";
 
-        vm.showQuestionResults = function(rId) {
+        vm.showQuestionResults = function (rId) {
             for (r in vm.results) {
                 vm.results[r] = false;
             }
@@ -243,7 +244,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
             }
         };
 
-        vm.startPoll = function($event) {
+        vm.startPoll = function ($event) {
             if ($location.path() === '/results') {
                 return;
             }
@@ -256,14 +257,15 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
                             type: 'nextQuestion',
                             href: '/welcome/' + r,
                             qId: r,
-                            literal: vm.literals[r]
+                            literal: vm.literals[r],
+                            main: vm.literals.main
                         }));
                         vm.started = true;
                     }
                 }
             }
         };
-        vm.stopPoll = function($event) {
+        vm.stopPoll = function ($event) {
 
             if (vm.started) {
 
@@ -290,7 +292,7 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
             }
         };
 
-        vm.refreshConnections = function() {
+        vm.refreshConnections = function () {
             if ($location.path() === '/results') {
                 return;
             }
@@ -299,33 +301,40 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
             }));
         };
     })
-    .directive('pollstar', function() {
+    .directive('pollstar', function () {
         return {
             restrict: 'E',
             transclude: true,
             scope: {},
-            link: function($scope, element, attributes) {
+            link: function ($scope, element, attributes) {
                 $scope.myclass = attributes.myclass;
                 $scope.myvalue = attributes.myvalue;
                 $scope.myvotes = attributes.myvotes;
-                attributes.$observe('myvotes', function(value) {
+                attributes.$observe('myvotes', function (value) {
 
                     $scope.myvotes = (value < 10 || value < 0) ? '0' + value : value;
                 });
-                attributes.$observe('myvalue', function(value) {
+                attributes.$observe('myvalue', function (value) {
 
                     $scope.myvalue = value;
                 });
-                $scope.$watch(attributes.myvotes, function(value) {
+                $scope.$watch(attributes.myvotes, function (value) {
 
                 })
             },
-            controller: function($scope, $element) {},
+            controller: function ($scope, $element) {},
             template: '<li>' +
                 '<svg width="8em" height="8em" class="chart">' +
-                '<circle r="4em" cx="4em" cy="4em" stroke="#2d3e50" fill="none" stroke-width=".15em" class="background" />' +
+                '<circle r="3.9em" cx="4em" cy="4em" stroke="#2d3e50" fill="none" stroke-width=".15em" class="background" />' +
                 '<circle r="3.8em" cx="4em" cy="4em" stroke="rgba(47,130,184,0.5)" fill="none" stroke-width=".375em" ' +
                 'aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{myvalue}}" role="progressbar" />' +
+                '<g transform="rotate(90 64 64) translate(40 40)">' +
+                '<path fill="rgba(255,255,255,.3)" class="st0" d="M28,18.7c0.3,0.6,0.9,1,1.6,1.1l9,1.3l6.4-2.1c-0.2-0.7-0.9-1.3-1.7-1.4l-12.1-1.8L25.8,5 c-0.3-0.7-1.1-1.1-1.9-1.1l0,0v6.7l0,0L28,18.7z" />' +
+                '<path fill="rgba(255,255,255,.3)" class="st1" d="M32.1,27.5c-0.5,0.5-0.7,1.2-0.6,1.8l1.5,9l4,5.4c0.6-0.5,1-1.2,0.8-2l-2.1-12l8.7-8.5 c0.6-0.5,0.8-1.4,0.5-2.1l0,0l-6.4,2.1l0,0L32.1,27.5z" />' +
+                '<path fill="rgba(255,255,255,.3)" class="st2" d="M25,34.1c-0.6-0.3-1.3-0.3-1.9,0L15,38.3l-4,5.4c0.6,0.5,1.5,0.5,2.2,0.2L24,38.3l10.8,5.7 c0.7,0.4,1.5,0.3,2.2-0.2l0,0l-4-5.4l0,0L25,34.1z" />' +
+                '<path fill="rgba(255,255,255,.3)" class="st3" d="M16.5,29.4c0.1-0.7-0.1-1.3-0.6-1.8l-6.5-6.4L3,19.1c-0.2,0.7,0,1.6,0.5,2.1l8.7,8.5l-2.1,12 c-0.1,0.8,0.2,1.6,0.8,2l0,0l4-5.4l0,0L16.5,29.4z" />' +
+                '<path fill="rgba(255,255,255,.3)" class="st4" d="M18.4,19.9c0.7-0.1,1.3-0.5,1.6-1.1l4-8.2V3.8c-0.8,0-1.5,0.4-1.9,1.1l-5.4,11L4.7,17.7 c-0.8,0.1-1.4,0.7-1.7,1.4l0,0l6.4,2.1l0,0L18.4,19.9z" />' +
+                '</g>' +
                 '</svg>' +
                 '</li>',
 
@@ -335,30 +344,30 @@ angular.module('adminApp', ['adminRoutes', 'LiveFeedbackService'])
 
 angular.module('LiveFeedbackService', [])
 
-.factory('LiveFeedback', function($http, $q, $timeout) {
+.factory('LiveFeedback', function ($http, $q, $timeout) {
 
     var _LFFactory = {};
 
-    _LFFactory.saveQuestionResults = function(data) {
+    _LFFactory.saveQuestionResults = function (data) {
         return $http.put('/api/votaciones', data);
     };
 
-    _LFFactory.getPollResults = function() {
+    _LFFactory.getPollResults = function () {
         return $http.get('/api/votaciones');
     };
 
-    _LFFactory.getQuestionResults = function(id) {
+    _LFFactory.getQuestionResults = function (id) {
         return $http.get('/api/votaciones/' + id);
     };
 
-    _LFFactory.saveTotalVotes = function(data) {
+    _LFFactory.saveTotalVotes = function (data) {
         return $http.put('/api/totales', data);
     };
 
-    _LFFactory.getCurrentQVotes = function(data) {
+    _LFFactory.getCurrentQVotes = function (data) {
         var deferred = $q.defer();
 
-        $timeout(function() {
+        $timeout(function () {
             deferred.resolve(currentQVotes);
         }, 2000);
         return deferred.promise;

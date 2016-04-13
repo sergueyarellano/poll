@@ -61,21 +61,24 @@ module.exports = function(app, express) {
                     res.send(err);
                 }
                 votacion = votacion[0];
-                if (req.body.poll_id) votacion.poll_id = req.body.poll_id;
-                if (req.body.q_id) votacion.q_id = req.body.q_id;
-                if (req.body.oneStar) votacion.oneStar = parseInt(req.body.oneStar);
-                if (req.body.twoStar) votacion.twoStar = parseInt(req.body.twoStar);
-                if (req.body.threeStar) votacion.threeStar = parseInt(req.body.threeStar);
-                if (req.body.fourStar) votacion.fourStar = parseInt(req.body.fourStar);
-                if (req.body.fiveStar) votacion.fiveStar = parseInt(req.body.fiveStar);
 
-                votacion.save(function(err) {
-                    if (err) res.send(err);
+                if (votacion) {
+                    if (req.body.poll_id) votacion.poll_id = req.body.poll_id;
+                    if (req.body.q_id) votacion.q_id = req.body.q_id;
+                    if (req.body.oneStar) votacion.oneStar = parseInt(req.body.oneStar);
+                    if (req.body.twoStar) votacion.twoStar = parseInt(req.body.twoStar);
+                    if (req.body.threeStar) votacion.threeStar = parseInt(req.body.threeStar);
+                    if (req.body.fourStar) votacion.fourStar = parseInt(req.body.fourStar);
+                    if (req.body.fiveStar) votacion.fiveStar = parseInt(req.body.fiveStar);
 
-                    res.json({
-                        message: 'poll updated'
-                    });
-                })
+                    votacion.save(function(err) {
+                        if (err) res.send(err);
+
+                        res.json({
+                            message: 'poll updated'
+                        });
+                    })
+                }
             });
         })
         .delete(function(req, res) {
@@ -196,24 +199,26 @@ module.exports = function(app, express) {
                 
                 registro = registro[0];
                 
-                if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0);
-                if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1);
-                if (req.body.r2) registro.votes.r2 = parseInt(req.body.r2);
-                if (req.body.r3) registro.votes.r3 = parseInt(req.body.r3);
-                if (req.body.r4) registro.votes.r4 = parseInt(req.body.r4);
-                if (req.body.r5) registro.votes.r5 = parseInt(req.body.r5);
-                if (req.body.r6) registro.votes.r6 = parseInt(req.body.r6);
-                if (req.body.r7) registro.votes.r7 = parseInt(req.body.r7);
+                if (registro) {
+                    if (req.body.r0) registro.votes.r0 = parseInt(req.body.r0);
+                    if (req.body.r1) registro.votes.r1 = parseInt(req.body.r1);
+                    if (req.body.r2) registro.votes.r2 = parseInt(req.body.r2);
+                    if (req.body.r3) registro.votes.r3 = parseInt(req.body.r3);
+                    if (req.body.r4) registro.votes.r4 = parseInt(req.body.r4);
+                    if (req.body.r5) registro.votes.r5 = parseInt(req.body.r5);
+                    if (req.body.r6) registro.votes.r6 = parseInt(req.body.r6);
+                    if (req.body.r7) registro.votes.r7 = parseInt(req.body.r7);
 
-                if (req.body.comment) registro.comments[req.body.r][req.body.type] = req.body.comment;
+                    if (req.body.comment) registro.comments[req.body.r][req.body.type] = req.body.comment;
 
-                registro.save(function(err) {
-                    if (err) res.send(err);
+                    registro.save(function(err) {
+                        if (err) res.send(err);
 
-                    res.json({
-                        message: 'registry updated'
-                    });
-                })
+                        res.json({
+                            message: 'registry updated'
+                        });
+                    })
+                }
             });
         })
         .delete(function(req, res) {

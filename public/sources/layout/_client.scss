@@ -56,7 +56,6 @@
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-  //background-color: $blue;
 }
 
 .poll_client-status
@@ -89,8 +88,12 @@
 	text-align: center;
 	padding: $paddingBase $paddingBase 0;
 	font-size: 1.5em;
-	font-family: $light;
+	font-family: $book;
 	line-height: 1.2;
+	.default_text{
+		font-family: $light;
+		font-size: .75em;
+	}
 }
 .poll_client-subtitle
 {
@@ -141,15 +144,23 @@
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
+	&.flex-start{
+		-webkit-justify-content: flex-start;
+						justify-content: flex-start;
+	}
+	&.expand{
+		padding: 0;
+	}
 	.logo-container
 	{
+		flex: 0 0 auto;
 		font-size: 2em;
 	}
 }
 
 .poll_client-rating
 {
-	font-size: 1.5em;
+	font-size: 1.8em;
 }
 
 .poll_client-rating_stars
@@ -366,4 +377,142 @@
 }
 .fadeInFromBottom{
 	animation: fadeInFromBottom 0.5s;
+}
+.hidden{
+	visibility: hidden;
+	&.active{
+		visibility: visible;
+		@extend .fadeInFromBottom;
+	}
+}
+.agenda{
+	margin-top: 1em;
+	text-align: left;
+	padding: 0 $paddingBase $paddingBase;
+	box-sizing: border-box;
+	ul{
+	}
+	li{
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+		margin-bottom: $paddingBase;
+		.hour{
+			-webkit-flex: 1 0 0;
+			font-family: $light;
+			font-size: 12px;
+			line-height: 1.5;
+		}
+		.event{
+			-webkit-flex: 3 0 0;
+			font-size: 1.2em;
+		}
+		&.past-event span{
+			color: rgba(#fff,0.35);
+		}
+	}
+	header{
+		padding-bottom: $paddingBase*.5;
+		h2{
+			text-transform: uppercase;
+			font-size: 12px;
+			font-family: $light;
+			line-height: 2.5em;
+			border-bottom: 1px solid rgba(#fff,.25);
+		}
+	}
+}
+.alert-container{
+	z-index: 99;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba($bbva_blue,0);
+	transition: $globalTransition;
+	.toast{
+		box-shadow: 0 0 10px rgba(#000,0.25);
+		border-radius: 3px;
+		transform: scale(0);
+		transition: $globalTransition;
+		h1{
+			color: $bbva_green;
+			line-height: 1.2;
+			font-family: $light;
+		}
+		&.success{
+			text-align: center;
+			padding: 1em;
+			background: #fff;
+		}
+	}
+	&.start{
+		animation: fadeInOutBg 3s ease-in-out forwards;
+		-webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+		.toast{
+			animation: toastAnim 3s ease-in-out;
+		}
+	}
+}
+@keyframes toastAnim {
+	0%{
+		transform: scale(0);
+		opacity: 0;
+		animation-timing-function: ease-out;
+	}
+	8%{
+		animation-timing-function: ease-in;
+	}
+	15%,
+	85%{
+		transform: scale(1);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	92%{
+		transform: scale(1);
+		opacity: 1;
+		animation-timing-function: ease-in;
+	}
+	100%{
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+@keyframes fadeInOutBg {
+	0%{
+		background: rgba($bbva_blue,0);;
+		animation-timing-function: ease-out;
+	}
+	8%{
+		animation-timing-function: ease-in;
+	}
+	15%,
+	85%{
+		background: rgba($bbva_blue,.85);
+		animation-timing-function: ease-out;
+	}
+	92%{
+		background: rgba($bbva_blue,.85);
+		animation-timing-function: ease-in;
+	}
+	99.9%{
+		background: rgba($bbva_blue,0);
+		visibility: visible;
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 0;
+		height: 0;
+    visibility:hidden;
+	}
 }

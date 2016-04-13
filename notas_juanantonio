@@ -1,0 +1,8 @@
+HTML para el rechazo de IP -> accede wifi corporativa
+
+EN el baneo de "ya has votado", redireccionar a un "ya tienes una sesión abierta"
+
+Si cierras y vuelves a abrir que se cargue la votación que se encuentra en curso. 
+(Muestre la pantalla que permite el cambio de votación)
+(A través de la cookie recuperar los datos de usuario y votación en curso)
+

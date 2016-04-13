@@ -15,8 +15,9 @@ $anim-timing: 5s;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-top: $paddingBase;
     .star-logo {
-        font-size: 4em;
+        font-size: 1.5em;
         width: 1em;
         height: 1em;
         path

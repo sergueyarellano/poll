@@ -39,15 +39,16 @@ console.log("websocket server created");
 var usersConnected = -1;
 var wsAdmin = {};
 var literals = {
-    r0: 'Valora la demo del programa "Venta Digital"',
-    r1: 'Valora la demo del programa "DBI"',
-    r2: 'Valora la demo del programa "Alta y Contratación"',
-    r3: 'Valora la demo del programa "MOOM"',
-    r4: 'Valora la demo del programa "Feedback"',
-    r5: 'Valora la demo del programa "SDM"',
-    r6: 'Valora la demo del programa "Digital Payments"',
-    r7: 'Valora la demo del programa "CARE"',
-    r8: 'Valora la demo del "Mobile Channel"'
+    main: 'Valora la demo del programa',
+    r0: '"MOOM"',
+    r1: '"SDM"',
+    r2: '"Digital Payments"',
+    r3: '"Feedback"',
+    r4: '"Venta Digital"',
+    r5: '"DBI"',
+    r6: '"Alta y Contratación"',
+    r7: '"CARE"',
+    r8: '"Cross Líneas"'
 };
 var pollStatus = {
     type: '',
@@ -77,7 +78,8 @@ wss.on("connection", function(ws) {
             type: 'nextQuestion',
             href: pollStatus.href,
             qId: pollStatus.qId,
-            literal: literals[pollStatus.qId]
+            literal: literals[pollStatus.qId],
+            main: literals.main
         }));
     } else if (pollStatus.type === 'standBy') {
         ws.send(JSON.stringify({
