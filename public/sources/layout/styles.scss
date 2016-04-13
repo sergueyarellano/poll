@@ -157,10 +157,6 @@ main{overflow: auto;}
       -ms-flex-pack: center;
           justify-content: center;
 }
-.align-self-middle{
-  -webkit-align-self: center; /* Safari 7.0+ */
-      align-self: center;
-}
 strong{
   font-family: $book;
 }

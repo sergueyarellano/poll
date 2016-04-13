@@ -10,7 +10,7 @@ const ipFilter = require('ip-filter');
 router.get('/', function(req, res, next) {
     var reqIP = req.headers['x-forwarded-for'] || req._remoteAddress.split(':')[3] || '127.0.0.1';
 //https://nodejs.org/docs/latest/api/url.html#url_url_format_urlobj
-    if (//ipFilter(reqIP, ['127.0.0.1']) ||
+    if (ipFilter(reqIP, ['127.0.0.1']) ||
         ipFilter(reqIP, ['89.107.180.*']) ||
         ipFilter(reqIP, ['89.107.177.*']) ||
         ipFilter(reqIP, ['89.107.183.*'])
