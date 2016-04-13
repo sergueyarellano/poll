@@ -40,15 +40,15 @@ var usersConnected = -1;
 var wsAdmin = {};
 var literals = {
     main: 'Valora la demo del programa',
-    r0: '"Venta Digital"',
-    r1: '"DBI"',
-    r2: '"Alta y Contratación"',
-    r3: '"MOOM"',
-    r4: '"Feedback"',
-    r5: '"SDM"',
-    r6: '"Digital Payments"',
+    r0: '"MOOM"',
+    r1: '"SDM"',
+    r2: '"Digital Payments"',
+    r3: '"Feedback"',
+    r4: '"Venta Digital"',
+    r5: '"DBI"',
+    r6: '"Alta y Contratación"',
     r7: '"CARE"',
-    r8: '"Mobile Channel"'
+    r8: '"Cross Líneas"'
 };
 var pollStatus = {
     type: '',
