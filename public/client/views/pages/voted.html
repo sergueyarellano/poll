@@ -19,7 +19,14 @@
 			</div>
 		<h3 class="poll_client-subtitle">Por favor, espera a la siguiente votación</h3>
 	</div>
-
+	<section class="buttons-container">
+		<div class="poll_client-button secondary">
+			<div role="button" ng-click="main.goToSelectComment()" class="secondary">Comentar</div>
+		</div>
+		<div class="poll_client-button">
+			<div role="button" ng-click="voted.changeVote()" class="secondary">Cambiar votación</div>
+		</div>
+	</section>
 	<article class="agenda">
 		<header>
 			<h2>Agenda Transformación Digital PI04</h2>
@@ -76,10 +83,10 @@
 		</ul>
 	</article>
 </section>
-<section class="alert-container">
+<!-- <section class="alert-container">
 	<article class="toast success">
 		<header>
 			<h1>Mensaje enviado correctamente. ¡Gracias!</h1>
 		</header>
 	</article>
-</section>
+</section> -->
