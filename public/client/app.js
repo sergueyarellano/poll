@@ -83,7 +83,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			switch (data.type) {
 			case 'nextQuestion':
 				nextQuestion = data;
-				var currentVote = clientInfo && clientInfo.data[0].votes[nextQuestion.qId];
+				var currentVote = clientInfo && clientInfo.data[0] && clientInfo.data[0].votes[nextQuestion.qId];
 				if (currentVote !== 0) {
 					var sv = savedVote[savedVote.currentTarget];
 					// delete last vote and send it to the socket
