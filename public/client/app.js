@@ -165,9 +165,9 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 					}
 					data[nextQuestion.qId] = parseInt(savedVote[nextQuestion.qId].index.slice(-1)) + 1;
 					// save vote
-					LiveFeedback.saveVote(data);
 
 					$location.path('/welcome/selectComment');
+					LiveFeedback.saveVote(data);
 				}
 			} else {
 				$location.path('/welcome/standBy');
@@ -233,8 +233,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			}
 
 			// submit comment
-			LiveFeedback.saveVote(data);
 			$location.path('/welcome/voted');
+			LiveFeedback.saveVote(data);
 		}
 
 	})
