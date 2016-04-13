@@ -296,7 +296,7 @@
 .poll_client-msgtext{
 	@extend .flex-expand;
 	padding-top: $paddingBase *2;
-	align-self: stretch;
+	//align-self: stretch;
 }
 .poll_client-textarea{
 	display: flex;
@@ -432,16 +432,18 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: rgba($bbva_blue,0);
 	transition: $globalTransition;
+	display: none;
 	.toast{
 		box-shadow: 0 0 10px rgba(#000,0.25);
 		border-radius: 3px;
 		transform: scale(0);
 		transition: $globalTransition;
+		width: 80vw;
+		max-width: 300px;
 		h1{
 			color: $bbva_green;
 			line-height: 1.2;
@@ -457,6 +459,7 @@
 		animation: fadeInOutBg 3s ease-in-out forwards;
 		-webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+		display: flex;
 		.toast{
 			animation: toastAnim 3s ease-in-out;
 		}
@@ -464,6 +467,7 @@
 }
 @keyframes toastAnim {
 	0%{
+		z-index: 99;
 		transform: scale(0);
 		opacity: 0;
 		animation-timing-function: ease-out;
@@ -485,6 +489,7 @@
 	100%{
 		transform: scale(0);
 		opacity: 0;
+		z-index: -1;
 	}
 }
 @keyframes fadeInOutBg {
@@ -515,4 +520,7 @@
 		height: 0;
     visibility:hidden;
 	}
+}
+.buttons-container{
+	width: 85%;
 }
