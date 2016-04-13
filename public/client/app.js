@@ -233,8 +233,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			}
 
 			// submit comment
-			LiveFeedback.saveVote(data);
 			$location.path('/welcome/voted');
+			LiveFeedback.saveVote(data);
 		}
 
 	})
