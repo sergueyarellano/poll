@@ -62,6 +62,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 .controller('mainController', function ($scope, $location, $q, LiveFeedback) {
 		var vm = this;
+
+		vm.startClass = '';
 		ws.onopen = function () {
 			// if client does not have storage id, send a handshake
 			if (!storage) {
@@ -178,6 +180,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		}
 
 		vm.goToVoted = function () {
+			vm.startClass = '';
 			$location.path('/welcome/voted');
 		}
 		vm.goToSelectComment = function () {

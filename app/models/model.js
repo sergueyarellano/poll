@@ -30,7 +30,8 @@ var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and i
       r4: {type: Number, min: 0, max: 5, default: 0},
       r5: {type: Number, min: 0, max: 5, default: 0},
       r6: {type: Number, min: 0, max: 5, default: 0},
-      r7: {type: Number, min: 0, max: 5, default: 0}
+      r7: {type: Number, min: 0, max: 5, default: 0},
+      r8: {type: Number, min: 0, max: 5, default: 0}
     },
     comments: {
       r0: {keepDoing: String, stopDoing: String, suggestion: String},
@@ -40,7 +41,8 @@ var mongoose  = require('mongoose'), // if problems with mongo 2.6 remove, and i
       r4: {keepDoing: String, stopDoing: String, suggestion: String},
       r5: {keepDoing: String, stopDoing: String, suggestion: String},
       r6: {keepDoing: String, stopDoing: String, suggestion: String},
-      r7: {keepDoing: String, stopDoing: String, suggestion: String}
+      r7: {keepDoing: String, stopDoing: String, suggestion: String},
+      r8: {keepDoing: String, stopDoing: String, suggestion: String}
     }
   })
 
