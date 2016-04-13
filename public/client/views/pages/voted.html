@@ -20,11 +20,11 @@
 		<h3 class="poll_client-subtitle">Por favor, espera a la siguiente votación</h3>
 	</div>
 	<section class="buttons-container">
-		<div class="poll_client-button secondary">
-			<div role="button" ng-click="main.goToSelectComment()" class="secondary">Comentar</div>
+		<div ng-click="main.goToSelectComment()" class="poll_client-button secondary">
+			<div role="button" class="secondary">Comentar</div>
 		</div>
-		<div class="poll_client-button">
-			<div role="button" ng-click="voted.changeVote()" class="secondary">Cambiar votación</div>
+		<div ng-click="voted.changeVote()" class="poll_client-button">
+			<div role="button"  class="secondary">Cambiar votación</div>
 		</div>
 	</section>
 	<article class="agenda">
@@ -83,10 +83,12 @@
 		</ul>
 	</article>
 </section>
-<section ng-class="main.startClass" class="alert-container">
+
+<!-- este section a continuacion, me esta jodiendo la vida, arreglalo filibustero!!-->
+<!-- <section ng-class="main.startClass" class="alert-container">
 	<article class="toast success">
 		<header>
 			<h1>Mensaje enviado correctamente. ¡Gracias!</h1>
 		</header>
 	</article>
-</section>
+</section> -->
