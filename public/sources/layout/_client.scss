@@ -89,8 +89,12 @@
 	text-align: center;
 	padding: $paddingBase $paddingBase 0;
 	font-size: 1.5em;
-	font-family: $light;
+	font-family: $book;
 	line-height: 1.2;
+	.default_text{
+		font-family: $light;
+		font-size: .75em;
+	}
 }
 .poll_client-subtitle
 {
@@ -140,16 +144,21 @@
 		-webkit-justify-content: space-between;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
+		&.flex-start{
+			-webkit-justify-content: flex-start;
+						  justify-content: flex-start;
+		}
 	}
 	.logo-container
 	{
+		flex: 0 0 auto;
 		font-size: 2em;
 	}
 }
 
 .poll_client-rating
 {
-	font-size: 1.5em;
+	font-size: 1.8em;
 }
 
 .poll_client-rating_stars
@@ -366,4 +375,32 @@
 }
 .fadeInFromBottom{
 	animation: fadeInFromBottom 0.5s;
+}
+.hidden{
+	visibility: hidden;
+	&.active{
+		visibility: visible;
+		@extend .fadeInFromBottom;
+	}
+}
+.agenda{
+	text-align: left;
+	li{
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: row;
+		flex-direction: row;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+		margin-bottom: $paddingBase *0.5;
+		.hour{
+			-webkit-flex: 1 0 0;
+   		flex: 1 0 0;
+			font-family: $light;
+		}
+		.event{
+			-webkit-flex: 3 0 0;
+   		flex: 3 0 0;
+		}
+	}
 }

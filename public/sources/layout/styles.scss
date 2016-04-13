@@ -97,7 +97,7 @@ body
     color: $white;
     @extend .blueGradient;
 }
-
+main{overflow: auto;}
 //flexbox helpers
 .flex-container{
   display: -webkit-box;
@@ -132,6 +132,16 @@ body
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+.flex-row{
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-start{
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
 }
 .align-center{
   -webkit-box-direction: normal;
