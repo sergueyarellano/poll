@@ -296,7 +296,7 @@
 .poll_client-msgtext{
 	@extend .flex-expand;
 	padding-top: $paddingBase *2;
-	align-self: stretch;
+	//align-self: stretch;
 }
 .poll_client-textarea{
 	display: flex;
@@ -442,6 +442,8 @@
 		border-radius: 3px;
 		transform: scale(0);
 		transition: $globalTransition;
+		width: 80vw;
+		max-width: 300px;
 		h1{
 			color: $bbva_green;
 			line-height: 1.2;
@@ -464,6 +466,7 @@
 }
 @keyframes toastAnim {
 	0%{
+		z-index: 99;
 		transform: scale(0);
 		opacity: 0;
 		animation-timing-function: ease-out;
@@ -485,6 +488,7 @@
 	100%{
 		transform: scale(0);
 		opacity: 0;
+		z-index: -1;
 	}
 }
 @keyframes fadeInOutBg {
