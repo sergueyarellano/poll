@@ -81,8 +81,19 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			switch (data.type) {
 			case 'nextQuestion':
 				nextQuestion = data;
-				if (savedVote[data.qId].href === data.href && savedVote[data.qId].value !== 0) {
-					$location.path('/welcome/voted');
+				var currentVote = clientInfo && clientInfo.data[0].votes[nextQuestion.qId];
+				if (currentVote !== 0) {
+					var sv = savedVote[savedVote.currentTarget];
+					// delete last vote and send it to the socket
+					sv.href = data.href;
+					sv.index = 'rating' + (currentVote - 1);
+					sv.results = savedVote.currentTarget;
+					sv.send = true;
+					sv.type = 'poll';
+					sv.value = -1;
+					ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
+
+					$location.path('/welcome/r0');
 				} else {
 					savedVote.currentTarget = data.qId;
 					savedVote[data.qId].send = false;
@@ -106,7 +117,9 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 				break;
 			case 'handshake':
 				document.cookie = 'LiveFeedbackClientId=' + data.clientId;
-				$q.all([LiveFeedback.postRegistry({ip:data.clientId}),LiveFeedback.getRegistry(data.clientId)]).then(function(data) {
+				$q.all([LiveFeedback.postRegistry({
+					ip: data.clientId
+				}), LiveFeedback.getRegistry(data.clientId)]).then(function (data) {
 					clientInfo = data[1];
 				})
 				break;
@@ -140,7 +153,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			}
 			//TODO: votes of undefined
 			// if client has voted before, redirect to standby
-			if (clientInfo.data[0].votes[savedVote.currentTarget] === 0) {
+			var currentVote = clientInfo.data[0].votes[savedVote.currentTarget]
+			if (currentVote === 0) {
 
 				if (savedVote[savedVote.currentTarget].send) {
 					ws.send(JSON.stringify(savedVote[savedVote.currentTarget]));
@@ -159,6 +173,10 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 
 		}
 
+		vm.addStartClass = function () {
+			vm.startClass = 'start';
+		}
+
 		vm.goToVoted = function () {
 			$location.path('/welcome/voted');
 		}
@@ -174,7 +192,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		var vm = this;
 		vm.q = nextQuestion;
 
-		vm.displayButton = function() {
+		vm.displayButton = function () {
 			vm.class = 'active';
 
 		}
@@ -194,6 +212,7 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			nextQuestion['commentType'] = type;
 
 			// redirect
+			vm.startClass = '';
 			$location.path('/welcome/commentText');
 		}
 	})
@@ -231,6 +250,8 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			dataChange[nextQuestion.qId] = 0;
 			// submit comment
 			LiveFeedback.saveVote(dataChange);
+
+			vm.startClass = '';
 
 			$location.path(savedVote[savedVote.currentTarget].href);
 			// vm.applyThings();
