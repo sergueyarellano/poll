@@ -1,105 +1,80 @@
 <section class="poll_client-content active fadeIn flex-start">
     <article class="agenda">
         <header>
-            <h2>Agenda Transformación Digital PI04</h2>
+            <h2 class="noborder">Resultados Transformación Digital PI04</h2>
         </header>
         <ul>
             <li>
-                <span class="hour">09:00h</span>
-                <span class="event">Intro</span>
+                <span class="result-event">MOOM</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR0}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR0}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR0}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR0}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR0}}</span>
             </li>
             <li>
-                <span class="hour">09:05h</span>
-                <span class="event">Resultados. Ejes Venta y Experiencia de cliente</span>
+                <span class="result-event">SDM</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR1}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR1}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR1}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR1}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR1}}</span>
             </li>
             <li>
-                <span class="hour">09:15h</span>
-                <span class="event">MOOM</span>
-                <span class="hour">Participación:{{results.participationR0}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR0}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR0}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR0}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR0}}</span>
+                <span class="result-event">Digital Payments</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR2}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR2}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR2}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR2}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR2}}</span>
             </li>
             <li>
-                <span class="hour">09:35h</span>
-                <span class="event">SDM</span>
-                <span class="hour">Participación:{{results.participationR1}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR1}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR1}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR1}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR1}}</span>
+                <span class="result-event">Feedback</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR3}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR3}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR3}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR3}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR3}}</span>
             </li>
             <li>
-                <span class="hour">09:55h</span>
-                <span class="event">Digital Payments</span>
-                <span class="hour">Participación:{{results.participationR2}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR2}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR2}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR2}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR2}}</span>
+                <span class="result-event">Venta Digital</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR4}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR4}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR4}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR4}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR4}}</span>
             </li>
             <li>
-                <span class="hour">10:15h</span>
-                <span class="event">Feedback</span>
-                <span class="hour">Participación:{{results.participationR3}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR3}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR3}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR3}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR3}}</span>
-            </li>
-            <li>
-                <span class="hour">10:30h</span>
-                <span class="event">Venta Digital</span>
-                <span class="hour">Participación:{{results.participationR4}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR4}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR4}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR4}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR4}}</span>
-            </li>
-            <li>
-                <span class="hour">11:00h</span>
-                <span class="event">Coffee Break<span>
-            </li>
-            <li>
-                <span class="hour">11:30h</span>
-                <span class="event">DBI</span>
-                <span class="hour">Participación:{{results.participationR5}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR5}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR5}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR5}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR5}}</span>
+                <span class="result-event">DBI</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR5}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR5}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR5}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR5}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR5}}</span>
             </li>
            <li>
-                <span class="hour">11:55h</span>
-                <span class="event">Alta y contratación</span>
-                <span class="hour">Participación:{{results.participationR6}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR6}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR6}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR6}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR6}}</span>
+                <span class="result-event">Alta y contratación</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR6}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR6}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR6}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR6}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR6}}</span>
             </li>
             <li>
-                <span class="hour">12:25h</span>
-                <span class="event">CARE</span>
-                <span class="hour">Participación:{{results.participationR7}}</span>
-                <span class="hour">Valoración:{{results.averageRatingR7}}</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR7}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR7}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR7}}</span>
+                <span class="result-event">CARE</span>
+                <span class="data"><strong>Participación:</strong> {{results.participationR7}}</span>
+                <span class="data"><strong>Valoración:</strong> {{results.averageRatingR7}}</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR7}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR7}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR7}}</span>
             </li>
             <li>
-                <span class="hour">12:55h</span>
-                <span class="event">CROSS Líneas</span>
-                <span class="hour">Participación: 22</span>
-                <span class="hour">Valoración: 2.83</span>
-                <span class="hour"><em>Dejar de hacer</em>{{results.stopR8}}</span>
-                <span class="hour"><em>Seguir haciendo</em>{{results.keepR8}}</span>
-                <span class="hour"><em>Sugerencia</em>{{results.suggestR8}}</span>
-            </li>
-            <li>
-                <span class="hour">13:15h</span>
-                <span class="event">Lunch<span>
+                <span class="result-event">CROSS Líneas</span>
+                <span class="data"><strong>Participación: 22</span>
+                <span class="data"><strong>Valoración: 2.83</span>
+                <span class="comment"><strong>Dejar de hacer:</strong> <br />{{results.stopR8}}</span>
+                <span class="comment"><strong>Seguir haciendo:</strong> <br />{{results.keepR8}}</span>
+                <span class="comment"><strong>Sugerencia:</strong> <br />{{results.suggestR8}}</span>
             </li>
         </ul>
     </article>

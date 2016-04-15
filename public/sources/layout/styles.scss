@@ -96,6 +96,7 @@ body
 
     color: $white;
     @extend .blueGradient;
+    overflow: hidden;
 }
 main{overflow: auto;}
 //flexbox helpers

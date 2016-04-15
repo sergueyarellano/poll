@@ -405,6 +405,11 @@
 		-webkit-align-items: flex-start;
 		align-items: flex-start;
 		margin-bottom: $paddingBase;
+		font-family: $light;
+		span{
+			line-height: 1.2em;
+			margin: 0.5em 0;
+		}
 		.hour{
 			-webkit-flex: 1 0 0;
 			font-family: $light;
@@ -415,9 +420,18 @@
 			-webkit-flex: 3 0 0;
 			font-size: 1.2em;
 		}
+		.result-event{
+			display: block;
+			width: 100%;
+			font-size: 1.4em;
+			border-bottom: 1px solid rgba(#fff,0.5);
+			font-family: $book;
+			padding-bottom: 0.5em;
+		}
 		&.past-event span{
 			color: rgba(#fff,0.35);
 		}
+		strong{font-family: $book;}
 	}
 	header{
 		padding-bottom: $paddingBase*.5;
@@ -427,6 +441,9 @@
 			font-family: $light;
 			line-height: 2.5em;
 			border-bottom: 1px solid rgba(#fff,.25);
+			&.noborder{
+				border: none;
+			}
 		}
 	}
 }
