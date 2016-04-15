@@ -281,7 +281,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		vm.getComments = function(question, data, commentType) {
 			return data.reduce(function(ac, e) {
 				if (e.comments && e.comments[question] && e.comments[question][commentType]) {
-					console.log(e.comments[question][commentType])
 					return ac + e.comments[question][commentType] + '...'
 				} else {
 					return ac;
@@ -290,7 +289,6 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 		}
 
 		$q.all([LiveFeedback.getRegistry()]).then(function (data) {
-			console.log(vm.getTotalVotes('r0', data[0].data));
 			vm.participationR0 = vm.getTotalVotes('r0', data[0].data);
 			vm.participationR1 = vm.getTotalVotes('r1', data[0].data);
 			vm.participationR2 = vm.getTotalVotes('r2', data[0].data);
