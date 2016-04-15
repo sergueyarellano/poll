@@ -42,6 +42,11 @@ angular.module('welcomeRoutes', ['ngRoute'])
             controller: 'commentTextController',
             controllerAs: 'commentText'
         })
+        .when('/welcome/results', {
+            templateUrl: 'client/views/pages/results.html',
+            controller: 'resultsController',
+            controllerAs: 'results'
+        })
 
     $locationProvider.html5Mode(true);
 });

@@ -260,6 +260,85 @@ angular.module('welcomeApp', ['welcomeRoutes', 'LiveFeedbackService'])
 			// vm.applyThings();
 		}
 	})
+	.controller('resultsController', function ($q, LiveFeedback) {
+		var vm = this;
+
+		vm.getTotalVotes = function (question, data) {
+			return data.reduce(function (ac, e) {
+				if (e.votes[question] !== 0) {
+					return ac + 1;
+				} else {
+					return ac + 0;
+				}
+
+			}, 0)
+		}
+		vm.getAverageRating = function (question, data) {
+			return data.reduce(function (ac, e) {
+				return ac + e.votes[question];
+			}, 0)
+		}
+		vm.getComments = function(question, data, commentType) {
+			return data.reduce(function(ac, e) {
+				if (e.comments && e.comments[question] && e.comments[question][commentType]) {
+					console.log(e.comments[question][commentType])
+					return ac + e.comments[question][commentType] + '...'
+				} else {
+					return ac;
+				}
+			}, '...')
+		}
+
+		$q.all([LiveFeedback.getRegistry()]).then(function (data) {
+			console.log(vm.getTotalVotes('r0', data[0].data));
+			vm.participationR0 = vm.getTotalVotes('r0', data[0].data);
+			vm.participationR1 = vm.getTotalVotes('r1', data[0].data);
+			vm.participationR2 = vm.getTotalVotes('r2', data[0].data);
+			vm.participationR3 = vm.getTotalVotes('r3', data[0].data);
+			vm.participationR4 = vm.getTotalVotes('r4', data[0].data);
+			vm.participationR5 = vm.getTotalVotes('r5', data[0].data);
+			vm.participationR6 = vm.getTotalVotes('r6', data[0].data);
+			vm.participationR7 = vm.getTotalVotes('r7', data[0].data);
+			vm.participationR8 = vm.getTotalVotes('r8', data[0].data);
+			vm.averageRatingR0 = Math.round(vm.getAverageRating('r0', data[0].data) / vm.participationR0 *100) /100;
+			vm.averageRatingR1 = Math.round(vm.getAverageRating('r1', data[0].data) / vm.participationR1 *100) /100;
+			vm.averageRatingR2 = Math.round(vm.getAverageRating('r2', data[0].data) / vm.participationR2 *100) /100;
+			vm.averageRatingR3 = Math.round(vm.getAverageRating('r3', data[0].data) / vm.participationR3 *100) /100;
+			vm.averageRatingR4 = Math.round(vm.getAverageRating('r4', data[0].data) / vm.participationR4 *100) /100;
+			vm.averageRatingR5 = Math.round(vm.getAverageRating('r5', data[0].data) / vm.participationR5 *100) /100;
+			vm.averageRatingR6 = Math.round(vm.getAverageRating('r6', data[0].data) / vm.participationR6 *100) /100;
+			vm.averageRatingR7 = Math.round(vm.getAverageRating('r7', data[0].data) / vm.participationR7 *100) /100;
+			vm.averageRatingR8 = Math.round(vm.getAverageRating('r8', data[0].data) / vm.participationR8 *100) /100;
+			vm.keepR0 = vm.getComments('r0', data[0].data, 'keepDoing');
+			vm.keepR1 = vm.getComments('r1', data[0].data, 'keepDoing');
+			vm.keepR2 = vm.getComments('r2', data[0].data, 'keepDoing');
+			vm.keepR3 = vm.getComments('r3', data[0].data, 'keepDoing');
+			vm.keepR4 = vm.getComments('r4', data[0].data, 'keepDoing');
+			vm.keepR5 = vm.getComments('r5', data[0].data, 'keepDoing');
+			vm.keepR6 = vm.getComments('r6', data[0].data, 'keepDoing');
+			vm.keepR7 = vm.getComments('r7', data[0].data, 'keepDoing');
+			vm.keepR8 = vm.getComments('r8', data[0].data, 'keepDoing');
+			vm.stopR0 = vm.getComments('r0', data[0].data, 'stopDoing');
+			vm.stopR1 = vm.getComments('r1', data[0].data, 'stopDoing');
+			vm.stopR2 = vm.getComments('r2', data[0].data, 'stopDoing');
+			vm.stopR3 = vm.getComments('r3', data[0].data, 'stopDoing');
+			vm.stopR4 = vm.getComments('r4', data[0].data, 'stopDoing');
+			vm.stopR5 = vm.getComments('r5', data[0].data, 'stopDoing');
+			vm.stopR6 = vm.getComments('r6', data[0].data, 'stopDoing');
+			vm.stopR7 = vm.getComments('r7', data[0].data, 'stopDoing');
+			vm.stopR8 = vm.getComments('r8', data[0].data, 'stopDoing');
+			vm.suggestR0 = vm.getComments('r0', data[0].data, 'suggestion');
+			vm.suggestR1 = vm.getComments('r1', data[0].data, 'suggestion');
+			vm.suggestR2 = vm.getComments('r2', data[0].data, 'suggestion');
+			vm.suggestR3 = vm.getComments('r3', data[0].data, 'suggestion');
+			vm.suggestR4 = vm.getComments('r4', data[0].data, 'suggestion');
+			vm.suggestR5 = vm.getComments('r5', data[0].data, 'suggestion');
+			vm.suggestR6 = vm.getComments('r6', data[0].data, 'suggestion');
+			vm.suggestR7 = vm.getComments('r7', data[0].data, 'suggestion');
+			vm.suggestR8 = vm.getComments('r8', data[0].data, 'suggestion');
+
+		});
+	})
 
 angular.module('LiveFeedbackService', [])
 
@@ -268,7 +347,7 @@ angular.module('LiveFeedbackService', [])
 	var _LFFactory = {};
 
 	_LFFactory.getRegistry = function (ip) {
-		return $http.get('/api/registro?ip=' + ip);
+		return $http.get('/api/registro?ip=all');
 	};
 
 	_LFFactory.saveVote = function (data) {

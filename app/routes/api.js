@@ -222,7 +222,7 @@ module.exports = function(app, express) {
             });
         })
         .delete(function(req, res) {
-            Model.registro.remove({}, function(err) {
+            Model.registro.remove({ip: req.body.ip}, function(err) {
                 if (err) {
                     res.send(err)
                 }
